@@ -1,0 +1,46 @@
+{
+  "scenario": "08-degradation",
+  "profile": "local",
+  "generated_at": "2026-11-15T14:45:14.556Z",
+  "setup_data": {
+    "eventId": "01a1dfaa-7670-7528-a3b7-c5e2269e08d7",
+    "localityId": "01a1dfaa-7679-7b87-b61b-c220548b1387",
+    "stock": null,
+    "buyers": 5
+  },
+  "requests": {
+    "total": 2231,
+    "rate_per_s": 36.15,
+    "failed_rate": 0
+  },
+  "latency_ms": {
+    "avg": 3.95,
+    "med": 1.49,
+    "p90": 6.33,
+    "p95": 7.6,
+    "p99": 64.35,
+    "max": 179.75
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 4430,
+    "fails": 0
+  },
+  "counters": {
+    "data_sent": 1508080,
+    "rate_limit_without_problem_detail": 1611,
+    "data_received": 897624,
+    "iterations": 2215,
+    "rate_limited": 1611,
+    "http_5xx": 0,
+    "reservas_aceptadas": 604
+  },
+  "thresholds": {
+    "http_req_duration{endpoint:reservas}: p(95)<600": true,
+    "checks: rate>0.99": true,
+    "rate_limited: count>0": true,
+    "http_req_failed: rate<0.01": true,
+    "http_5xx: count==0": true
+  },
+  "thresholds_ok": true
+}

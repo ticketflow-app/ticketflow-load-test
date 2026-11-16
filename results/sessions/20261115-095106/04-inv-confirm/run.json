@@ -1,0 +1,54 @@
+﻿{
+    "stages":  [
+                   "10s:10",
+                   "50s:10",
+                   "10s:0"
+               ],
+    "file":  "04-inv-confirm-test.js",
+    "localityId":  "01a1dfb7-1dc1-7138-8549-a3d503ad78cb",
+    "checks":  {
+                   "rate":  1,
+                   "passes":  1236,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  644,
+                     "rate_per_s":  9.03,
+                     "failed_rate":  0
+                 },
+    "resources":  {
+                      "peakMemMiB":  3731.2,
+                      "avgMemMiB":  3728.3,
+                      "peakCpuPercent":  14.4,
+                      "samples":  14,
+                      "avgCpuPercent":  8.1
+                  },
+    "scenario":  "04-inv-confirm",
+    "counters":  {
+                     "iterations":  608,
+                     "confirmaciones_ok":  20,
+                     "http_5xx":  0,
+                     "confirmaciones_idempotentes":  588,
+                     "data_sent":  368425,
+                     "data_received":  313623,
+                     "reservas_creadas":  20
+                 },
+    "resultsDir":  "C:\\Users\\pipey\\OneDrive\\Documents\\Universidad\\Semestre 2026-2\\Materias\\Proyecto_Integrador\\load-test\\results\\sessions\\20261115-095106\\04-inv-confirm",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-15 09:59:14",
+    "exitCode":  0,
+    "stock":  null,
+    "startedAt":  "20261115-095759",
+    "baseUrl":  "http://ticketflow-inventory-service:8082",
+    "latencyMs":  {
+                      "avg":  4.12,
+                      "med":  2.49,
+                      "p90":  3.46,
+                      "p95":  4.27,
+                      "p99":  12.61,
+                      "max":  169.98
+                  },
+    "eventId":  "01a1dfb7-1db8-7411-a6f3-94cc23a36e77"
+}

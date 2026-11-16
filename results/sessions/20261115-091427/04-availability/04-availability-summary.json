@@ -1,0 +1,39 @@
+{
+  "scenario": "04-availability",
+  "profile": "local",
+  "generated_at": "2026-11-15T14:17:58.228Z",
+  "setup_data": {
+    "eventId": "01a1df90-e4b5-71c6-b4e6-d79efa21ba42",
+    "localityId": "01a1df90-e4c9-760f-a074-d80cb8d11880",
+    "stock": null,
+    "buyers": null
+  },
+  "requests": {
+    "total": 467,
+    "rate_per_s": 4.58,
+    "failed_rate": 0
+  },
+  "latency_ms": {
+    "avg": 9.2,
+    "med": 6.31,
+    "p90": 8.15,
+    "p95": 9.01,
+    "p99": 20.7,
+    "max": 582.21
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 1383,
+    "fails": 0
+  },
+  "counters": {
+    "data_sent": 75053,
+    "data_received": 296287,
+    "iterations": 461
+  },
+  "thresholds": {
+    "http_req_failed: rate<0.01": true,
+    "http_req_duration{endpoint:disponibilidad}: p(95)<150": true
+  },
+  "thresholds_ok": true
+}

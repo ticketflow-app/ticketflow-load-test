@@ -1,0 +1,298 @@
+﻿scenario : 07-confirm
+stages   : 10s:8 -> 50s:8 -> 10s:0
+profile  : local
+think    : 1 s
+results  : C:\Users\pipey\OneDrive\Documents\Universidad\Semestre 2026-2\Materias\Proyecto_Integrador\load-test\results\sessions\20261115-091427\07-confirm
+sampler  : pid 19620 -> resources.csv
+
+         /\      Grafana   /ÔÇ¥ÔÇ¥/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ÔÇ¥ÔÇ¥\ 
+  /          \   |   (  |  (ÔÇ¥)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/07-confirm-test.js
+        output: Prometheus remote write (http://ticketflow-prometheus:9090/api/v1/write)
+
+     scenarios: (100.00%) 1 scenario, 8 max VUs, 1m40s max duration (incl. graceful stop):
+              * default: Up to 8 looping VUs for 1m10s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+running (0m03.0s), 1/8 VUs, 0 complete and 0 interrupted iterations
+default   [   1% ] 1/8 VUs  0m00.9s/1m10.0s
+
+running (0m04.0s), 2/8 VUs, 1 complete and 0 interrupted iterations
+default   [   3% ] 2/8 VUs  0m01.9s/1m10.0s
+
+running (0m05.0s), 3/8 VUs, 3 complete and 0 interrupted iterations
+default   [   4% ] 3/8 VUs  0m02.9s/1m10.0s
+
+running (0m06.0s), 3/8 VUs, 6 complete and 0 interrupted iterations
+default   [   6% ] 3/8 VUs  0m03.9s/1m10.0s
+
+running (0m07.0s), 4/8 VUs, 9 complete and 0 interrupted iterations
+default   [   7% ] 4/8 VUs  0m04.9s/1m10.0s
+
+running (0m08.0s), 5/8 VUs, 13 complete and 0 interrupted iterations
+default   [   8% ] 5/8 VUs  0m05.9s/1m10.0s
+
+running (0m09.0s), 5/8 VUs, 18 complete and 0 interrupted iterations
+default   [  10% ] 5/8 VUs  0m06.9s/1m10.0s
+
+running (0m10.0s), 6/8 VUs, 22 complete and 0 interrupted iterations
+default   [  11% ] 6/8 VUs  0m07.9s/1m10.0s
+
+running (0m11.0s), 7/8 VUs, 28 complete and 0 interrupted iterations
+default   [  13% ] 7/8 VUs  0m08.9s/1m10.0s
+
+running (0m12.0s), 7/8 VUs, 35 complete and 0 interrupted iterations
+default   [  14% ] 7/8 VUs  0m09.9s/1m10.0s
+
+running (0m13.0s), 8/8 VUs, 42 complete and 0 interrupted iterations
+default   [  16% ] 8/8 VUs  0m10.9s/1m10.0s
+
+running (0m14.0s), 8/8 VUs, 50 complete and 0 interrupted iterations
+default   [  17% ] 8/8 VUs  0m11.9s/1m10.0s
+
+running (0m15.0s), 8/8 VUs, 58 complete and 0 interrupted iterations
+default   [  18% ] 8/8 VUs  0m12.9s/1m10.0s
+
+running (0m16.0s), 8/8 VUs, 66 complete and 0 interrupted iterations
+default   [  20% ] 8/8 VUs  0m13.9s/1m10.0s
+
+running (0m17.0s), 8/8 VUs, 74 complete and 0 interrupted iterations
+default   [  21% ] 8/8 VUs  0m14.9s/1m10.0s
+
+running (0m18.0s), 8/8 VUs, 82 complete and 0 interrupted iterations
+default   [  23% ] 8/8 VUs  0m15.9s/1m10.0s
+
+running (0m19.0s), 8/8 VUs, 90 complete and 0 interrupted iterations
+default   [  24% ] 8/8 VUs  0m16.9s/1m10.0s
+
+running (0m20.0s), 8/8 VUs, 98 complete and 0 interrupted iterations
+default   [  26% ] 8/8 VUs  0m17.9s/1m10.0s
+
+running (0m21.0s), 8/8 VUs, 106 complete and 0 interrupted iterations
+default   [  27% ] 8/8 VUs  0m18.9s/1m10.0s
+
+running (0m22.0s), 8/8 VUs, 113 complete and 0 interrupted iterations
+default   [  28% ] 8/8 VUs  0m19.9s/1m10.0s
+
+running (0m23.0s), 8/8 VUs, 121 complete and 0 interrupted iterations
+default   [  30% ] 8/8 VUs  0m20.9s/1m10.0s
+
+running (0m24.0s), 8/8 VUs, 129 complete and 0 interrupted iterations
+default   [  31% ] 8/8 VUs  0m21.9s/1m10.0s
+
+running (0m25.0s), 8/8 VUs, 137 complete and 0 interrupted iterations
+default   [  33% ] 8/8 VUs  0m22.9s/1m10.0s
+
+running (0m26.0s), 8/8 VUs, 145 complete and 0 interrupted iterations
+default   [  34% ] 8/8 VUs  0m23.9s/1m10.0s
+
+running (0m27.0s), 8/8 VUs, 153 complete and 0 interrupted iterations
+default   [  36% ] 8/8 VUs  0m24.9s/1m10.0s
+
+running (0m28.0s), 8/8 VUs, 161 complete and 0 interrupted iterations
+default   [  37% ] 8/8 VUs  0m25.9s/1m10.0s
+
+running (0m29.0s), 8/8 VUs, 169 complete and 0 interrupted iterations
+default   [  38% ] 8/8 VUs  0m26.9s/1m10.0s
+
+running (0m30.0s), 8/8 VUs, 177 complete and 0 interrupted iterations
+default   [  40% ] 8/8 VUs  0m27.9s/1m10.0s
+
+running (0m31.0s), 8/8 VUs, 185 complete and 0 interrupted iterations
+default   [  41% ] 8/8 VUs  0m28.9s/1m10.0s
+
+running (0m32.0s), 8/8 VUs, 192 complete and 0 interrupted iterations
+default   [  43% ] 8/8 VUs  0m29.9s/1m10.0s
+
+running (0m33.0s), 8/8 VUs, 200 complete and 0 interrupted iterations
+default   [  44% ] 8/8 VUs  0m30.9s/1m10.0s
+
+running (0m34.0s), 8/8 VUs, 208 complete and 0 interrupted iterations
+default   [  46% ] 8/8 VUs  0m31.9s/1m10.0s
+
+running (0m35.0s), 8/8 VUs, 215 complete and 0 interrupted iterations
+default   [  47% ] 8/8 VUs  0m32.9s/1m10.0s
+
+running (0m36.0s), 8/8 VUs, 223 complete and 0 interrupted iterations
+default   [  48% ] 8/8 VUs  0m33.9s/1m10.0s
+
+running (0m37.0s), 8/8 VUs, 231 complete and 0 interrupted iterations
+default   [  50% ] 8/8 VUs  0m34.9s/1m10.0s
+
+running (0m38.0s), 8/8 VUs, 239 complete and 0 interrupted iterations
+default   [  51% ] 8/8 VUs  0m35.9s/1m10.0s
+
+running (0m39.0s), 8/8 VUs, 247 complete and 0 interrupted iterations
+default   [  53% ] 8/8 VUs  0m36.9s/1m10.0s
+
+running (0m40.0s), 8/8 VUs, 255 complete and 0 interrupted iterations
+default   [  54% ] 8/8 VUs  0m37.9s/1m10.0s
+
+running (0m41.0s), 8/8 VUs, 263 complete and 0 interrupted iterations
+default   [  56% ] 8/8 VUs  0m38.9s/1m10.0s
+
+running (0m42.0s), 8/8 VUs, 271 complete and 0 interrupted iterations
+default   [  57% ] 8/8 VUs  0m39.9s/1m10.0s
+
+running (0m43.0s), 8/8 VUs, 279 complete and 0 interrupted iterations
+default   [  58% ] 8/8 VUs  0m40.9s/1m10.0s
+
+running (0m44.0s), 8/8 VUs, 287 complete and 0 interrupted iterations
+default   [  60% ] 8/8 VUs  0m41.9s/1m10.0s
+
+running (0m45.0s), 8/8 VUs, 295 complete and 0 interrupted iterations
+default   [  61% ] 8/8 VUs  0m42.9s/1m10.0s
+
+running (0m46.0s), 8/8 VUs, 303 complete and 0 interrupted iterations
+default   [  63% ] 8/8 VUs  0m43.9s/1m10.0s
+
+running (0m47.0s), 8/8 VUs, 311 complete and 0 interrupted iterations
+default   [  64% ] 8/8 VUs  0m44.9s/1m10.0s
+
+running (0m48.0s), 8/8 VUs, 319 complete and 0 interrupted iterations
+default   [  66% ] 8/8 VUs  0m45.9s/1m10.0s
+
+running (0m49.0s), 8/8 VUs, 327 complete and 0 interrupted iterations
+default   [  67% ] 8/8 VUs  0m46.9s/1m10.0s
+
+running (0m50.0s), 8/8 VUs, 335 complete and 0 interrupted iterations
+default   [  68% ] 8/8 VUs  0m47.9s/1m10.0s
+
+running (0m51.0s), 8/8 VUs, 343 complete and 0 interrupted iterations
+default   [  70% ] 8/8 VUs  0m48.9s/1m10.0s
+
+running (0m52.0s), 8/8 VUs, 351 complete and 0 interrupted iterations
+default   [  71% ] 8/8 VUs  0m49.9s/1m10.0s
+
+running (0m53.0s), 8/8 VUs, 359 complete and 0 interrupted iterations
+default   [  73% ] 8/8 VUs  0m50.9s/1m10.0s
+
+running (0m54.0s), 8/8 VUs, 366 complete and 0 interrupted iterations
+default   [  74% ] 8/8 VUs  0m51.9s/1m10.0s
+
+running (0m55.0s), 8/8 VUs, 374 complete and 0 interrupted iterations
+default   [  76% ] 8/8 VUs  0m52.9s/1m10.0s
+
+running (0m56.0s), 8/8 VUs, 382 complete and 0 interrupted iterations
+default   [  77% ] 8/8 VUs  0m53.9s/1m10.0s
+
+running (0m57.0s), 8/8 VUs, 390 complete and 0 interrupted iterations
+default   [  78% ] 8/8 VUs  0m54.9s/1m10.0s
+
+running (0m58.0s), 8/8 VUs, 398 complete and 0 interrupted iterations
+default   [  80% ] 8/8 VUs  0m55.9s/1m10.0s
+
+running (0m59.0s), 8/8 VUs, 406 complete and 0 interrupted iterations
+default   [  81% ] 8/8 VUs  0m56.9s/1m10.0s
+
+running (1m00.0s), 8/8 VUs, 414 complete and 0 interrupted iterations
+default   [  83% ] 8/8 VUs  0m57.9s/1m10.0s
+
+running (1m01.0s), 8/8 VUs, 422 complete and 0 interrupted iterations
+default   [  84% ] 8/8 VUs  0m58.9s/1m10.0s
+
+running (1m02.0s), 8/8 VUs, 430 complete and 0 interrupted iterations
+default   [  86% ] 8/8 VUs  0m59.9s/1m10.0s
+
+running (1m03.0s), 8/8 VUs, 438 complete and 0 interrupted iterations
+default   [  87% ] 8/8 VUs  1m00.9s/1m10.0s
+
+running (1m04.0s), 7/8 VUs, 446 complete and 0 interrupted iterations
+default   [  88% ] 7/8 VUs  1m01.9s/1m10.0s
+
+running (1m05.0s), 7/8 VUs, 453 complete and 0 interrupted iterations
+default   [  90% ] 7/8 VUs  1m02.9s/1m10.0s
+
+running (1m06.0s), 6/8 VUs, 460 complete and 0 interrupted iterations
+default   [  91% ] 6/8 VUs  1m03.9s/1m10.0s
+
+running (1m07.0s), 5/8 VUs, 466 complete and 0 interrupted iterations
+default   [  93% ] 5/8 VUs  1m04.9s/1m10.0s
+
+running (1m08.0s), 4/8 VUs, 471 complete and 0 interrupted iterations
+default   [  94% ] 4/8 VUs  1m05.9s/1m10.0s
+
+running (1m09.0s), 4/8 VUs, 475 complete and 0 interrupted iterations
+default   [  96% ] 4/8 VUs  1m06.9s/1m10.0s
+
+running (1m10.0s), 2/8 VUs, 479 complete and 0 interrupted iterations
+default   [  97% ] 2/8 VUs  1m07.9s/1m10.0s
+
+running (1m11.0s), 2/8 VUs, 481 complete and 0 interrupted iterations
+default   [  98% ] 2/8 VUs  1m08.9s/1m10.0s
+
+running (1m12.0s), 1/8 VUs, 483 complete and 0 interrupted iterations
+default   [ 100% ] 1/8 VUs  1m09.9s/1m10.0s
+# k6 ÔÇö 07-confirm
+
+- Perfil: `local`
+- Umbrales: **OK**
+- Peticiones: 868 (11.93 req/s)
+- Fallidas: 0.00 %
+- Latencia: p95 9.21 ms ┬À p99 140.95 ms ┬À max 240.08 ms
+- _La latencia incluye las peticiones de `setup`; los umbrales se evaluan por endpoint (`http_req_duration{endpoint:...}`)._
+- Checks: 100.00 % (1030 ok / 0 fail)
+
+| Contador | Valor |
+|---|---|
+| confirmaciones_ok | 294 |
+| http_5xx | 0 |
+| data_received | 563892 |
+| rate_limited | 190 |
+| data_sent | 538230 |
+| reservas_creadas | 368 |
+| iterations | 484 |
+
+| Umbral | Resultado |
+|---|---|
+| http_req_failed: rate<0.01 | OK |
+| checks: rate>0.99 | OK |
+| http_req_duration{endpoint:confirmar}: p(95)<400 | OK |
+| http_req_duration{endpoint:reservas}: p(95)<400 | OK |
+| confirmaciones_ok: count>0 | OK |
+| http_5xx: count==0 | OK |
+
+running (1m12.7s), 0/8 VUs, 484 complete and 0 interrupted iterations
+default Ô£ô [ 100% ] 0/8 VUs  1m10s
+
+# Recursos - 07-confirm
+
+- Perfil: local
+- Stages: 10s:8, 50s:8, 10s:0
+- Muestreo: cada 3 s
+- k6 exit code: 0
+
+- Muestras: 15
+
+| Contenedor | CPU media % | CPU max % | RAM media MiB | RAM max MiB |
+|---|---|---|---|---|
+| ticketflow-api-gateway | 3.26 | 9.62 | 432.5 | 435.2 |
+| ticketflow-inventory-service | 3.18 | 8.60 | 662.9 | 663.9 |
+| ticketflow-inventory-db | 1.19 | 3.32 | 48.2 | 50.9 |
+| ticketflow-k6 | 1.81 | 2.85 | 24.1 | 29.1 |
+| ticketflow-catalog-db | 0.88 | 2.74 | 52.1 | 54.1 |
+| ticketflow-user-db | 0.64 | 2.59 | 45.2 | 46.4 |
+| ticketflow-prometheus | 0.54 | 2.00 | 66.5 | 69.6 |
+| ticketflow-kafka | 0.92 | 1.20 | 679.1 | 679.7 |
+| ticketflow-catalog-service | 0.61 | 1.09 | 700.1 | 700.8 |
+| ticketflow-eureka-server | 0.64 | 0.89 | 355.9 | 356.4 |
+| ticketflow-redis | 0.52 | 0.63 | 7.6 | 8.3 |
+| ticketflow-user-service | 0.10 | 0.16 | 493.0 | 493.8 |
+
+- RAM total del stack: media 3565.7 MiB, pico 3582.1 MiB
+- CPU total del stack: media 14.17 %, pico 20.2 %
+
+results: C:\Users\pipey\OneDrive\Documents\Universidad\Semestre 2026-2\Materias\Proyecto_Integrador\load-test\results\sessions\20261115-091427\07-confirm
+

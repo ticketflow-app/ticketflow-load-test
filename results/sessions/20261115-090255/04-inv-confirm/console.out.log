@@ -1,0 +1,159 @@
+﻿scenario : 04-inv-confirm
+stages   : 5s:4 -> 15s:6 -> 5s:0
+profile  : local
+think    : 1 s
+results  : C:\Users\pipey\OneDrive\Documents\Universidad\Semestre 2026-2\Materias\Proyecto_Integrador\load-test\results\sessions\20261115-090255\04-inv-confirm
+sampler  : pid 2368 -> resources.csv
+
+         /\      Grafana   /ÔÇ¥ÔÇ¥/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ÔÇ¥ÔÇ¥\ 
+  /          \   |   (  |  (ÔÇ¥)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/04-inv-confirm-test.js
+        output: Prometheus remote write (http://ticketflow-prometheus:9090/api/v1/write)
+
+     scenarios: (100.00%) 1 scenario, 6 max VUs, 55s max duration (incl. graceful stop):
+              * default: Up to 6 looping VUs for 25s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+running (02.0s), 1/6 VUs, 0 complete and 0 interrupted iterations
+default   [   2% ] 1/6 VUs  00.4s/25.0s
+
+running (03.0s), 1/6 VUs, 1 complete and 0 interrupted iterations
+default   [   6% ] 1/6 VUs  01.4s/25.0s
+
+running (04.0s), 2/6 VUs, 2 complete and 0 interrupted iterations
+default   [  10% ] 2/6 VUs  02.4s/25.0s
+
+running (05.0s), 3/6 VUs, 4 complete and 0 interrupted iterations
+default   [  14% ] 3/6 VUs  03.4s/25.0s
+
+running (06.0s), 3/6 VUs, 7 complete and 0 interrupted iterations
+default   [  18% ] 3/6 VUs  04.4s/25.0s
+
+running (07.0s), 4/6 VUs, 10 complete and 0 interrupted iterations
+default   [  22% ] 4/6 VUs  05.4s/25.0s
+
+running (08.0s), 4/6 VUs, 14 complete and 0 interrupted iterations
+default   [  26% ] 4/6 VUs  06.4s/25.0s
+
+running (09.0s), 4/6 VUs, 18 complete and 0 interrupted iterations
+default   [  30% ] 4/6 VUs  07.4s/25.0s
+
+running (10.0s), 4/6 VUs, 22 complete and 0 interrupted iterations
+default   [  34% ] 4/6 VUs  08.4s/25.0s
+
+running (11.0s), 4/6 VUs, 26 complete and 0 interrupted iterations
+default   [  38% ] 4/6 VUs  09.4s/25.0s
+
+running (12.0s), 4/6 VUs, 30 complete and 0 interrupted iterations
+default   [  42% ] 4/6 VUs  10.4s/25.0s
+
+running (13.0s), 4/6 VUs, 34 complete and 0 interrupted iterations
+default   [  46% ] 4/6 VUs  11.4s/25.0s
+
+running (14.0s), 4/6 VUs, 38 complete and 0 interrupted iterations
+default   [  50% ] 4/6 VUs  12.4s/25.0s
+
+running (15.0s), 5/6 VUs, 42 complete and 0 interrupted iterations
+default   [  54% ] 5/6 VUs  13.4s/25.0s
+
+running (16.0s), 5/6 VUs, 47 complete and 0 interrupted iterations
+default   [  58% ] 5/6 VUs  14.4s/25.0s
+
+running (17.0s), 5/6 VUs, 52 complete and 0 interrupted iterations
+default   [  62% ] 5/6 VUs  15.4s/25.0s
+
+running (18.0s), 5/6 VUs, 57 complete and 0 interrupted iterations
+default   [  66% ] 5/6 VUs  16.4s/25.0s
+
+running (19.0s), 5/6 VUs, 62 complete and 0 interrupted iterations
+default   [  70% ] 5/6 VUs  17.4s/25.0s
+
+running (20.0s), 5/6 VUs, 67 complete and 0 interrupted iterations
+default   [  74% ] 5/6 VUs  18.4s/25.0s
+
+running (21.0s), 5/6 VUs, 72 complete and 0 interrupted iterations
+default   [  78% ] 5/6 VUs  19.4s/25.0s
+
+running (22.0s), 6/6 VUs, 77 complete and 0 interrupted iterations
+default   [  82% ] 6/6 VUs  20.4s/25.0s
+
+running (23.0s), 5/6 VUs, 83 complete and 0 interrupted iterations
+default   [  86% ] 5/6 VUs  21.4s/25.0s
+
+running (24.0s), 5/6 VUs, 88 complete and 0 interrupted iterations
+default   [  90% ] 5/6 VUs  22.4s/25.0s
+
+running (25.0s), 3/6 VUs, 92 complete and 0 interrupted iterations
+default   [  94% ] 3/6 VUs  23.4s/25.0s
+
+running (26.0s), 2/6 VUs, 95 complete and 0 interrupted iterations
+default   [  98% ] 2/6 VUs  24.4s/25.0s
+# k6 ÔÇö 04-inv-confirm
+
+- Perfil: `local`
+- Umbrales: **OK**
+- Peticiones: 133 (4.98 req/s)
+- Fallidas: 0.00 %
+- Latencia: p95 17.37 ms ┬À p99 199.47 ms ┬À max 537.79 ms
+- _La latencia incluye las peticiones de `setup`; los umbrales se eval├║an por endpoint (`http_req_duration{endpoint:...}`)._
+- Checks: 100.00 % (205 ok / 0 fail)
+
+| Contador | Valor |
+|---|---|
+| confirmaciones_idempotentes | 86 |
+| data_sent | 74941 |
+| iterations | 97 |
+| data_received | 72237 |
+| confirmaciones_ok | 11 |
+| http_5xx | 0 |
+| reservas_creadas | 20 |
+
+| Umbral | Resultado |
+|---|---|
+| http_req_failed: rate<0.01 | OK |
+| checks: rate>0.99 | OK |
+| confirmaciones_ok: count>0 | OK |
+| http_req_duration{endpoint:confirmar}: p(95)<500 | OK |
+| http_5xx: count==0 | OK |
+
+running (26.7s), 0/6 VUs, 97 complete and 0 interrupted iterations
+default Ô£ô [ 100% ] 0/6 VUs  25s
+
+# Recursos - 04-inv-confirm
+
+- Perfil: local
+- Stages: 5s:4, 15s:6, 5s:0
+- Muestreo: cada 3 s
+- k6 exit code: 0
+
+- Muestras: 6
+
+| Contenedor | CPU media % | CPU max % | RAM media MiB | RAM max MiB |
+|---|---|---|---|---|
+| ticketflow-k6 | 1.89 | 5.83 | 18.8 | 19.7 |
+| ticketflow-inventory-service | 1.89 | 5.21 | 660.5 | 661.3 |
+| ticketflow-catalog-db | 2.43 | 3.39 | 53.5 | 53.9 |
+| ticketflow-inventory-db | 2.26 | 3.11 | 47.8 | 48.1 |
+| ticketflow-user-db | 1.69 | 2.86 | 45.9 | 46.7 |
+| ticketflow-catalog-service | 0.80 | 1.93 | 697.3 | 697.6 |
+| ticketflow-kafka | 0.93 | 1.13 | 678.8 | 679.2 |
+| ticketflow-eureka-server | 0.64 | 1.06 | 355.8 | 356.1 |
+| ticketflow-prometheus | 0.33 | 0.57 | 61.5 | 62.0 |
+| ticketflow-redis | 0.35 | 0.37 | 6.8 | 7.0 |
+| ticketflow-api-gateway | 0.14 | 0.15 | 372.5 | 372.5 |
+| ticketflow-user-service | 0.08 | 0.09 | 490.8 | 491.3 |
+
+- RAM total del stack: media 3489.8 MiB, pico 3491.9 MiB
+- CPU total del stack: media 13.42 %, pico 16.08 %
+
+results: C:\Users\pipey\OneDrive\Documents\Universidad\Semestre 2026-2\Materias\Proyecto_Integrador\load-test\results\sessions\20261115-090255\04-inv-confirm
+

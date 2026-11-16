@@ -1,0 +1,53 @@
+﻿{
+    "stages":  [
+                   "3s:15",
+                   "10s:15",
+                   "3s:0"
+               ],
+    "file":  "05-inv-stress-test.js",
+    "localityId":  "01a1df86-c4bd-77f2-9623-460b5d882931",
+    "checks":  {
+                   "rate":  1,
+                   "passes":  62021,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  62067,
+                     "rate_per_s":  3206.46,
+                     "failed_rate":  0
+                 },
+    "resources":  {
+                      "peakMemMiB":  3537.7,
+                      "avgMemMiB":  3520,
+                      "peakCpuPercent":  567.04,
+                      "samples":  4,
+                      "avgCpuPercent":  425.04
+                  },
+    "scenario":  "05-inv-stress",
+    "counters":  {
+                     "iterations":  62021,
+                     "data_received":  31988278,
+                     "http_5xx":  0,
+                     "data_sent":  42721170,
+                     "reservas_sin_stock":  61921,
+                     "reservas_aceptadas":  100
+                 },
+    "resultsDir":  "C:\\Users\\pipey\\OneDrive\\Documents\\Universidad\\Semestre 2026-2\\Materias\\Proyecto_Integrador\\load-test\\results\\sessions\\20261115-090255\\05-inv-stress",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-15 09:05:33",
+    "exitCode":  0,
+    "stock":  100,
+    "startedAt":  "20261115-090511",
+    "baseUrl":  "http://ticketflow-inventory-service:8082",
+    "latencyMs":  {
+                      "avg":  3.07,
+                      "med":  3.09,
+                      "p90":  3.82,
+                      "p95":  4.35,
+                      "p99":  7.4,
+                      "max":  238.13
+                  },
+    "eventId":  "01a1df86-c4b2-7c1d-8ba2-98904c0635e6"
+}

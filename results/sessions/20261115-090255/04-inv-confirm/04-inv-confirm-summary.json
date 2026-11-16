@@ -1,0 +1,46 @@
+{
+  "scenario": "04-inv-confirm",
+  "profile": "local",
+  "generated_at": "2026-11-15T14:05:08.542Z",
+  "setup_data": {
+    "eventId": "01a1df86-48b9-7c59-9562-b4262fa6f149",
+    "localityId": "01a1df86-48c6-7842-8f32-a583e941ced0",
+    "stock": null,
+    "buyers": 5
+  },
+  "requests": {
+    "total": 133,
+    "rate_per_s": 4.98,
+    "failed_rate": 0
+  },
+  "latency_ms": {
+    "avg": 14.23,
+    "med": 3.24,
+    "p90": 7.89,
+    "p95": 17.37,
+    "p99": 199.47,
+    "max": 537.79
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 205,
+    "fails": 0
+  },
+  "counters": {
+    "confirmaciones_idempotentes": 86,
+    "data_sent": 74941,
+    "iterations": 97,
+    "data_received": 72237,
+    "confirmaciones_ok": 11,
+    "http_5xx": 0,
+    "reservas_creadas": 20
+  },
+  "thresholds": {
+    "http_req_failed: rate<0.01": true,
+    "checks: rate>0.99": true,
+    "confirmaciones_ok: count>0": true,
+    "http_req_duration{endpoint:confirmar}: p(95)<500": true,
+    "http_5xx: count==0": true
+  },
+  "thresholds_ok": true
+}

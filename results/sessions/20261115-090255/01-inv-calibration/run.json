@@ -1,0 +1,51 @@
+﻿{
+    "stages":  [
+                   "10s:3",
+                   "10s:6",
+                   "10s:0"
+               ],
+    "file":  "01-inv-calibration-test.js",
+    "localityId":  "01a1df84-c8c5-7b1c-9048-035f26797197",
+    "checks":  {
+                   "rate":  1,
+                   "passes":  68180,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  34096,
+                     "rate_per_s":  1068.75,
+                     "failed_rate":  0
+                 },
+    "resources":  {
+                      "peakMemMiB":  3515.8,
+                      "avgMemMiB":  3497.5,
+                      "peakCpuPercent":  422.52,
+                      "samples":  7,
+                      "avgCpuPercent":  230.47
+                  },
+    "scenario":  "01-inv-calibration",
+    "counters":  {
+                     "iterations":  34090,
+                     "data_received":  14118542,
+                     "http_5xx":  0,
+                     "data_sent":  5559382
+                 },
+    "resultsDir":  "C:\\Users\\pipey\\OneDrive\\Documents\\Universidad\\Semestre 2026-2\\Materias\\Proyecto_Integrador\\load-test\\results\\sessions\\20261115-090255\\01-inv-calibration",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-15 09:03:34",
+    "exitCode":  0,
+    "stock":  100,
+    "startedAt":  "20261115-090256",
+    "baseUrl":  "http://ticketflow-inventory-service:8082",
+    "latencyMs":  {
+                      "avg":  2.56,
+                      "med":  2.31,
+                      "p90":  3.36,
+                      "p95":  3.9,
+                      "p99":  5.68,
+                      "max":  977.95
+                  },
+    "eventId":  "01a1df84-c85c-7bc3-80c5-abba96555478"
+}

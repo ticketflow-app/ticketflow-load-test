@@ -1,0 +1,50 @@
+﻿{
+    "stages":  [
+                   "20s:4",
+                   "60s:8",
+                   "20s:0"
+               ],
+    "file":  "04-availability-test.js",
+    "localityId":  "01a1df90-e4c9-760f-a074-d80cb8d11880",
+    "checks":  {
+                   "rate":  1,
+                   "passes":  1383,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  467,
+                     "rate_per_s":  4.58,
+                     "failed_rate":  0
+                 },
+    "resources":  {
+                      "peakMemMiB":  3550,
+                      "avgMemMiB":  3540.8,
+                      "peakCpuPercent":  21.42,
+                      "samples":  21,
+                      "avgCpuPercent":  14.3
+                  },
+    "scenario":  "04-availability",
+    "counters":  {
+                     "data_sent":  75053,
+                     "data_received":  296287,
+                     "iterations":  461
+                 },
+    "resultsDir":  "C:\\Users\\pipey\\OneDrive\\Documents\\Universidad\\Semestre 2026-2\\Materias\\Proyecto_Integrador\\load-test\\results\\sessions\\20261115-091427\\04-availability",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-15 09:17:59",
+    "exitCode":  0,
+    "stock":  null,
+    "startedAt":  "20261115-091613",
+    "baseUrl":  "http://ticketflow-api-gateway:8080",
+    "latencyMs":  {
+                      "avg":  9.2,
+                      "med":  6.31,
+                      "p90":  8.15,
+                      "p95":  9.01,
+                      "p99":  20.7,
+                      "max":  582.21
+                  },
+    "eventId":  "01a1df90-e4b5-71c6-b4e6-d79efa21ba42"
+}

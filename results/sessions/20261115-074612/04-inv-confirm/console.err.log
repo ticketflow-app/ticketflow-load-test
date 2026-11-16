@@ -1,0 +1,3 @@
+﻿time="2026-11-15T12:48:01Z" level=info msg="setup: eventId=01a1df40-0cea-7e72-a876-84aec0ce4ce1 localityId=01a1df40-0cf3-7a1f-a207-ef7b39c09d39 reservations=20" source=console
+time="2026-11-15T12:48:26Z" level=error msg="thresholds on metrics 'checks, http_5xx, http_req_failed' have been crossed"
+

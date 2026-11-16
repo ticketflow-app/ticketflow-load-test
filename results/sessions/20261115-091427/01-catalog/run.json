@@ -1,0 +1,50 @@
+﻿{
+    "stages":  [
+                   "20s:5",
+                   "60s:25",
+                   "20s:0"
+               ],
+    "file":  "01-catalog-test.js",
+    "localityId":  null,
+    "checks":  {
+                   "rate":  1,
+                   "passes":  1181,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  1181,
+                     "rate_per_s":  11.72,
+                     "failed_rate":  0
+                 },
+    "resources":  {
+                      "peakMemMiB":  3545,
+                      "avgMemMiB":  3528.4,
+                      "peakCpuPercent":  42.77,
+                      "samples":  21,
+                      "avgCpuPercent":  22.27
+                  },
+    "scenario":  "01-catalog",
+    "counters":  {
+                     "iterations":  1181,
+                     "data_received":  10911147,
+                     "data_sent":  111014
+                 },
+    "resultsDir":  "C:\\Users\\pipey\\OneDrive\\Documents\\Universidad\\Semestre 2026-2\\Materias\\Proyecto_Integrador\\load-test\\results\\sessions\\20261115-091427\\01-catalog",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-15 09:16:12",
+    "exitCode":  0,
+    "stock":  null,
+    "startedAt":  "20261115-091427",
+    "baseUrl":  "http://ticketflow-api-gateway:8080",
+    "latencyMs":  {
+                      "avg":  8.88,
+                      "med":  5.56,
+                      "p90":  8.29,
+                      "p95":  9.79,
+                      "p99":  22.98,
+                      "max":  2914.92
+                  },
+    "eventId":  null
+}

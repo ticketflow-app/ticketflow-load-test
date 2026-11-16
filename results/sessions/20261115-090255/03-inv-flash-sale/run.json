@@ -1,0 +1,54 @@
+﻿{
+    "stages":  [
+                   "5s:6",
+                   "20s:10",
+                   "5s:0"
+               ],
+    "file":  "03-inv-flash-sale-test.js",
+    "localityId":  "01a1df85-b61d-7982-82a0-5c372f4b0d06",
+    "checks":  {
+                   "rate":  1,
+                   "passes":  195,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  211,
+                     "rate_per_s":  6.57,
+                     "failed_rate":  0
+                 },
+    "resources":  {
+                      "peakMemMiB":  3487.7,
+                      "avgMemMiB":  3486.1,
+                      "peakCpuPercent":  13.47,
+                      "samples":  7,
+                      "avgCpuPercent":  7.5
+                  },
+    "scenario":  "03-inv-flash-sale",
+    "counters":  {
+                     "data_received":  100688,
+                     "reservas_sin_stock":  38,
+                     "data_sent":  61059,
+                     "http_5xx":  0,
+                     "confirmaciones_ok":  4,
+                     "reservas_aceptadas":  5,
+                     "iterations":  195
+                 },
+    "resultsDir":  "C:\\Users\\pipey\\OneDrive\\Documents\\Universidad\\Semestre 2026-2\\Materias\\Proyecto_Integrador\\load-test\\results\\sessions\\20261115-090255\\03-inv-flash-sale",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-15 09:04:36",
+    "exitCode":  0,
+    "stock":  5,
+    "startedAt":  "20261115-090401",
+    "baseUrl":  "http://ticketflow-inventory-service:8082",
+    "latencyMs":  {
+                      "avg":  12.18,
+                      "med":  2.9,
+                      "p90":  4.71,
+                      "p95":  9.86,
+                      "p99":  304.41,
+                      "max":  467.1
+                  },
+    "eventId":  "01a1df85-b614-7ef8-9429-2690701ec814"
+}

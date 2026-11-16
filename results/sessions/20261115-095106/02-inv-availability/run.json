@@ -1,0 +1,51 @@
+﻿{
+    "stages":  [
+                   "20s:5",
+                   "80s:20",
+                   "20s:0"
+               ],
+    "file":  "02-inv-availability-test.js",
+    "localityId":  "01a1dfb3-33e3-7997-b83b-e3eaac55ee34",
+    "checks":  {
+                   "rate":  1,
+                   "passes":  2450,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  1231,
+                     "rate_per_s":  10.2,
+                     "failed_rate":  0
+                 },
+    "resources":  {
+                      "peakMemMiB":  3725.3,
+                      "avgMemMiB":  3722.5,
+                      "peakCpuPercent":  12.61,
+                      "samples":  24,
+                      "avgCpuPercent":  7.97
+                  },
+    "scenario":  "02-inv-availability",
+    "counters":  {
+                     "iterations":  1225,
+                     "data_sent":  202394,
+                     "http_5xx":  0,
+                     "data_received":  513665
+                 },
+    "resultsDir":  "C:\\Users\\pipey\\OneDrive\\Documents\\Universidad\\Semestre 2026-2\\Materias\\Proyecto_Integrador\\load-test\\results\\sessions\\20261115-095106\\02-inv-availability",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-15 09:55:47",
+    "exitCode":  0,
+    "stock":  null,
+    "startedAt":  "20261115-095343",
+    "baseUrl":  "http://ticketflow-inventory-service:8082",
+    "latencyMs":  {
+                      "avg":  3.2,
+                      "med":  2.97,
+                      "p90":  3.55,
+                      "p95":  3.9,
+                      "p99":  5.91,
+                      "max":  171.14
+                  },
+    "eventId":  "01a1dfb3-33d8-7a1d-a8c9-ac8d478482da"
+}

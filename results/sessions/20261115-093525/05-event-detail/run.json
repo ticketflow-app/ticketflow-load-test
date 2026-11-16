@@ -1,0 +1,50 @@
+﻿{
+    "stages":  [
+                   "20s:5",
+                   "60s:25",
+                   "20s:0"
+               ],
+    "file":  "05-event-detail-test.js",
+    "localityId":  "01a1dfa5-b162-7060-a4c1-c86f71d71906",
+    "checks":  {
+                   "rate":  1,
+                   "passes":  4752,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  1194,
+                     "rate_per_s":  11.87,
+                     "failed_rate":  0
+                 },
+    "resources":  {
+                      "peakMemMiB":  3591.3,
+                      "avgMemMiB":  3586.5,
+                      "peakCpuPercent":  24.13,
+                      "samples":  20,
+                      "avgCpuPercent":  8.3
+                  },
+    "scenario":  "05-event-detail",
+    "counters":  {
+                     "iterations":  1188,
+                     "data_received":  1666189,
+                     "data_sent":  158261
+                 },
+    "resultsDir":  "C:\\Users\\pipey\\OneDrive\\Documents\\Universidad\\Semestre 2026-2\\Materias\\Proyecto_Integrador\\load-test\\results\\sessions\\20261115-093525\\05-event-detail",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-15 09:40:41",
+    "exitCode":  0,
+    "stock":  null,
+    "startedAt":  "20261115-093857",
+    "baseUrl":  "http://ticketflow-api-gateway:8080",
+    "latencyMs":  {
+                      "avg":  2.96,
+                      "med":  2.69,
+                      "p90":  3.46,
+                      "p95":  3.77,
+                      "p99":  7.68,
+                      "max":  192.19
+                  },
+    "eventId":  "01a1dfa5-b157-7d9e-bdd6-edf6079daf5d"
+}

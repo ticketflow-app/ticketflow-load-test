@@ -1,0 +1,138 @@
+﻿scenario : 05-inv-stress
+stages   : 3s:15 -> 10s:15 -> 3s:0
+profile  : local
+think    : 0 s
+results  : C:\Users\pipey\OneDrive\Documents\Universidad\Semestre 2026-2\Materias\Proyecto_Integrador\load-test\results\sessions\20261115-090255\05-inv-stress
+sampler  : pid 25668 -> resources.csv
+
+         /\      Grafana   /ÔÇ¥ÔÇ¥/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ÔÇ¥ÔÇ¥\ 
+  /          \   |   (  |  (ÔÇ¥)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/05-inv-stress-test.js
+        output: Prometheus remote write (http://ticketflow-prometheus:9090/api/v1/write)
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 46s max duration (incl. graceful stop):
+              * default: Up to 15 looping VUs for 16s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+running (04.0s), 03/15 VUs, 875 complete and 0 interrupted iterations
+default   [   4% ] 03/15 VUs  00.6s/16.0s
+
+running (05.0s), 08/15 VUs, 4136 complete and 0 interrupted iterations
+default   [  10% ] 08/15 VUs  01.6s/16.0s
+
+running (06.0s), 13/15 VUs, 7817 complete and 0 interrupted iterations
+default   [  16% ] 13/15 VUs  02.6s/16.0s
+
+running (07.0s), 15/15 VUs, 11940 complete and 0 interrupted iterations
+default   [  23% ] 15/15 VUs  03.6s/16.0s
+
+running (08.0s), 15/15 VUs, 15787 complete and 0 interrupted iterations
+default   [  29% ] 15/15 VUs  04.6s/16.0s
+
+running (09.0s), 15/15 VUs, 20077 complete and 0 interrupted iterations
+default   [  35% ] 15/15 VUs  05.6s/16.0s
+
+running (10.0s), 15/15 VUs, 24271 complete and 0 interrupted iterations
+default   [  41% ] 15/15 VUs  06.6s/16.0s
+
+running (11.0s), 15/15 VUs, 28509 complete and 0 interrupted iterations
+default   [  48% ] 15/15 VUs  07.6s/16.0s
+
+running (12.0s), 15/15 VUs, 32918 complete and 0 interrupted iterations
+default   [  54% ] 15/15 VUs  08.6s/16.0s
+
+running (13.0s), 15/15 VUs, 36946 complete and 0 interrupted iterations
+default   [  60% ] 15/15 VUs  09.6s/16.0s
+
+running (14.0s), 15/15 VUs, 41207 complete and 0 interrupted iterations
+default   [  66% ] 15/15 VUs  10.6s/16.0s
+
+running (15.0s), 15/15 VUs, 45063 complete and 0 interrupted iterations
+default   [  73% ] 15/15 VUs  11.6s/16.0s
+
+running (16.0s), 15/15 VUs, 49330 complete and 0 interrupted iterations
+default   [  79% ] 15/15 VUs  12.6s/16.0s
+
+running (17.0s), 12/15 VUs, 53715 complete and 0 interrupted iterations
+default   [  85% ] 12/15 VUs  13.6s/16.0s
+
+running (18.0s), 07/15 VUs, 58077 complete and 0 interrupted iterations
+default   [  91% ] 07/15 VUs  14.6s/16.0s
+
+running (19.0s), 02/15 VUs, 61506 complete and 0 interrupted iterations
+default   [  98% ] 02/15 VUs  15.6s/16.0s
+# k6 ÔÇö 05-inv-stress
+
+- Perfil: `local`
+- Umbrales: **OK**
+- Peticiones: 62067 (3206.46 req/s)
+- Fallidas: 0.00 %
+- Latencia: p95 4.35 ms ┬À p99 7.4 ms ┬À max 238.13 ms
+- _La latencia incluye las peticiones de `setup`; los umbrales se eval├║an por endpoint (`http_req_duration{endpoint:...}`)._
+- Checks: 100.00 % (62021 ok / 0 fail)
+
+| Contador | Valor |
+|---|---|
+| iterations | 62021 |
+| data_received | 31988278 |
+| http_5xx | 0 |
+| data_sent | 42721170 |
+| reservas_sin_stock | 61921 |
+| reservas_aceptadas | 100 |
+
+| Umbral | Resultado |
+|---|---|
+| checks: rate>0.70 | OK |
+| http_req_duration{endpoint:reservas}: p(95)<1000 | OK |
+| http_req_failed: rate<0.40 | OK |
+| http_5xx: count==0 | OK |
+| reservas_aceptadas: count>0 | OK |
+| reservas_aceptadas: count<=100 | OK |
+
+running (19.4s), 00/15 VUs, 62021 complete and 0 interrupted iterations
+default Ô£ô [ 100% ] 00/15 VUs  16s
+
+# Recursos - 05-inv-stress
+
+- Perfil: local
+- Stages: 3s:15, 10s:15, 3s:0
+- Muestreo: cada 3 s
+- k6 exit code: 0
+
+- Muestras: 4
+
+| Contenedor | CPU media % | CPU max % | RAM media MiB | RAM max MiB |
+|---|---|---|---|---|
+| ticketflow-inventory-service | 283.98 | 385.37 | 661.5 | 662.4 |
+| ticketflow-k6 | 125.24 | 170.01 | 45.2 | 61.0 |
+| ticketflow-redis | 10.07 | 14.70 | 7.3 | 7.7 |
+| ticketflow-inventory-db | 0.81 | 3.23 | 47.2 | 47.5 |
+| ticketflow-user-db | 0.81 | 3.20 | 44.9 | 45.4 |
+| ticketflow-kafka | 1.28 | 1.73 | 678.7 | 679.0 |
+| ticketflow-api-gateway | 0.50 | 1.47 | 372.6 | 372.8 |
+| ticketflow-eureka-server | 1.08 | 1.46 | 356.1 | 356.4 |
+| ticketflow-catalog-service | 0.70 | 0.88 | 697.8 | 698.1 |
+| ticketflow-prometheus | 0.32 | 0.37 | 63.8 | 64.3 |
+| ticketflow-catalog-db | 0.15 | 0.23 | 53.6 | 53.9 |
+| ticketflow-user-service | 0.11 | 0.13 | 491.6 | 491.8 |
+
+- RAM total del stack: media 3520 MiB, pico 3537.7 MiB
+- CPU total del stack: media 425.04 %, pico 567.04 %
+
+results: C:\Users\pipey\OneDrive\Documents\Universidad\Semestre 2026-2\Materias\Proyecto_Integrador\load-test\results\sessions\20261115-090255\05-inv-stress
+

@@ -1,0 +1,139 @@
+﻿scenario : 05-inv-stress
+stages   : 3s:15 -> 10s:15 -> 3s:0
+profile  : local
+think    : 0 s
+results  : C:\Users\pipey\OneDrive\Documents\Universidad\Semestre 2026-2\Materias\Proyecto_Integrador\load-test\results\sessions\20261115-074612\05-inv-stress
+sampler  : pid 25460 -> resources.csv
+
+         /\      Grafana   /ÔÇ¥ÔÇ¥/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ÔÇ¥ÔÇ¥\ 
+  /          \   |   (  |  (ÔÇ¥)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/05-inv-stress-test.js
+        output: Prometheus remote write (http://ticketflow-prometheus:9090/api/v1/write)
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 46s max duration (incl. graceful stop):
+              * default: Up to 15 looping VUs for 16s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+running (04.0s), 01/15 VUs, 22 complete and 0 interrupted iterations
+default   [   1% ] 01/15 VUs  00.1s/16.0s
+
+running (05.0s), 06/15 VUs, 2072 complete and 0 interrupted iterations
+default   [   7% ] 06/15 VUs  01.1s/16.0s
+
+running (06.0s), 10/15 VUs, 5968 complete and 0 interrupted iterations
+default   [  13% ] 10/15 VUs  02.1s/16.0s
+
+running (07.0s), 15/15 VUs, 9761 complete and 0 interrupted iterations
+default   [  19% ] 15/15 VUs  03.1s/16.0s
+
+running (08.0s), 15/15 VUs, 13173 complete and 0 interrupted iterations
+default   [  26% ] 15/15 VUs  04.1s/16.0s
+
+running (09.0s), 15/15 VUs, 17411 complete and 0 interrupted iterations
+default   [  32% ] 15/15 VUs  05.1s/16.0s
+
+running (10.0s), 15/15 VUs, 21708 complete and 0 interrupted iterations
+default   [  38% ] 15/15 VUs  06.1s/16.0s
+
+running (11.0s), 15/15 VUs, 26273 complete and 0 interrupted iterations
+default   [  44% ] 15/15 VUs  07.1s/16.0s
+
+running (12.0s), 15/15 VUs, 30777 complete and 0 interrupted iterations
+default   [  51% ] 15/15 VUs  08.1s/16.0s
+
+running (13.0s), 15/15 VUs, 35188 complete and 0 interrupted iterations
+default   [  57% ] 15/15 VUs  09.1s/16.0s
+
+running (14.0s), 15/15 VUs, 39751 complete and 0 interrupted iterations
+default   [  63% ] 15/15 VUs  10.1s/16.0s
+
+running (15.0s), 15/15 VUs, 44117 complete and 0 interrupted iterations
+default   [  69% ] 15/15 VUs  11.1s/16.0s
+
+running (16.0s), 15/15 VUs, 48584 complete and 0 interrupted iterations
+default   [  76% ] 15/15 VUs  12.1s/16.0s
+
+running (17.0s), 15/15 VUs, 53095 complete and 0 interrupted iterations
+default   [  82% ] 15/15 VUs  13.1s/16.0s
+
+running (18.0s), 10/15 VUs, 56893 complete and 0 interrupted iterations
+default   [  88% ] 10/15 VUs  14.1s/16.0s
+
+running (19.0s), 05/15 VUs, 60839 complete and 0 interrupted iterations
+default   [  94% ] 05/15 VUs  15.1s/16.0s
+# k6 ÔÇö 05-inv-stress
+
+- Perfil: `local`
+- Umbrales: **FALLIDOS**
+- Peticiones: 62997 (3166.18 req/s)
+- Fallidas: 99.77 %
+- Latencia: p95 4.26 ms ┬À p99 8.28 ms ┬À max 445.44 ms
+- _La latencia incluye las peticiones de `setup`; los umbrales se eval├║an por endpoint (`http_req_duration{endpoint:...}`)._
+- Checks: 100.00 % (62951 ok / 0 fail)
+
+| Contador | Valor |
+|---|---|
+| reservas_aceptadas | 100 |
+| data_sent | 43363010 |
+| reservas_sin_stock | 62851 |
+| iterations | 62951 |
+| http_5xx | 0 |
+| data_received | 32467228 |
+
+| Umbral | Resultado |
+|---|---|
+| http_5xx: count==0 | OK |
+| reservas_aceptadas: count>0 | OK |
+| reservas_aceptadas: count<=100 | OK |
+| checks: rate>0.70 | OK |
+| http_req_failed: rate<0.40 | FALLO |
+| http_req_duration{endpoint:reservas}: p(95)<1000 | OK |
+
+running (19.9s), 00/15 VUs, 62951 complete and 0 interrupted iterations
+default Ô£ô [ 100% ] 00/15 VUs  16s
+ADVERTENCIA: k6/docker fallo: k6/docker salio con codigo 99. Se escribira run.json con los datos disponibles.
+
+# Recursos - 05-inv-stress
+
+- Perfil: local
+- Stages: 3s:15, 10s:15, 3s:0
+- Muestreo: cada 3 s
+- k6 exit code: 99
+
+- Muestras: 4
+
+| Contenedor | CPU media % | CPU max % | RAM media MiB | RAM max MiB |
+|---|---|---|---|---|
+| ticketflow-inventory-service | 289.99 | 389.78 | 624.1 | 655.5 |
+| ticketflow-k6 | 115.30 | 161.35 | 37.8 | 61.5 |
+| ticketflow-user-service | 5.28 | 20.54 | 487.6 | 487.8 |
+| ticketflow-redis | 10.01 | 14.35 | 7.3 | 7.8 |
+| ticketflow-catalog-db | 0.83 | 2.45 | 55.2 | 55.8 |
+| ticketflow-inventory-db | 0.61 | 2.40 | 46.9 | 47.0 |
+| ticketflow-catalog-service | 1.24 | 2.10 | 690.3 | 690.6 |
+| ticketflow-kafka | 1.29 | 1.39 | 574.3 | 575.1 |
+| ticketflow-eureka-server | 0.89 | 0.95 | 338.2 | 338.8 |
+| ticketflow-user-db | 0.32 | 0.94 | 45.9 | 46.7 |
+| ticketflow-api-gateway | 0.23 | 0.53 | 367.4 | 367.7 |
+| ticketflow-prometheus | 0.34 | 0.37 | 60.5 | 60.7 |
+
+- RAM total del stack: media 3335.2 MiB, pico 3390.5 MiB
+- CPU total del stack: media 426.31 %, pico 572.17 %
+
+results: C:\Users\pipey\OneDrive\Documents\Universidad\Semestre 2026-2\Materias\Proyecto_Integrador\load-test\results\sessions\20261115-074612\05-inv-stress
+

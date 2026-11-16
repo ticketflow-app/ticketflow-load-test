@@ -1,0 +1,54 @@
+﻿{
+    "stages":  [
+                   "5s:40",
+                   "50s:40",
+                   "5s:0"
+               ],
+    "file":  "08-degradation-test.js",
+    "localityId":  "01a1dfaa-7679-7b87-b61b-c220548b1387",
+    "checks":  {
+                   "rate":  1,
+                   "passes":  4430,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  2231,
+                     "rate_per_s":  36.15,
+                     "failed_rate":  0
+                 },
+    "resources":  {
+                      "peakMemMiB":  3613.4,
+                      "avgMemMiB":  3605.3,
+                      "peakCpuPercent":  19.61,
+                      "samples":  13,
+                      "avgCpuPercent":  13.19
+                  },
+    "scenario":  "08-degradation",
+    "counters":  {
+                     "data_sent":  1508080,
+                     "rate_limit_without_problem_detail":  1611,
+                     "data_received":  897624,
+                     "iterations":  2215,
+                     "rate_limited":  1611,
+                     "http_5xx":  0,
+                     "reservas_aceptadas":  604
+                 },
+    "resultsDir":  "C:\\Users\\pipey\\OneDrive\\Documents\\Universidad\\Semestre 2026-2\\Materias\\Proyecto_Integrador\\load-test\\results\\sessions\\20261115-093525\\08-degradation",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-15 09:45:15",
+    "exitCode":  0,
+    "stock":  null,
+    "startedAt":  "20261115-094410",
+    "baseUrl":  "http://ticketflow-api-gateway:8080",
+    "latencyMs":  {
+                      "avg":  3.95,
+                      "med":  1.49,
+                      "p90":  6.33,
+                      "p95":  7.6,
+                      "p99":  64.35,
+                      "max":  179.75
+                  },
+    "eventId":  "01a1dfaa-7670-7528-a3b7-c5e2269e08d7"
+}

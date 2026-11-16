@@ -1,0 +1,180 @@
+﻿scenario : 03-inv-flash-sale
+stages   : 5s:6 -> 20s:10 -> 5s:0
+profile  : local
+think    : 1 s
+results  : C:\Users\pipey\OneDrive\Documents\Universidad\Semestre 2026-2\Materias\Proyecto_Integrador\load-test\results\sessions\20261115-090255\03-inv-flash-sale
+sampler  : pid 18500 -> resources.csv
+
+         /\      Grafana   /ÔÇ¥ÔÇ¥/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ÔÇ¥ÔÇ¥\ 
+  /          \   |   (  |  (ÔÇ¥)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/03-inv-flash-sale-test.js
+        output: Prometheus remote write (http://ticketflow-prometheus:9090/api/v1/write)
+
+     scenarios: (100.00%) 1 scenario, 10 max VUs, 1m0s max duration (incl. graceful stop):
+              * default: Up to 10 looping VUs for 30s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+running (0m03.0s), 01/10 VUs, 0 complete and 0 interrupted iterations
+default   [   3% ] 01/10 VUs  01.0s/30.0s
+
+running (0m04.0s), 02/10 VUs, 1 complete and 0 interrupted iterations
+default   [   7% ] 02/10 VUs  02.0s/30.0s
+
+running (0m05.0s), 03/10 VUs, 3 complete and 0 interrupted iterations
+default   [  10% ] 03/10 VUs  03.0s/30.0s
+
+running (0m06.0s), 04/10 VUs, 6 complete and 0 interrupted iterations
+default   [  13% ] 04/10 VUs  04.0s/30.0s
+
+running (0m07.0s), 05/10 VUs, 10 complete and 0 interrupted iterations
+default   [  17% ] 05/10 VUs  05.0s/30.0s
+
+running (0m08.0s), 06/10 VUs, 15 complete and 0 interrupted iterations
+default   [  20% ] 06/10 VUs  06.0s/30.0s
+
+running (0m09.0s), 06/10 VUs, 21 complete and 0 interrupted iterations
+default   [  23% ] 06/10 VUs  07.0s/30.0s
+
+running (0m10.0s), 06/10 VUs, 27 complete and 0 interrupted iterations
+default   [  27% ] 06/10 VUs  08.0s/30.0s
+
+running (0m11.0s), 06/10 VUs, 33 complete and 0 interrupted iterations
+default   [  30% ] 06/10 VUs  09.0s/30.0s
+
+running (0m12.0s), 06/10 VUs, 39 complete and 0 interrupted iterations
+default   [  33% ] 06/10 VUs  10.0s/30.0s
+
+running (0m13.0s), 07/10 VUs, 45 complete and 0 interrupted iterations
+default   [  37% ] 07/10 VUs  11.0s/30.0s
+
+running (0m14.0s), 07/10 VUs, 52 complete and 0 interrupted iterations
+default   [  40% ] 07/10 VUs  12.0s/30.0s
+
+running (0m15.0s), 07/10 VUs, 59 complete and 0 interrupted iterations
+default   [  43% ] 07/10 VUs  13.0s/30.0s
+
+running (0m16.0s), 07/10 VUs, 66 complete and 0 interrupted iterations
+default   [  47% ] 07/10 VUs  14.0s/30.0s
+
+running (0m17.0s), 07/10 VUs, 73 complete and 0 interrupted iterations
+default   [  50% ] 07/10 VUs  15.0s/30.0s
+
+running (0m18.0s), 08/10 VUs, 80 complete and 0 interrupted iterations
+default   [  53% ] 08/10 VUs  16.0s/30.0s
+
+running (0m19.0s), 08/10 VUs, 88 complete and 0 interrupted iterations
+default   [  57% ] 08/10 VUs  17.0s/30.0s
+
+running (0m20.0s), 08/10 VUs, 96 complete and 0 interrupted iterations
+default   [  60% ] 08/10 VUs  18.0s/30.0s
+
+running (0m21.0s), 08/10 VUs, 104 complete and 0 interrupted iterations
+default   [  63% ] 08/10 VUs  19.0s/30.0s
+
+running (0m22.0s), 08/10 VUs, 112 complete and 0 interrupted iterations
+default   [  67% ] 08/10 VUs  20.0s/30.0s
+
+running (0m23.0s), 09/10 VUs, 120 complete and 0 interrupted iterations
+default   [  70% ] 09/10 VUs  21.0s/30.0s
+
+running (0m24.0s), 09/10 VUs, 129 complete and 0 interrupted iterations
+default   [  73% ] 09/10 VUs  22.0s/30.0s
+
+running (0m25.0s), 09/10 VUs, 138 complete and 0 interrupted iterations
+default   [  77% ] 09/10 VUs  23.0s/30.0s
+
+running (0m26.0s), 09/10 VUs, 147 complete and 0 interrupted iterations
+default   [  80% ] 09/10 VUs  24.0s/30.0s
+
+running (0m27.0s), 09/10 VUs, 156 complete and 0 interrupted iterations
+default   [  83% ] 09/10 VUs  25.0s/30.0s
+
+running (0m28.0s), 10/10 VUs, 165 complete and 0 interrupted iterations
+default   [  87% ] 10/10 VUs  26.0s/30.0s
+
+running (0m29.0s), 08/10 VUs, 175 complete and 0 interrupted iterations
+default   [  90% ] 08/10 VUs  27.0s/30.0s
+
+running (0m30.0s), 06/10 VUs, 183 complete and 0 interrupted iterations
+default   [  93% ] 06/10 VUs  28.0s/30.0s
+
+running (0m31.0s), 04/10 VUs, 189 complete and 0 interrupted iterations
+default   [  97% ] 04/10 VUs  29.0s/30.0s
+
+running (0m32.0s), 02/10 VUs, 193 complete and 0 interrupted iterations
+default   [ 100% ] 02/10 VUs  30.0s/30.0s
+# k6 ÔÇö 03-inv-flash-sale
+
+- Perfil: `local`
+- Umbrales: **OK**
+- Peticiones: 211 (6.57 req/s)
+- Fallidas: 0.00 %
+- Latencia: p95 9.86 ms ┬À p99 304.41 ms ┬À max 467.1 ms
+- _La latencia incluye las peticiones de `setup`; los umbrales se eval├║an por endpoint (`http_req_duration{endpoint:...}`)._
+- Checks: 100.00 % (195 ok / 0 fail)
+
+| Contador | Valor |
+|---|---|
+| data_received | 100688 |
+| reservas_sin_stock | 38 |
+| data_sent | 61059 |
+| http_5xx | 0 |
+| confirmaciones_ok | 4 |
+| reservas_aceptadas | 5 |
+| iterations | 195 |
+
+| Umbral | Resultado |
+|---|---|
+| http_5xx: count==0 | OK |
+| http_req_duration{endpoint:disponibilidad}: p(95)<400 | OK |
+| reservas_aceptadas: count>0 | OK |
+| reservas_aceptadas: count<=5 | OK |
+| http_req_duration{endpoint:reservas}: p(95)<500 | OK |
+| checks: rate>0.99 | OK |
+| http_req_failed: rate<0.01 | OK |
+| http_req_duration{endpoint:confirmar}: p(95)<500 | OK |
+
+running (0m32.1s), 00/10 VUs, 195 complete and 0 interrupted iterations
+default Ô£ô [ 100% ] 00/10 VUs  30s
+
+# Recursos - 03-inv-flash-sale
+
+- Perfil: local
+- Stages: 5s:6, 20s:10, 5s:0
+- Muestreo: cada 3 s
+- k6 exit code: 0
+
+- Muestras: 7
+
+| Contenedor | CPU media % | CPU max % | RAM media MiB | RAM max MiB |
+|---|---|---|---|---|
+| ticketflow-k6 | 1.85 | 6.85 | 17.7 | 18.4 |
+| ticketflow-inventory-service | 1.29 | 2.97 | 659.5 | 660.4 |
+| ticketflow-catalog-db | 0.50 | 2.75 | 53.9 | 54.4 |
+| ticketflow-catalog-service | 0.96 | 1.36 | 697.8 | 698.3 |
+| ticketflow-kafka | 0.97 | 1.06 | 678.8 | 679.7 |
+| ticketflow-prometheus | 0.47 | 0.95 | 60.7 | 61.0 |
+| ticketflow-eureka-server | 0.64 | 0.84 | 355.9 | 356.5 |
+| ticketflow-inventory-db | 0.14 | 0.52 | 46.6 | 47.1 |
+| ticketflow-redis | 0.43 | 0.52 | 7.0 | 7.4 |
+| ticketflow-user-service | 0.10 | 0.24 | 490.3 | 491.2 |
+| ticketflow-api-gateway | 0.13 | 0.15 | 372.6 | 373.0 |
+| ticketflow-user-db | 0.01 | 0.02 | 45.2 | 45.4 |
+
+- RAM total del stack: media 3486.1 MiB, pico 3487.7 MiB
+- CPU total del stack: media 7.5 %, pico 13.47 %
+
+results: C:\Users\pipey\OneDrive\Documents\Universidad\Semestre 2026-2\Materias\Proyecto_Integrador\load-test\results\sessions\20261115-090255\03-inv-flash-sale
+

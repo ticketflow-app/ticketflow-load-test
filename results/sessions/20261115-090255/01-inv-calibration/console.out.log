@@ -1,0 +1,170 @@
+﻿scenario : 01-inv-calibration
+stages   : 10s:3 -> 10s:6 -> 10s:0
+profile  : local
+think    : 0 s
+results  : C:\Users\pipey\OneDrive\Documents\Universidad\Semestre 2026-2\Materias\Proyecto_Integrador\load-test\results\sessions\20261115-090255\01-inv-calibration
+sampler  : pid 25448 -> resources.csv
+
+         /\      Grafana   /ÔÇ¥ÔÇ¥/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ÔÇ¥ÔÇ¥\ 
+  /          \   |   (  |  (ÔÇ¥)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/01-inv-calibration-test.js
+        output: Prometheus remote write (http://ticketflow-prometheus:9090/api/v1/write)
+
+     scenarios: (100.00%) 1 scenario, 6 max VUs, 1m0s max duration (incl. graceful stop):
+              * default: Up to 6 looping VUs for 30s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+running (0m02.0s), 1/6 VUs, 6 complete and 0 interrupted iterations
+default   [   0% ] 1/6 VUs  00.1s/30.0s
+
+running (0m03.0s), 1/6 VUs, 146 complete and 0 interrupted iterations
+default   [   4% ] 1/6 VUs  01.1s/30.0s
+
+running (0m04.0s), 1/6 VUs, 340 complete and 0 interrupted iterations
+default   [   7% ] 1/6 VUs  02.1s/30.0s
+
+running (0m05.0s), 1/6 VUs, 546 complete and 0 interrupted iterations
+default   [  10% ] 1/6 VUs  03.1s/30.0s
+
+running (0m06.0s), 1/6 VUs, 797 complete and 0 interrupted iterations
+default   [  14% ] 1/6 VUs  04.1s/30.0s
+
+running (0m07.0s), 2/6 VUs, 1094 complete and 0 interrupted iterations
+default   [  17% ] 2/6 VUs  05.1s/30.0s
+
+running (0m08.0s), 2/6 VUs, 1605 complete and 0 interrupted iterations
+default   [  20% ] 2/6 VUs  06.1s/30.0s
+
+running (0m09.0s), 2/6 VUs, 2486 complete and 0 interrupted iterations
+default   [  24% ] 2/6 VUs  07.1s/30.0s
+
+running (0m10.0s), 2/6 VUs, 3322 complete and 0 interrupted iterations
+default   [  27% ] 2/6 VUs  08.1s/30.0s
+
+running (0m11.0s), 2/6 VUs, 4150 complete and 0 interrupted iterations
+default   [  30% ] 2/6 VUs  09.1s/30.0s
+
+running (0m12.0s), 3/6 VUs, 5068 complete and 0 interrupted iterations
+default   [  34% ] 3/6 VUs  10.1s/30.0s
+
+running (0m13.0s), 3/6 VUs, 6116 complete and 0 interrupted iterations
+default   [  37% ] 3/6 VUs  11.1s/30.0s
+
+running (0m14.0s), 3/6 VUs, 7265 complete and 0 interrupted iterations
+default   [  40% ] 3/6 VUs  12.1s/30.0s
+
+running (0m15.0s), 3/6 VUs, 8389 complete and 0 interrupted iterations
+default   [  44% ] 3/6 VUs  13.1s/30.0s
+
+running (0m16.0s), 4/6 VUs, 9870 complete and 0 interrupted iterations
+default   [  47% ] 4/6 VUs  14.1s/30.0s
+
+running (0m17.0s), 4/6 VUs, 11509 complete and 0 interrupted iterations
+default   [  50% ] 4/6 VUs  15.1s/30.0s
+
+running (0m18.0s), 4/6 VUs, 13051 complete and 0 interrupted iterations
+default   [  54% ] 4/6 VUs  16.1s/30.0s
+
+running (0m19.0s), 5/6 VUs, 14931 complete and 0 interrupted iterations
+default   [  57% ] 5/6 VUs  17.1s/30.0s
+
+running (0m20.0s), 5/6 VUs, 16771 complete and 0 interrupted iterations
+default   [  60% ] 5/6 VUs  18.1s/30.0s
+
+running (0m21.0s), 5/6 VUs, 18761 complete and 0 interrupted iterations
+default   [  64% ] 5/6 VUs  19.1s/30.0s
+
+running (0m22.0s), 6/6 VUs, 20822 complete and 0 interrupted iterations
+default   [  67% ] 6/6 VUs  20.1s/30.0s
+
+running (0m23.0s), 6/6 VUs, 22718 complete and 0 interrupted iterations
+default   [  70% ] 6/6 VUs  21.1s/30.0s
+
+running (0m24.0s), 5/6 VUs, 24818 complete and 0 interrupted iterations
+default   [  74% ] 5/6 VUs  22.1s/30.0s
+
+running (0m25.0s), 5/6 VUs, 26383 complete and 0 interrupted iterations
+default   [  77% ] 5/6 VUs  23.1s/30.0s
+
+running (0m26.0s), 4/6 VUs, 27993 complete and 0 interrupted iterations
+default   [  80% ] 4/6 VUs  24.1s/30.0s
+
+running (0m27.0s), 3/6 VUs, 29600 complete and 0 interrupted iterations
+default   [  84% ] 3/6 VUs  25.1s/30.0s
+
+running (0m28.0s), 3/6 VUs, 30840 complete and 0 interrupted iterations
+default   [  87% ] 3/6 VUs  26.1s/30.0s
+
+running (0m29.0s), 2/6 VUs, 32052 complete and 0 interrupted iterations
+default   [  90% ] 2/6 VUs  27.1s/30.0s
+
+running (0m30.0s), 2/6 VUs, 32988 complete and 0 interrupted iterations
+default   [  94% ] 2/6 VUs  28.1s/30.0s
+
+running (0m31.0s), 1/6 VUs, 33602 complete and 0 interrupted iterations
+default   [  97% ] 1/6 VUs  29.1s/30.0s
+# k6 ÔÇö 01-inv-calibration
+
+- Perfil: `local`
+- Umbrales: **OK**
+- Peticiones: 34096 (1068.75 req/s)
+- Fallidas: 0.00 %
+- Latencia: p95 3.9 ms ┬À p99 5.68 ms ┬À max 977.95 ms
+- _La latencia incluye las peticiones de `setup`; los umbrales se eval├║an por endpoint (`http_req_duration{endpoint:...}`)._
+- Checks: 100.00 % (68180 ok / 0 fail)
+
+| Contador | Valor |
+|---|---|
+| iterations | 34090 |
+| data_received | 14118542 |
+| http_5xx | 0 |
+| data_sent | 5559382 |
+
+| Umbral | Resultado |
+|---|---|
+| checks: rate>0.99 | OK |
+| http_req_failed: rate<0.01 | OK |
+| http_5xx: count==0 | OK |
+| http_req_duration{endpoint:disponibilidad}: p(95)<200 | OK |
+
+running (0m31.9s), 0/6 VUs, 34090 complete and 0 interrupted iterations
+default Ô£ô [ 100% ] 0/6 VUs  30s
+
+# Recursos - 01-inv-calibration
+
+- Perfil: local
+- Stages: 10s:3, 10s:6, 10s:0
+- Muestreo: cada 3 s
+- k6 exit code: 0
+
+- Muestras: 7
+
+| Contenedor | CPU media % | CPU max % | RAM media MiB | RAM max MiB |
+|---|---|---|---|---|
+| ticketflow-inventory-service | 108.12 | 206.87 | 660.0 | 663.9 |
+| ticketflow-catalog-service | 65.79 | 124.39 | 697.6 | 698.2 |
+| ticketflow-k6 | 41.29 | 69.28 | 29.0 | 41.8 |
+| ticketflow-user-service | 8.33 | 57.80 | 490.0 | 491.6 |
+| ticketflow-redis | 8.66 | 15.43 | 7.4 | 7.8 |
+| ticketflow-catalog-db | 0.82 | 3.28 | 52.9 | 54.3 |
+| ticketflow-prometheus | 0.90 | 2.39 | 65.9 | 67.5 |
+| ticketflow-kafka | 1.11 | 1.70 | 679.0 | 679.8 |
+| ticketflow-api-gateway | 0.28 | 1.27 | 372.8 | 373.3 |
+| ticketflow-user-db | 0.30 | 1.20 | 44.9 | 45.7 |
+| ticketflow-eureka-server | 0.66 | 0.72 | 356.2 | 357.2 |
+| ticketflow-inventory-db | 0.10 | 0.70 | 45.9 | 46.5 |
+
+- RAM total del stack: media 3497.5 MiB, pico 3515.8 MiB
+- CPU total del stack: media 230.47 %, pico 422.52 %
+
+results: C:\Users\pipey\OneDrive\Documents\Universidad\Semestre 2026-2\Materias\Proyecto_Integrador\load-test\results\sessions\20261115-090255\01-inv-calibration
+

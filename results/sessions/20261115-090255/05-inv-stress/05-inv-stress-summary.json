@@ -1,0 +1,46 @@
+{
+  "scenario": "05-inv-stress",
+  "profile": "local",
+  "generated_at": "2026-11-15T14:05:33.034Z",
+  "setup_data": {
+    "eventId": "01a1df86-c4b2-7c1d-8ba2-98904c0635e6",
+    "localityId": "01a1df86-c4bd-77f2-9623-460b5d882931",
+    "stock": 100,
+    "buyers": 20
+  },
+  "requests": {
+    "total": 62067,
+    "rate_per_s": 3206.46,
+    "failed_rate": 0
+  },
+  "latency_ms": {
+    "avg": 3.07,
+    "med": 3.09,
+    "p90": 3.82,
+    "p95": 4.35,
+    "p99": 7.4,
+    "max": 238.13
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 62021,
+    "fails": 0
+  },
+  "counters": {
+    "iterations": 62021,
+    "data_received": 31988278,
+    "http_5xx": 0,
+    "data_sent": 42721170,
+    "reservas_sin_stock": 61921,
+    "reservas_aceptadas": 100
+  },
+  "thresholds": {
+    "checks: rate>0.70": true,
+    "http_req_duration{endpoint:reservas}: p(95)<1000": true,
+    "http_req_failed: rate<0.40": true,
+    "http_5xx: count==0": true,
+    "reservas_aceptadas: count>0": true,
+    "reservas_aceptadas: count<=100": true
+  },
+  "thresholds_ok": true
+}

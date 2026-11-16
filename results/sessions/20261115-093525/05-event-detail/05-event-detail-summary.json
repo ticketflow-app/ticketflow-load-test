@@ -1,0 +1,39 @@
+{
+  "scenario": "05-event-detail",
+  "profile": "local",
+  "generated_at": "2026-11-15T14:40:40.847Z",
+  "setup_data": {
+    "eventId": "01a1dfa5-b157-7d9e-bdd6-edf6079daf5d",
+    "localityId": "01a1dfa5-b162-7060-a4c1-c86f71d71906",
+    "stock": null,
+    "buyers": null
+  },
+  "requests": {
+    "total": 1194,
+    "rate_per_s": 11.87,
+    "failed_rate": 0
+  },
+  "latency_ms": {
+    "avg": 2.96,
+    "med": 2.69,
+    "p90": 3.46,
+    "p95": 3.77,
+    "p99": 7.68,
+    "max": 192.19
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 4752,
+    "fails": 0
+  },
+  "counters": {
+    "iterations": 1188,
+    "data_received": 1666189,
+    "data_sent": 158261
+  },
+  "thresholds": {
+    "http_req_failed: rate<0.01": true,
+    "http_req_duration{endpoint:evento-detalle}: p(95)<120": true
+  },
+  "thresholds_ok": true
+}

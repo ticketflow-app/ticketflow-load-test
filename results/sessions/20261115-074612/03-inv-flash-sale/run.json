@@ -1,0 +1,54 @@
+﻿{
+    "stages":  [
+                   "5s:6",
+                   "20s:10",
+                   "5s:0"
+               ],
+    "file":  "03-inv-flash-sale-test.js",
+    "localityId":  "01a1df3f-6d0b-7718-bc24-727f3d439bc8",
+    "checks":  {
+                   "rate":  1,
+                   "passes":  195,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  211,
+                     "rate_per_s":  6.63,
+                     "failed_rate":  0.2227
+                 },
+    "resources":  {
+                      "peakMemMiB":  3274.8,
+                      "avgMemMiB":  3268.6,
+                      "peakCpuPercent":  81.68,
+                      "samples":  6,
+                      "avgCpuPercent":  25.69
+                  },
+    "scenario":  "03-inv-flash-sale",
+    "counters":  {
+                     "data_received":  101732,
+                     "reservas_aceptadas":  5,
+                     "http_5xx":  0,
+                     "reservas_sin_stock":  47,
+                     "iterations":  195,
+                     "data_sent":  66165,
+                     "confirmaciones_ok":  5
+                 },
+    "resultsDir":  "C:\\Users\\pipey\\OneDrive\\Documents\\Universidad\\Semestre 2026-2\\Materias\\Proyecto_Integrador\\load-test\\results\\sessions\\20261115-074612\\03-inv-flash-sale",
+    "profile":  "local",
+    "k6Error":  "k6/docker salio con codigo 99",
+    "thresholdsOk":  false,
+    "finishedAt":  "2026-11-15 07:47:50",
+    "exitCode":  99,
+    "stock":  5,
+    "startedAt":  "20261115-074715",
+    "baseUrl":  "http://ticketflow-inventory-service:8082",
+    "latencyMs":  {
+                      "avg":  10.54,
+                      "med":  2.8,
+                      "p90":  5.19,
+                      "p95":  13.38,
+                      "p99":  228.7,
+                      "max":  386.21
+                  },
+    "eventId":  "01a1df3f-6d01-7082-9566-1401626d742b"
+}
