@@ -63,6 +63,12 @@ $meta = @{
     '06' = @{ Name = '06-flash-sale';   Title = 'E3  flash sale';           Smoke = @('5s:6', '20s:10', '5s:0'); Env = 'STOCK=5,BUYERS=5' }
     '07' = @{ Name = '07-confirm';      Title = 'E5  confirmacion';         Smoke = @('5s:4', '15s:6', '5s:0');  Env = $null }
     '08' = @{ Name = '08-degradation';  Title = 'E4  degradacion';          Smoke = @('3s:20', '10s:40', '3s:0'); Env = $null }
+    # --- Inventory directo (salta el API Gateway) ----------------------------------
+    'i1' = @{ Name = '01-inv-calibration'; Title = 'I1  calibracion de codo (inventario)'; Smoke = @('10s:3', '10s:6', '10s:0'); Env = $null }
+    'i2' = @{ Name = '02-inv-availability'; Title = 'I2  disponibilidad sostenida'; Smoke = @('5s:2', '10s:4', '5s:0'); Env = $null }
+    'i3' = @{ Name = '03-inv-flash-sale';   Title = 'I3  flash sale directo';   Smoke = @('5s:6', '20s:10', '5s:0'); Env = 'STOCK=5,BUYERS=5' }
+    'i4' = @{ Name = '04-inv-confirm';      Title = 'I4  confirmacion';         Smoke = @('5s:4', '15s:6', '5s:0'); Env = $null }
+    'i5' = @{ Name = '05-inv-stress';       Title = 'I5  estres (degradacion)'; Smoke = @('3s:15', '10s:15', '3s:0'); Env = $null }
 }
 
 foreach ($scenario in $Scenarios) {
@@ -209,7 +215,7 @@ foreach ($scenario in $Scenarios) {
 
     # Anti-oversell invariant: only the flash-sale scenario consumes scarce stock.
     $invariant = $null
-    if ($scenario -eq '06' -and $run -and $run.eventId -and $run.localityId) {
+    if (($scenario -eq '06' -or $scenario -eq 'i3') -and $run -and $run.eventId -and $run.localityId) {
         $stock = if ($run.stock) { [int]$run.stock } else { 100 }
         Write-Host ''
         Write-Host ("    verificando invariante (stock esperado $stock)...") -ForegroundColor DarkCyan
