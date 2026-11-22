@@ -1,0 +1,59 @@
+{
+    "stages": [
+        "5s:4",
+        "15s:6",
+        "5s:0"
+    ],
+    "file": "04-inv-confirm-test.js",
+    "localityId": "01a20367-f43f-7e91-a20f-2cf4cd5eef80",
+    "checks": {
+        "rate": 1,
+        "passes": 205,
+        "fails": 0
+    },
+    "requests": {
+        "total": 133,
+        "rate_per_s": 4.81,
+        "failed_rate": 0
+    },
+    "resources": {
+        "peakMemMiB": 5577.7,
+        "avgMemMiB": 5573.7,
+        "peakCpuPercent": 55.26,
+        "samples": 5,
+        "avgCpuPercent": 30.09
+    },
+    "scenario": "04-inv-confirm",
+    "counters": {
+        "data_sent": 75417,
+        "data_received": 72441,
+        "confirmaciones_ok": 11,
+        "confirmaciones_idempotentes": 86,
+        "http_5xx": 0,
+        "reservas_creadas": 20,
+        "iterations": 97
+    },
+    "resultsDir": "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\sessions\\20261122-080447-post-visualizacion\\04-inv-confirm",
+    "profile": "local",
+    "k6Error": null,
+    "thresholdsOk": true,
+    "finishedAt": "2026-11-22 08:18:22",
+    "exitCode": 0,
+    "stock": null,
+    "startedAt": "20261122-081749",
+    "baseUrl": "http://ticketflow-inventory-service:8082",
+    "latencyMs": {
+        "avg": 23.67,
+        "med": 7.56,
+        "p90": 20.69,
+        "p95": 27.23,
+        "p99": 405.99,
+        "max": 456.33
+    },
+    "eventId": "01a20367-f42a-7a34-9374-cd662add8b6a",
+    "measuredDurationSec": 27.65,
+    "wallDurationSec": 33,
+    "mainRequests": 97,
+    "mainWindowSec": 24.2,
+    "mainRate": 4.01
+}

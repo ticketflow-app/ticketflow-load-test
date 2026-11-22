@@ -1,0 +1,45 @@
+﻿{
+    "stages":  [
+                   "5s:10",
+                   "20s:25",
+                   "5s:0"
+               ],
+    "file":  "01-inv-calibration-test.js",
+    "localityId":  "01a201ae-71df-7faf-8e71-73417f32975f",
+    "checks":  {
+                   "rate":  0.9987,
+                   "passes":  76309,
+                   "fails":  101
+               },
+    "requests":  {
+                     "total":  38211,
+                     "rate_per_s":  1255.57,
+                     "failed_rate":  0
+                 },
+    "resources":  null,
+    "scenario":  "01-inv-calibration",
+    "counters":  {
+                     "data_sent":  6230127,
+                     "iterations":  38205,
+                     "data_received":  15814298,
+                     "http_5xx":  0
+                 },
+    "resultsDir":  "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\replay\\i1-calibration",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-22 00:36:38",
+    "exitCode":  0,
+    "stock":  100,
+    "startedAt":  "20261122-001537",
+    "baseUrl":  "http://ticketflow-inventory-service:8082",
+    "latencyMs":  {
+                      "avg":  10.96,
+                      "med":  10.12,
+                      "p90":  18.04,
+                      "p95":  20.18,
+                      "p99":  27.07,
+                      "max":  226.21
+                  },
+    "eventId":  "01a201ae-71c6-76a2-a63e-597610e225be"
+}

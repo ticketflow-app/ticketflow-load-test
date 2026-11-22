@@ -1,0 +1,44 @@
+﻿{
+    "stages":  [
+                   "5s:4",
+                   "20s:8",
+                   "5s:0"
+               ],
+    "file":  "04-availability-test.js",
+    "localityId":  "01a201ac-ca88-721c-8e58-a695f43e25ee",
+    "checks":  {
+                   "rate":  0.9375,
+                   "passes":  450,
+                   "fails":  30
+               },
+    "requests":  {
+                     "total":  166,
+                     "rate_per_s":  5.27,
+                     "failed_rate":  0
+                 },
+    "resources":  null,
+    "scenario":  "04-availability",
+    "counters":  {
+                     "data_sent":  27796,
+                     "data_received":  106004,
+                     "iterations":  160
+                 },
+    "resultsDir":  "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\replay\\04-availability",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-22 00:14:23",
+    "exitCode":  0,
+    "stock":  null,
+    "startedAt":  "20261122-001349",
+    "baseUrl":  "http://ticketflow-api-gateway:8080",
+    "latencyMs":  {
+                      "avg":  17.32,
+                      "med":  12.1,
+                      "p90":  20.2,
+                      "p95":  27.99,
+                      "p99":  132.75,
+                      "max":  296.29
+                  },
+    "eventId":  "01a201ac-ca5b-7f94-8918-97cf6fa9641f"
+}

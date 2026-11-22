@@ -1,0 +1,34 @@
+{
+  "scenario": "01-catalog",
+  "profile": "local",
+  "generated_at": "2026-11-22T05:13:46.631Z",
+  "setup_data": null,
+  "requests": {
+    "total": 382,
+    "rate_per_s": 12.35,
+    "failed_rate": 0
+  },
+  "latency_ms": {
+    "avg": 25,
+    "med": 21.64,
+    "p90": 37.54,
+    "p95": 42.79,
+    "p99": 75.05,
+    "max": 135.55
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 382,
+    "fails": 0
+  },
+  "counters": {
+    "data_received": 2069294,
+    "data_sent": 35908,
+    "iterations": 382
+  },
+  "thresholds": {
+    "http_req_duration{endpoint:eventos-list}: p(95)<150": true,
+    "http_req_failed: rate<0.01": true
+  },
+  "thresholds_ok": true
+}

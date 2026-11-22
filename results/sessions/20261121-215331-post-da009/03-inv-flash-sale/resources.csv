@@ -1,0 +1,16 @@
+﻿Timestamp,ElapsedSec,Container,CpuPercent,MemMiB,MemLimitMiB,Pids
+2026-11-21 21:58:31,0.0,ticketflow-inventory-service,0.58,614.8,11796.5,90
+2026-11-21 21:58:31,0.0,ticketflow-prometheus,0.36,61.1,11796.5,17
+2026-11-21 21:58:31,0.0,ticketflow-eureka-server,1.19,278.1,11796.5,77
+2026-11-21 21:58:31,0.0,ticketflow-frontend,0.00,60.5,11796.5,11
+2026-11-21 21:58:31,0.0,ticketflow-localstack,0.04,140.1,11796.5,7
+2026-11-21 21:58:31,0.0,ticketflow-catalog-service,0.59,618.1,11796.5,77
+2026-11-21 21:58:31,0.0,ticketflow-api-gateway,0.10,428.9,11796.5,67
+2026-11-21 21:58:31,0.0,ticketflow-user-service,0.09,440.9,11796.5,49
+2026-11-21 21:58:31,0.0,ticketflow-elasticsearch,0.64,994.2,11796.5,148
+2026-11-21 21:58:31,0.0,ticketflow-grafana,1.95,615.5,11796.5,177
+2026-11-21 21:58:31,0.0,ticketflow-inventory-db,0.00,44.1,11796.5,19
+2026-11-21 21:58:31,0.0,ticketflow-redis,0.64,13.0,11796.5,6
+2026-11-21 21:58:31,0.0,ticketflow-catalog-db,0.12,58.9,11796.5,19
+2026-11-21 21:58:31,0.0,ticketflow-user-db,0.00,51.1,11796.5,19
+2026-11-21 21:58:31,0.0,ticketflow-kafka,1.69,1009.0,11796.5,109

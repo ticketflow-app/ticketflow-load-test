@@ -1,0 +1,55 @@
+{
+    "stages": [
+        "5s:2",
+        "10s:5",
+        "5s:0"
+    ],
+    "file": "01-catalog-test.js",
+    "localityId": null,
+    "checks": {
+        "rate": 1,
+        "passes": 51,
+        "fails": 0
+    },
+    "requests": {
+        "total": 51,
+        "rate_per_s": 2.52,
+        "failed_rate": 0
+    },
+    "resources": {
+        "peakMemMiB": 5631.3,
+        "avgMemMiB": 5622.1,
+        "peakCpuPercent": 61.42,
+        "samples": 4,
+        "avgCpuPercent": 38.35
+    },
+    "scenario": "01-catalog",
+    "counters": {
+        "data_sent": 4794,
+        "iterations": 51,
+        "data_received": 473115
+    },
+    "resultsDir": "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\sessions\\20261122-080447-post-visualizacion\\01-catalog",
+    "profile": "local",
+    "k6Error": null,
+    "thresholdsOk": true,
+    "finishedAt": "2026-11-22 08:05:12",
+    "exitCode": 0,
+    "stock": null,
+    "startedAt": "20261122-080447",
+    "baseUrl": "http://ticketflow-api-gateway:8080",
+    "latencyMs": {
+        "avg": 12.04,
+        "med": 10.54,
+        "p90": 15.53,
+        "p95": 27.72,
+        "p99": 41.14,
+        "max": 45.07
+    },
+    "eventId": null,
+    "measuredDurationSec": 20.24,
+    "wallDurationSec": 25,
+    "mainRequests": 51,
+    "mainWindowSec": 19.22,
+    "mainRate": 2.65
+}

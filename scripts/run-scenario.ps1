@@ -34,6 +34,10 @@
 .PARAMETER NoSampler
     Skip the CPU/RAM sampler (useful for a very short smoke run).
 
+.PARAMETER ReplayJson
+    Also emit k6 per-request events to results/<run>/requests.json. This is the input for
+    scripts/generate-replay.js. Off by default because a full run can exceed 300k requests.
+
 .PARAMETER ThinkTime
     Seconds each k6 iteration sleeps. 0 (default) = per-scenario value: 06 uses 2 s so the
     inventory traffic stays under the gateway rate limit (10 req/s), the rest use 1 s.
@@ -46,6 +50,7 @@
     .\run-scenario.ps1 -Scenario 01
     .\run-scenario.ps1 -Scenario 06 -Profile sla
     .\run-scenario.ps1 -Scenario 04 -Stages 10s:4,20s:8,10s:0 -NoSampler
+    .\run-scenario.ps1 -Scenario 06 -Stages 5s:6,20s:10,5s:0 -NoSampler -ReplayJson
 #>
 [CmdletBinding()]
 param(
@@ -57,6 +62,7 @@ param(
     [object]$Env,
     [switch]$NoSampler,
     [switch]$NoPrometheus,
+    [switch]$ReplayJson,
     [string]$ResultsRoot,
     [string]$RunDir,
     [string]$BaseUrl = 'http://ticketflow-api-gateway:8080',
@@ -194,6 +200,12 @@ if (-not $NoPrometheus) {
     $k6OutputArgs = @('-o', 'experimental-prometheus-rw')
 }
 
+# Per-request JSON is the source for the interactive replay viewer. It is opt-in because a full
+# local run produces hundreds of thousands of lines.
+if ($ReplayJson) {
+    $k6OutputArgs += @('-o', 'json=/results/requests.json')
+}
+
 if ($Env) {
     # Accepts -Env STOCK=5,BUYERS=5 (command line) or -Env @{ STOCK='5' } (in-session).
     $pairs = @()
@@ -329,6 +341,14 @@ $summaryPath = Join-Path $runDir 'resources-summary.md'
 $summaryLines | Set-Content -Path $summaryPath -Encoding UTF8
 
 # --- machine-readable run record ---------------------------------------------
+# k6 reports the measured load window through requests/rate; the elapsed wall clock also includes
+# the post-run requests.json dump and is kept separately for transparency.
+$wallStart = [datetime]::ParseExact($stamp, 'yyyyMMdd-HHmmss', $inv)
+$wallDurationSec = [math]::Round(((Get-Date) - $wallStart).TotalSeconds, 1)
+$measuredDurationSec = $null
+$mainRequests = $null
+$mainRate = $null
+$mainWindowSec = $null
 try {
     $scenarioSummaryPath = Join-Path $runDir "$($selected.Name)-summary.json"
     $scenarioSummary = $null
@@ -352,12 +372,46 @@ try {
         $thresholdsOk = $scenarioSummary.thresholds_ok
         $latency = $scenarioSummary.latency_ms
         $requests = $scenarioSummary.requests
+        if ($requests -and $requests.rate_per_s -gt 0) {
+            $measuredDurationSec = [math]::Round($requests.total / $requests.rate_per_s, 2)
+        }
         $checks = $scenarioSummary.checks
         $counters = $scenarioSummary.counters
         if ($scenarioSummary.setup_data) {
             $eventId = $scenarioSummary.setup_data.eventId
             $localityId = $scenarioSummary.setup_data.localityId
             $stock = $scenarioSummary.setup_data.stock
+        }
+    }
+
+    # k6's http_reqs includes setup(). Derive load metrics from phase=main only so they match
+    # what the replay shows by default and what the configured stages actually measure.
+    if ($ReplayJson) {
+        $requestsJsonPath = Join-Path $runDir 'requests.json'
+        if (Test-Path $requestsJsonPath) {
+            $count = 0
+            $firstTicks = $null
+            $lastTicks = 0
+            $reader = [System.IO.StreamReader]::new($requestsJsonPath)
+            try {
+                while (($line = $reader.ReadLine()) -ne $null) {
+                    if (-not $line) { continue }
+                    try { $row = $line | ConvertFrom-Json } catch { continue }
+                    if ($row.type -ne 'Point' -or $row.metric -ne 'http_reqs' -or -not $row.data) { continue }
+                    if ($row.data.tags -and $row.data.tags.phase -eq 'setup') { continue }
+                    $ticks = [datetimeoffset]::Parse($row.data.time, $inv).UtcDateTime.Ticks
+                    $count += 1
+                    if ($null -eq $firstTicks -or $ticks -lt $firstTicks) { $firstTicks = $ticks }
+                    if ($ticks -gt $lastTicks) { $lastTicks = $ticks }
+                }
+            } finally {
+                $reader.Dispose()
+            }
+            if ($count -gt 0 -and $null -ne $firstTicks -and $lastTicks -gt $firstTicks) {
+                $mainRequests = $count
+                $mainWindowSec = [math]::Round(($lastTicks - $firstTicks) / 10000000.0, 2)
+                if ($mainWindowSec -gt 0) { $mainRate = [math]::Round($mainRequests / $mainWindowSec, 2) }
+            }
         }
     }
 
@@ -368,10 +422,15 @@ try {
         stages       = $effectiveStages
         baseUrl      = $effectiveBaseUrl
         exitCode     = $exitCode
-        startedAt    = $stamp
-        finishedAt   = (Get-Date).ToString('yyyy-MM-dd HH:mm:ss', $inv)
-        resultsDir   = $runDir
-        thresholdsOk = $thresholdsOk
+        startedAt           = $stamp
+        finishedAt          = (Get-Date).ToString('yyyy-MM-dd HH:mm:ss', $inv)
+        measuredDurationSec = $measuredDurationSec
+        wallDurationSec     = $wallDurationSec
+        mainRequests        = $mainRequests
+        mainRate            = $mainRate
+        mainWindowSec       = $mainWindowSec
+        resultsDir          = $runDir
+        thresholdsOk        = $thresholdsOk
         latencyMs    = $latency
         requests     = $requests
         checks       = $checks
@@ -392,10 +451,15 @@ try {
             stages       = $effectiveStages
             baseUrl      = $effectiveBaseUrl
             exitCode     = $exitCode
-            startedAt    = $stamp
-            finishedAt   = (Get-Date).ToString('yyyy-MM-dd HH:mm:ss', $inv)
-            resultsDir   = $runDir
-            thresholdsOk = $false
+            startedAt           = $stamp
+            finishedAt          = (Get-Date).ToString('yyyy-MM-dd HH:mm:ss', $inv)
+            measuredDurationSec = $null
+            wallDurationSec     = $wallDurationSec
+            mainRequests        = $null
+            mainRate            = $null
+            mainWindowSec       = $null
+            resultsDir          = $runDir
+            thresholdsOk        = $false
             latencyMs    = $null
             requests     = $null
             checks       = $null

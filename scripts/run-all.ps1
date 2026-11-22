@@ -31,10 +31,15 @@
     Stops at the first failing scenario. By default every scenario runs and the verdict is
     reported at the end, which is what you want to see the whole picture.
 
+.PARAMETER ReplayJson
+    Also writes per-request requests.json files inside every scenario folder. These are the input
+    for scripts/generate-replay.js. Off by default because a full session can exceed 1 GB.
+
 .EXAMPLE
     .\run-all.ps1
     .\run-all.ps1 -Smoke
     .\run-all.ps1 -Scenarios 01,06 -Profile sla
+    .\run-all.ps1 -Smoke -ReplayJson -Label post-visualizacion
 #>
 [CmdletBinding()]
 param(
@@ -45,6 +50,7 @@ param(
     [string]$ResultsRoot,
     [switch]$NoPrometheus,
     [switch]$StopOnError,
+    [switch]$ReplayJson,
     [string]$Label
 )
 
@@ -181,6 +187,7 @@ foreach ($scenario in $Scenarios) {
     if ($Smoke -and $info.Smoke) { $childArgs += @('-Stages', (Quote ($info.Smoke -join ','))) }
     if ($Smoke -and $info.Env) { $childArgs += @('-Env', (Quote $info.Env)) }
     if ($NoPrometheus) { $childArgs += '-NoPrometheus' }
+    if ($ReplayJson) { $childArgs += '-ReplayJson' }
 
     $timer = [System.Diagnostics.Stopwatch]::StartNew()
     $exitCode = Invoke-Logged -Label "escenario $scenario" `
@@ -255,8 +262,10 @@ foreach ($scenario in $Scenarios) {
         ThresholdsOk = if ($run) { $run.thresholdsOk } else { $null }
         P95          = if ($run -and $run.latencyMs) { $run.latencyMs.p95 } else { $null }
         P99          = if ($run -and $run.latencyMs) { $run.latencyMs.p99 } else { $null }
-        Requests     = if ($run -and $run.requests) { $run.requests.total } else { $null }
-        ReqPerSecond = if ($run -and $run.requests) { $run.requests.rate_per_s } else { $null }
+        Requests     = if ($run -and $run.mainRequests) { $run.mainRequests } elseif ($run -and $run.requests) { $run.requests.total } else { $null }
+        ReqPerSecond = if ($run -and $run.mainRate) { $run.mainRate } elseif ($run -and $run.requests) { $run.requests.rate_per_s } else { $null }
+        K6Requests   = if ($run -and $run.requests) { $run.requests.total } else { $null }
+        K6ReqPerSecond = if ($run -and $run.requests) { $run.requests.rate_per_s } else { $null }
         FailedRate   = if ($run -and $run.requests) { $run.requests.failed_rate } else { $null }
         ChecksRate   = if ($run -and $run.checks) { $run.checks.rate } else { $null }
         PeakMemMiB   = if ($run -and $run.resources) { $run.resources.peakMemMiB } else { $null }
@@ -265,7 +274,9 @@ foreach ($scenario in $Scenarios) {
         EventId      = if ($run) { $run.eventId } else { $null }
         LocalityId   = if ($run) { $run.localityId } else { $null }
         Stock        = if ($run) { $run.stock } else { $null }
-        DurationSec  = [math]::Round($timer.Elapsed.TotalSeconds, 1)
+        # DurationSec is the main-phase window. WallDurationSec also includes setup and the requests.json dump.
+        DurationSec  = if ($run -and $run.mainWindowSec) { $run.mainWindowSec } elseif ($run -and $run.measuredDurationSec) { $run.measuredDurationSec } else { [math]::Round($timer.Elapsed.TotalSeconds, 1) }
+        WallDurationSec = [math]::Round($timer.Elapsed.TotalSeconds, 1)
         Folder       = $runDir
     }
 

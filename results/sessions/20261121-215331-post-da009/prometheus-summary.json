@@ -1,0 +1,28 @@
+{
+  "capturedAt": "2026-11-21T22:31:00",
+  "source": "http://localhost:9090/api/v1/query?query=sum%20by%20(job,uri,method,status)%20(http_server_requests_seconds_count)",
+  "beforeRun": {
+    "catalog-service": {
+      "GET /api/eventos/{eventId}/localidades": 0,
+      "POST /api/eventos/{eventId}/localidades": 0,
+      "GET /api/eventos": 2
+    },
+    "inventory-service": {
+      "GET /api/inventario/eventos/{eventoId}/disponibilidad": 0,
+      "POST /api/reservas": 0
+    }
+  },
+  "afterRun": {
+    "catalog-service": {
+      "GET /api/eventos/{eventId}/localidades": 0,
+      "POST /api/eventos/{eventId}/localidades": 3,
+      "GET /api/eventos": 3
+    },
+    "inventory-service": {
+      "GET /api/inventario/eventos/{eventoId}/disponibilidad": 321362,
+      "POST /api/reservas": 519,
+      "POST /api/reservas/{id}/confirmar": 83
+    }
+  },
+  "interpretation": "Durante 321.362 lecturas de disponibilidad, catálogo recibió 0 GET a /localidades. Los 3 POST son el alta de los 3 eventos de setup. Los 419 respuestas 409 incluidas en las 519 peticiones POST /api/reservas son rechazos esperados por agotar el stock."
+}

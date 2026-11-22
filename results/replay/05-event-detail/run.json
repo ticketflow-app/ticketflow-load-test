@@ -1,0 +1,44 @@
+﻿{
+    "stages":  [
+                   "5s:6",
+                   "20s:25",
+                   "5s:0"
+               ],
+    "file":  "05-event-detail-test.js",
+    "localityId":  "01a201ad-5131-75f9-a94b-910c96d028c4",
+    "checks":  {
+                   "rate":  1,
+                   "passes":  1548,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  393,
+                     "rate_per_s":  12.6,
+                     "failed_rate":  0
+                 },
+    "resources":  null,
+    "scenario":  "05-event-detail",
+    "counters":  {
+                     "data_sent":  53330,
+                     "data_received":  547291,
+                     "iterations":  387
+                 },
+    "resultsDir":  "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\replay\\05-event-detail",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-22 00:14:57",
+    "exitCode":  0,
+    "stock":  null,
+    "startedAt":  "20261122-001423",
+    "baseUrl":  "http://ticketflow-api-gateway:8080",
+    "latencyMs":  {
+                      "avg":  15.92,
+                      "med":  13.22,
+                      "p90":  19.36,
+                      "p95":  25.04,
+                      "p99":  45.8,
+                      "max":  291.26
+                  },
+    "eventId":  "01a201ad-5113-7aab-aae3-2fc634065ca0"
+}

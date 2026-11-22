@@ -56,6 +56,8 @@ scripts/
   sample-resources.ps1      # muestreo de `docker stats` a CSV
   verify-invariants.ps1     # verificación anti-sobreventa (PostgreSQL + Redis)
   reset-state.ps1           # limpieza de reservas y contadores (dry run por defecto)
+  generate-visual-report.js # anexo visual (Mermaid + SVG + HTML) desde run.json; no ejecuta k6
+  generate-replay.js        # visor de peticiones/rechazos desde requests.json; no ejecuta k6
 ```
 
 `01` y `04`–`08` **importan** `lib/`, así que se ejecutan montando la carpeta en el contenedor
@@ -221,11 +223,11 @@ Se puede lanzar por separado:
 .\sample-resources.ps1 -OutFile .\results\manual\resources.csv -IntervalSec 2
 ```
 
-Prometheus complementa el CSV: el `prometheus.yml` del gateway ahora scrapea
-`catalog-service:8082/actuator/prometheus` (JVM: heap, threads, CPU del proceso). Los otros tres
-servicios exponen `/actuator/metrics` pero **no** `/actuator/prometheus`, así que su CPU/RAM solo
-está en el CSV hasta que se les añada `micrometer-registry-prometheus` (dependencia pendiente de
-autorización).
+Prometheus complementa el CSV: el `prometheus.yml` del gateway scrapea
+`catalog-service:8082/actuator/prometheus` e `inventory-service:8082/actuator/prometheus`
+(JVM: heap, threads, GC, HTTP y contadores del consumidor Kafka). El gateway sigue exponiendo solo
+`/actuator/metrics`; user-service no está en el scrape. Para CPU/RAM por proceso haría falta
+cAdvisor, que no está en el alcance actual.
 
 ---
 
@@ -264,6 +266,42 @@ Sale con código 1 si alguna verificación falla. Para limpiar datos de prueba:
 El reporte de una sesión completa está en `results\sessions\<AAAAMMDD-HHMMSS>\SUMMARY.md`: tabla de
 escenarios con PASS/FAIL, p95, req/s, fallidas, picos de RAM/CPU, invariante y duración, más el
 detalle por escenario. `session.json` tiene lo mismo para procesarlo con otra herramienta.
+
+Para exponerlo, regenera el anexo visual (diagramas Mermaid, imagen SVG y visor HTML) con
+`node scripts/generate-visual-report.js`; los archivos quedan en `docs_ia/informes/` y no requieren
+repetir ninguna prueba. El visor HTML abre con un apartado donde se explica el endpoint, la carga
+configurada y el resultado esperado de cada escenario.
+
+Para ver el **replay interactivo** abre `docs_ia/informes/visual/replay-interactivo.html`: reproduce
+peticiones reales y marca el escalón donde se rechazan (429 en gateway, 409 por cupo o estado
+inválido en inventario, 410 por reserva ya confirmada). Tiene **selector de sesión** y selector de
+escenario; la sesión `post-visualizacion` aparece primero. Lee `results/sessions/**/requests.json` y
+también las capturas previas de `results/replay/**/requests.json`. Los escenarios muy grandes se
+muestrean a 2.500 puntos conservando todos los rechazos. Para regenerarlo sin correr nada:
+`node scripts/generate-replay.js`.
+
+Para capturar una sesión completa con replay:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\run-all.ps1 -Scenarios '01,04,05,06,07,08,i1,i2,i3,i4,i5' -Smoke -ReplayJson -Label post-visualizacion
+node scripts\generate-visual-report.js
+node scripts\generate-replay.js
+```
+
+`-Smoke` mantiene las 11 pruebas pero acorta los stages: sin él, `-ReplayJson` en I1/I5 escribe
+decenas de miles de líneas y la corrida se alarga demasiado para un regenerado del visor. Cada
+`run.json` distingue `mainRequests`/`mainRate`/`mainWindowSec` (fase `main`, usada en req/s y
+duración del visor) de `measuredDurationSec` y `wallDurationSec` (ventana k6 con `setup` y reloj de
+carpeta, respectivamente). Los totales de k6 quedan como `k6Requests`/`k6ReqPerSecond`. `STOCK` es
+capacidad sembrada en el `setup`, no número de reservas vendidas; el replay lo muestra aparte con
+«Mostrar setup».
+
+Para capturar un solo escenario:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\run-scenario.ps1 -Scenario 06 -ReplayJson
+node scripts\generate-replay.js
+```
 
 - Prometheus arranca con `--web.enable-remote-write-receiver`, por eso acepta las métricas que
   empuja k6. Comprueba que llegaron:

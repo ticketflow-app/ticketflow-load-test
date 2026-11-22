@@ -1,0 +1,48 @@
+﻿{
+    "stages":  [
+                   "5s:6",
+                   "20s:10",
+                   "5s:0"
+               ],
+    "file":  "06-flash-sale-test.js",
+    "localityId":  "01a201a2-776c-7d28-98d7-cb55c1bb3aee",
+    "checks":  {
+                   "rate":  1,
+                   "passes":  100,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  116,
+                     "rate_per_s":  3.22,
+                     "failed_rate":  0
+                 },
+    "resources":  null,
+    "scenario":  "06-flash-sale",
+    "counters":  {
+                     "reservas_aceptadas":  5,
+                     "data_received":  86490,
+                     "reservas_sin_stock":  33,
+                     "http_5xx":  0,
+                     "data_sent":  40990,
+                     "iterations":  100,
+                     "confirmaciones_ok":  2
+                 },
+    "resultsDir":  "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\replay\\06-flash-sale",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-22 00:03:09",
+    "exitCode":  0,
+    "stock":  5,
+    "startedAt":  "20261122-000231",
+    "baseUrl":  "http://ticketflow-api-gateway:8080",
+    "latencyMs":  {
+                      "avg":  63.77,
+                      "med":  27.5,
+                      "p90":  196.63,
+                      "p95":  263.81,
+                      "p99":  606.08,
+                      "max":  864.21
+                  },
+    "eventId":  "01a201a2-7712-7d7b-96f2-f0a9f22ab726"
+}

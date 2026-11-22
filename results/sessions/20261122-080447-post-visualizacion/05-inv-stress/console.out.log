@@ -1,0 +1,1657 @@
+﻿scenario : 05-inv-stress
+stages   : 3s:15 -> 10s:15 -> 3s:0
+profile  : local
+think    : 0 s
+results  : C:\Users\Diego\Documents\Programacion\ticketflow\ticketflow-load-test\results\sessions\20261122-080447-post-visualizacion\05-inv-stress
+sampler  : pid 17788 -> resources.csv
+
+         /\      Grafana   /ΓÇ╛ΓÇ╛/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ΓÇ╛ΓÇ╛\ 
+  /          \   |   (  |  (ΓÇ╛)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/05-inv-stress-test.js
+        output: Prometheus remote write (http://ticketflow-prometheus:9090/api/v1/write), json (/results/requests.json)
+
+     scenarios: (100.00%) 1 scenario, 15 max VUs, 46s max duration (incl. graceful stop):
+              * default: Up to 15 looping VUs for 16s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+running (07.0s), 05/15 VUs, 433 complete and 0 interrupted iterations
+default   [   6% ] 05/15 VUs  00.9s/16.0s
+
+running (08.0s), 09/15 VUs, 2055 complete and 0 interrupted iterations
+default   [  12% ] 09/15 VUs  01.9s/16.0s
+
+running (09.0s), 14/15 VUs, 3948 complete and 0 interrupted iterations
+default   [  18% ] 14/15 VUs  02.9s/16.0s
+
+running (10.0s), 15/15 VUs, 6133 complete and 0 interrupted iterations
+default   [  25% ] 15/15 VUs  03.9s/16.0s
+
+running (11.0s), 15/15 VUs, 7731 complete and 0 interrupted iterations
+default   [  31% ] 15/15 VUs  04.9s/16.0s
+
+running (12.0s), 15/15 VUs, 9820 complete and 0 interrupted iterations
+default   [  37% ] 15/15 VUs  05.9s/16.0s
+
+running (13.0s), 15/15 VUs, 11968 complete and 0 interrupted iterations
+default   [  43% ] 15/15 VUs  06.9s/16.0s
+
+running (14.0s), 15/15 VUs, 14048 complete and 0 interrupted iterations
+default   [  50% ] 15/15 VUs  07.9s/16.0s
+
+running (15.0s), 15/15 VUs, 16190 complete and 0 interrupted iterations
+default   [  56% ] 15/15 VUs  08.9s/16.0s
+
+running (16.0s), 15/15 VUs, 17900 complete and 0 interrupted iterations
+default   [  62% ] 15/15 VUs  09.9s/16.0s
+
+running (17.0s), 15/15 VUs, 19553 complete and 0 interrupted iterations
+default   [  68% ] 15/15 VUs  10.9s/16.0s
+
+running (18.0s), 15/15 VUs, 21805 complete and 0 interrupted iterations
+default   [  75% ] 15/15 VUs  11.9s/16.0s
+
+running (19.0s), 15/15 VUs, 23821 complete and 0 interrupted iterations
+default   [  81% ] 15/15 VUs  12.9s/16.0s
+
+running (20.0s), 11/15 VUs, 25785 complete and 0 interrupted iterations
+default   [  87% ] 11/15 VUs  13.9s/16.0s
+
+running (21.0s), 06/15 VUs, 27425 complete and 0 interrupted iterations
+default   [  93% ] 06/15 VUs  14.9s/16.0s
+
+running (22.0s), 01/15 VUs, 28454 complete and 0 interrupted iterations
+default   [ 100% ] 01/15 VUs  15.9s/16.0s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+# k6 ΓÇö 05-inv-stress
+
+- Perfil: `local`
+- Umbrales: **OK**
+- Peticiones: 28527 (1292.9 req/s)
+- Fallidas: 0.00 %
+- Latencia: p95 11.09 ms ┬╖ p99 14.51 ms ┬╖ max 259.73 ms
+- _La latencia incluye las peticiones de `setup`; los umbrales se eval├║an por endpoint (`http_req_duration{endpoint:...}`)._
+- Checks: 100.00 % (28481 ok / 0 fail)
+
+| Contador | Valor |
+|---|---|
+| data_received | 14717013 |
+| reservas_sin_stock | 28381 |
+| iterations | 28481 |
+| data_sent | 19616620 |
+| reservas_aceptadas | 100 |
+| http_5xx | 0 |
+
+| Umbral | Resultado |
+|---|---|
+| http_5xx: count==0 | OK |
+| http_req_duration{endpoint:reservas}: p(95)<1000 | OK |
+| checks: rate>0.70 | OK |
+| http_req_failed: rate<0.40 | OK |
+| reservas_aceptadas: count>0 | OK |
+| reservas_aceptadas: count<=100 | OK |
+
+running (22.1s), 00/15 VUs, 28481 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/15 VUs  16s
+
+# Recursos - 05-inv-stress
+
+- Perfil: local
+- Stages: 3s:15, 10s:15, 3s:0
+- Muestreo: cada 3 s
+- k6 exit code: 0
+
+- Muestras: 13
+
+| Contenedor | CPU media % | CPU max % | RAM media MiB | RAM max MiB |
+|---|---|---|---|---|
+| ticketflow-inventory-service | 68.49 | 442.96 | 655.7 | 656.4 |
+| ticketflow-k6 | 41.72 | 191.63 | 83.3 | 97.1 |
+| ticketflow-user-service | 7.72 | 98.68 | 454.1 | 514.8 |
+| ticketflow-redis | 2.41 | 12.04 | 12.4 | 13.0 |
+| ticketflow-eureka-server | 1.91 | 7.64 | 294.6 | 295.3 |
+| ticketflow-elasticsearch | 1.28 | 6.16 | 1000.3 | 1002.0 |
+| ticketflow-catalog-db | 0.98 | 5.18 | 57.5 | 58.5 |
+| ticketflow-inventory-db | 0.93 | 4.80 | 46.5 | 47.6 |
+| ticketflow-localstack | 0.63 | 4.29 | 142.3 | 143.5 |
+| ticketflow-kafka | 2.44 | 3.33 | 1008.7 | 1010.0 |
+| ticketflow-user-db | 0.34 | 3.32 | 50.5 | 52.0 |
+| ticketflow-grafana | 2.08 | 2.83 | 587.2 | 587.7 |
+| ticketflow-catalog-service | 1.09 | 2.57 | 663.1 | 663.5 |
+| ticketflow-prometheus | 0.81 | 2.17 | 70.6 | 71.2 |
+| ticketflow-api-gateway | 0.18 | 0.40 | 463.8 | 464.1 |
+| ticketflow-frontend | 0.00 | 0.00 | 59.7 | 59.7 |
+
+- RAM total del stack: media 5644 MiB, pico 5660 MiB
+- CPU total del stack: media 129.79 %, pico 661.11 %
+
+results: C:\Users\Diego\Documents\Programacion\ticketflow\ticketflow-load-test\results\sessions\20261122-080447-post-visualizacion\05-inv-stress
+

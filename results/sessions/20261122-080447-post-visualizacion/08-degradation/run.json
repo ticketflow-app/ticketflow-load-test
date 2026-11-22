@@ -1,0 +1,59 @@
+{
+    "stages": [
+        "3s:20",
+        "10s:40",
+        "3s:0"
+    ],
+    "file": "08-degradation-test.js",
+    "localityId": "01a2035e-60c6-71bc-b882-6d548259b139",
+    "checks": {
+        "rate": 1,
+        "passes": 804,
+        "fails": 0
+    },
+    "requests": {
+        "total": 418,
+        "rate_per_s": 23.07,
+        "failed_rate": 0
+    },
+    "resources": {
+        "peakMemMiB": 5587.9,
+        "avgMemMiB": 5576.6,
+        "peakCpuPercent": 55.64,
+        "samples": 4,
+        "avgCpuPercent": 39.37
+    },
+    "scenario": "08-degradation",
+    "counters": {
+        "data_sent": 277545,
+        "iterations": 402,
+        "http_5xx": 0,
+        "rate_limit_without_problem_detail": 239,
+        "rate_limited": 239,
+        "reservas_aceptadas": 163,
+        "data_received": 204199
+    },
+    "resultsDir": "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\sessions\\20261122-080447-post-visualizacion\\08-degradation",
+    "profile": "local",
+    "k6Error": null,
+    "thresholdsOk": true,
+    "finishedAt": "2026-11-22 08:07:45",
+    "exitCode": 0,
+    "stock": null,
+    "startedAt": "20261122-080723",
+    "baseUrl": "http://ticketflow-api-gateway:8080",
+    "latencyMs": {
+        "avg": 11.29,
+        "med": 4.29,
+        "p90": 19.22,
+        "p95": 21.25,
+        "p99": 180.06,
+        "max": 239.55
+    },
+    "eventId": "01a2035e-60b5-7615-b85b-35596d75dba9",
+    "measuredDurationSec": 18.12,
+    "wallDurationSec": 22,
+    "mainRequests": 402,
+    "mainWindowSec": 15.65,
+    "mainRate": 25.69
+}

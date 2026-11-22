@@ -1,0 +1,17 @@
+﻿
+Evento    : 01a2035d-3d8b-7264-a04d-ad2f8183c0b6
+Localidad : 01a2035d-3d9d-74e0-88ae-963fcb1dec07
+Reservas  : 5 (PENDING=1, CONFIRMED=4)
+Redis     : stock=0 capacity=5
+
+| Verificacion | Resultado | Detalle |
+|---|---|---|
+| Cupos reservados == stock esperado | PASS | reservados=5 esperado=5 |
+| Contador Redis existe | PASS | inv:stock:*=0 |
+| Contador Redis == 0 | PASS | stock=0 |
+| Contador Redis no negativo | PASS | stock=0 |
+| Capacidad almacenada == stock esperado | PASS | capacity=5 esperado=5 |
+| Hay reservas registradas | PASS | filas=5 |
+
+RESULTADO: PASS
+

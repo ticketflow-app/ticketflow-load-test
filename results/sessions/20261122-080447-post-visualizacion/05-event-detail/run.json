@@ -1,0 +1,55 @@
+{
+    "stages": [
+        "5s:2",
+        "10s:5",
+        "5s:0"
+    ],
+    "file": "05-event-detail-test.js",
+    "localityId": "01a2035c-d2d6-71fc-a23e-e6b5b786944c",
+    "checks": {
+        "rate": 1,
+        "passes": 204,
+        "fails": 0
+    },
+    "requests": {
+        "total": 57,
+        "rate_per_s": 2.78,
+        "failed_rate": 0
+    },
+    "resources": {
+        "peakMemMiB": 5634.8,
+        "avgMemMiB": 5630,
+        "peakCpuPercent": 29.92,
+        "samples": 4,
+        "avgCpuPercent": 21.68
+    },
+    "scenario": "05-event-detail",
+    "counters": {
+        "iterations": 51,
+        "data_received": 77716,
+        "data_sent": 9314
+    },
+    "resultsDir": "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\sessions\\20261122-080447-post-visualizacion\\05-event-detail",
+    "profile": "local",
+    "k6Error": null,
+    "thresholdsOk": true,
+    "finishedAt": "2026-11-22 08:06:06",
+    "exitCode": 0,
+    "stock": null,
+    "startedAt": "20261122-080541",
+    "baseUrl": "http://ticketflow-api-gateway:8080",
+    "latencyMs": {
+        "avg": 13.67,
+        "med": 9.1,
+        "p90": 16.68,
+        "p95": 22.72,
+        "p99": 109.24,
+        "max": 209.83
+    },
+    "eventId": "01a2035c-d2c1-7efd-933b-029cdd912056",
+    "measuredDurationSec": 20.5,
+    "wallDurationSec": 25,
+    "mainRequests": 51,
+    "mainWindowSec": 19.19,
+    "mainRate": 2.66
+}

@@ -7,6 +7,7 @@
 // La disponibilidad (GET) es pública y no requiere token.
 
 import http from 'k6/http';
+import { sleep } from 'k6';
 import { BASE_URL, USER_URL, CATALOG_URL, CATEGORY_ID, VENUE_ID } from './config.js';
 
 export const JSON_HEADERS = { 'Content-Type': 'application/json' };
@@ -131,10 +132,24 @@ export function createPublishedEvent(token, options) {
   }
 
   // Seeds the availability counter in Redis from the catalog capacity.
-  // Untagged on purpose: it must not pollute the measured availability latency.
-  http.get(`${BASE_URL}/api/inventario/eventos/${eventId}/disponibilidad`, {
-    tags: { phase: 'setup' },
-  });
+  // Since DA-009 the projection arrives asynchronously from Kafka, so one GET can still be empty.
+  // Poll briefly in setup (tagged as setup, never measured) before the VUs start reading.
+  let seeded = false;
+  for (let attempt = 0; attempt < 10 && !seeded; attempt += 1) {
+    const res = http.get(`${BASE_URL}/api/inventario/eventos/${eventId}/disponibilidad`, {
+      tags: { phase: 'setup' },
+    });
+    try {
+      const body = res.json();
+      seeded = res.status === 200 && body !== null && Array.isArray(body.localities) && body.localities.length > 0;
+    } catch (error) {
+      seeded = false;
+    }
+    if (!seeded) sleep(0.3);
+  }
+  if (!seeded) {
+    throw new Error(`availability projection was not ready for event ${eventId}`);
+  }
 
   return { eventId, localityId };
 }

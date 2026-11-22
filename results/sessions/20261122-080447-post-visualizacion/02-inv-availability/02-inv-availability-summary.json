@@ -1,0 +1,42 @@
+{
+  "scenario": "02-inv-availability",
+  "profile": "local",
+  "generated_at": "2026-11-22T13:34:29.935Z",
+  "setup_data": {
+    "eventId": "01a20376-d27b-7b4a-93a4-1356a8a086b8",
+    "localityId": "01a20376-d292-7036-922e-d684e7c5648b",
+    "stock": null,
+    "buyers": null
+  },
+  "requests": {
+    "total": 54,
+    "rate_per_s": 2.48,
+    "failed_rate": 0
+  },
+  "latency_ms": {
+    "avg": 12.52,
+    "med": 5.14,
+    "p90": 7.43,
+    "p95": 22.23,
+    "p99": 184.18,
+    "max": 358.92
+  },
+  "checks": {
+    "rate": 1,
+    "passes": 88,
+    "fails": 0
+  },
+  "counters": {
+    "data_received": 24898,
+    "iterations": 44,
+    "data_sent": 10543,
+    "http_5xx": 0
+  },
+  "thresholds": {
+    "checks: rate>0.99": true,
+    "http_req_duration{endpoint:disponibilidad}: p(95)<100": true,
+    "http_5xx: count==0": true,
+    "http_req_failed: rate<0.01": true
+  },
+  "thresholds_ok": true
+}

@@ -1,0 +1,139 @@
+﻿scenario : 08-degradation
+stages   : 3s:20 -> 10s:40 -> 3s:0
+profile  : local
+think    : 1 s
+results  : C:\Users\Diego\Documents\Programacion\ticketflow\ticketflow-load-test\results\sessions\20261122-080447-post-visualizacion\08-degradation
+sampler  : pid 17864 -> resources.csv
+
+         /\      Grafana   /ΓÇ╛ΓÇ╛/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ΓÇ╛ΓÇ╛\ 
+  /          \   |   (  |  (ΓÇ╛)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/08-degradation-test.js
+        output: Prometheus remote write (http://ticketflow-prometheus:9090/api/v1/write), json (/results/requests.json)
+
+     scenarios: (100.00%) 1 scenario, 40 max VUs, 46s max duration (incl. graceful stop):
+              * default: Up to 40 looping VUs for 16s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+Run       [ 100% ] setup()
+default   [   0% ]
+
+running (02.0s), 04/40 VUs, 0 complete and 0 interrupted iterations
+default   [   3% ] 04/40 VUs  00.5s/16.0s
+
+running (03.0s), 10/40 VUs, 4 complete and 0 interrupted iterations
+default   [  10% ] 10/40 VUs  01.5s/16.0s
+
+running (04.0s), 16/40 VUs, 14 complete and 0 interrupted iterations
+default   [  16% ] 16/40 VUs  02.5s/16.0s
+
+running (05.0s), 21/40 VUs, 29 complete and 0 interrupted iterations
+default   [  22% ] 21/40 VUs  03.5s/16.0s
+
+running (06.0s), 23/40 VUs, 50 complete and 0 interrupted iterations
+default   [  28% ] 23/40 VUs  04.5s/16.0s
+
+running (07.0s), 25/40 VUs, 72 complete and 0 interrupted iterations
+default   [  35% ] 25/40 VUs  05.5s/16.0s
+
+running (08.0s), 27/40 VUs, 96 complete and 0 interrupted iterations
+default   [  41% ] 27/40 VUs  06.5s/16.0s
+
+running (09.0s), 29/40 VUs, 121 complete and 0 interrupted iterations
+default   [  47% ] 29/40 VUs  07.5s/16.0s
+
+running (10.0s), 31/40 VUs, 149 complete and 0 interrupted iterations
+default   [  53% ] 31/40 VUs  08.5s/16.0s
+
+running (11.0s), 33/40 VUs, 179 complete and 0 interrupted iterations
+default   [  60% ] 33/40 VUs  09.5s/16.0s
+
+running (12.0s), 35/40 VUs, 211 complete and 0 interrupted iterations
+default   [  66% ] 35/40 VUs  10.5s/16.0s
+
+running (13.0s), 37/40 VUs, 245 complete and 0 interrupted iterations
+default   [  72% ] 37/40 VUs  11.5s/16.0s
+
+running (14.0s), 39/40 VUs, 279 complete and 0 interrupted iterations
+default   [  78% ] 39/40 VUs  12.5s/16.0s
+
+running (15.0s), 39/40 VUs, 317 complete and 0 interrupted iterations
+default   [  85% ] 39/40 VUs  13.5s/16.0s
+
+running (16.0s), 30/40 VUs, 356 complete and 0 interrupted iterations
+default   [  91% ] 30/40 VUs  14.5s/16.0s
+
+running (17.0s), 14/40 VUs, 386 complete and 0 interrupted iterations
+default   [  97% ] 14/40 VUs  15.5s/16.0s
+
+running (18.0s), 02/40 VUs, 400 complete and 0 interrupted iterations
+default Γåô [ 100% ] 06/40 VUs  16s
+# k6 ΓÇö 08-degradation
+
+- Perfil: `local`
+- Umbrales: **OK**
+- Peticiones: 418 (23.07 req/s)
+- Fallidas: 0.00 %
+- Latencia: p95 21.25 ms ┬╖ p99 180.06 ms ┬╖ max 239.55 ms
+- _La latencia incluye las peticiones de `setup`; los umbrales se evaluan por endpoint (`http_req_duration{endpoint:...}`)._
+- Checks: 100.00 % (804 ok / 0 fail)
+
+| Contador | Valor |
+|---|---|
+| data_sent | 277545 |
+| iterations | 402 |
+| http_5xx | 0 |
+| rate_limit_without_problem_detail | 239 |
+| rate_limited | 239 |
+| reservas_aceptadas | 163 |
+| data_received | 204199 |
+
+| Umbral | Resultado |
+|---|---|
+| http_5xx: count==0 | OK |
+| rate_limited: count>0 | OK |
+| http_req_failed: rate<0.01 | OK |
+| http_req_duration{endpoint:reservas}: p(95)<600 | OK |
+| checks: rate>0.99 | OK |
+
+running (18.1s), 00/40 VUs, 402 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 00/40 VUs  16s
+
+# Recursos - 08-degradation
+
+- Perfil: local
+- Stages: 3s:20, 10s:40, 3s:0
+- Muestreo: cada 3 s
+- k6 exit code: 0
+
+- Muestras: 4
+
+| Contenedor | CPU media % | CPU max % | RAM media MiB | RAM max MiB |
+|---|---|---|---|---|
+| ticketflow-k6 | 13.61 | 17.42 | 25.9 | 28.0 |
+| ticketflow-api-gateway | 6.34 | 14.47 | 461.3 | 464.0 |
+| ticketflow-kafka | 5.08 | 10.17 | 1008.5 | 1009.0 |
+| ticketflow-inventory-service | 4.65 | 7.75 | 654.7 | 654.9 |
+| ticketflow-localstack | 1.12 | 4.32 | 142.3 | 143.0 |
+| ticketflow-catalog-db | 1.13 | 3.92 | 57.5 | 58.0 |
+| ticketflow-user-db | 1.14 | 3.79 | 50.5 | 51.4 |
+| ticketflow-inventory-db | 1.55 | 3.07 | 46.8 | 48.3 |
+| ticketflow-grafana | 2.19 | 2.69 | 589.9 | 590.3 |
+| ticketflow-redis | 1.47 | 1.93 | 12.5 | 12.6 |
+| ticketflow-eureka-server | 1.41 | 1.67 | 294.2 | 294.2 |
+| ticketflow-elasticsearch | 1.11 | 1.43 | 1000.0 | 1000.0 |
+| ticketflow-catalog-service | 1.02 | 1.22 | 662.5 | 662.7 |
+| ticketflow-prometheus | 0.78 | 1.20 | 68.3 | 68.6 |
+| ticketflow-user-service | 0.19 | 0.34 | 448.6 | 448.7 |
+| ticketflow-frontend | 0.00 | 0.00 | 59.7 | 59.7 |
+
+- RAM total del stack: media 5576.6 MiB, pico 5587.9 MiB
+- CPU total del stack: media 39.37 %, pico 55.64 %
+
+results: C:\Users\Diego\Documents\Programacion\ticketflow\ticketflow-load-test\results\sessions\20261122-080447-post-visualizacion\08-degradation
+

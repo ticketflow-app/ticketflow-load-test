@@ -1,0 +1,142 @@
+﻿scenario : 02-inv-availability
+stages   : 5s:2 -> 10s:4 -> 5s:0
+profile  : local
+think    : 1 s
+results  : C:\Users\Diego\Documents\Programacion\ticketflow\ticketflow-load-test\results\sessions\20261122-080447-post-visualizacion\02-inv-availability
+sampler  : pid 21572 -> resources.csv
+
+         /\      Grafana   /ΓÇ╛ΓÇ╛/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ΓÇ╛ΓÇ╛\ 
+  /          \   |   (  |  (ΓÇ╛)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/02-inv-availability-test.js
+        output: Prometheus remote write (http://ticketflow-prometheus:9090/api/v1/write), json (/results/requests.json)
+
+     scenarios: (100.00%) 1 scenario, 4 max VUs, 50s max duration (incl. graceful stop):
+              * default: Up to 4 looping VUs for 20s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+running (01.0s), 1/4 VUs, 0 complete and 0 interrupted iterations
+default   [   4% ] 1/4 VUs  00.7s/20.0s
+
+running (02.0s), 1/4 VUs, 1 complete and 0 interrupted iterations
+default   [   9% ] 1/4 VUs  01.7s/20.0s
+
+running (03.0s), 1/4 VUs, 2 complete and 0 interrupted iterations
+default   [  14% ] 1/4 VUs  02.7s/20.0s
+
+running (04.0s), 1/4 VUs, 3 complete and 0 interrupted iterations
+default   [  19% ] 1/4 VUs  03.7s/20.0s
+
+running (05.0s), 1/4 VUs, 4 complete and 0 interrupted iterations
+default   [  24% ] 1/4 VUs  04.7s/20.0s
+
+running (06.0s), 2/4 VUs, 5 complete and 0 interrupted iterations
+default   [  29% ] 2/4 VUs  05.7s/20.0s
+
+running (07.0s), 2/4 VUs, 7 complete and 0 interrupted iterations
+default   [  34% ] 2/4 VUs  06.7s/20.0s
+
+running (08.0s), 2/4 VUs, 9 complete and 0 interrupted iterations
+default   [  39% ] 2/4 VUs  07.7s/20.0s
+
+running (09.0s), 2/4 VUs, 11 complete and 0 interrupted iterations
+default   [  44% ] 2/4 VUs  08.7s/20.0s
+
+running (10.0s), 2/4 VUs, 13 complete and 0 interrupted iterations
+default   [  49% ] 2/4 VUs  09.7s/20.0s
+
+running (11.0s), 3/4 VUs, 15 complete and 0 interrupted iterations
+default   [  54% ] 3/4 VUs  10.7s/20.0s
+
+running (12.0s), 3/4 VUs, 18 complete and 0 interrupted iterations
+default   [  59% ] 3/4 VUs  11.7s/20.0s
+
+running (13.0s), 3/4 VUs, 21 complete and 0 interrupted iterations
+default   [  64% ] 3/4 VUs  12.7s/20.0s
+
+running (14.0s), 3/4 VUs, 24 complete and 0 interrupted iterations
+default   [  69% ] 3/4 VUs  13.7s/20.0s
+
+running (15.0s), 3/4 VUs, 27 complete and 0 interrupted iterations
+default   [  74% ] 3/4 VUs  14.7s/20.0s
+
+running (16.0s), 4/4 VUs, 30 complete and 0 interrupted iterations
+default   [  79% ] 4/4 VUs  15.7s/20.0s
+
+running (17.0s), 4/4 VUs, 34 complete and 0 interrupted iterations
+default   [  84% ] 4/4 VUs  16.7s/20.0s
+
+running (18.0s), 3/4 VUs, 38 complete and 0 interrupted iterations
+default   [  89% ] 3/4 VUs  17.7s/20.0s
+
+running (19.0s), 2/4 VUs, 41 complete and 0 interrupted iterations
+default   [  94% ] 2/4 VUs  18.7s/20.0s
+
+running (20.0s), 1/4 VUs, 43 complete and 0 interrupted iterations
+default   [  99% ] 1/4 VUs  19.7s/20.0s
+# k6 ΓÇö 02-inv-availability
+
+- Perfil: `local`
+- Umbrales: **FALLIDOS**
+- Peticiones: 50 (2.45 req/s)
+- Fallidas: 0.00 %
+- Latencia: p95 19.75 ms ┬╖ p99 105.33 ms ┬╖ max 185.05 ms
+- _La latencia incluye las peticiones de `setup`; los umbrales se eval├║an por endpoint (`http_req_duration{endpoint:...}`)._
+- Checks: 98.86 % (87 ok / 1 fail)
+
+| Contador | Valor |
+|---|---|
+| http_5xx | 0 |
+| data_sent | 9891 |
+| data_received | 23394 |
+| iterations | 44 |
+
+| Umbral | Resultado |
+|---|---|
+| http_req_failed: rate<0.01 | OK |
+| http_5xx: count==0 | OK |
+| http_req_duration{endpoint:disponibilidad}: p(95)<100 | OK |
+| checks: rate>0.99 | FALLO |
+
+running (20.4s), 0/4 VUs, 44 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 0/4 VUs  20s
+WARNING: k6/docker fallo: k6/docker salio con codigo 99. Se escribira run.json con los datos disponibles.
+
+# Recursos - 02-inv-availability
+
+- Perfil: local
+- Stages: 5s:2, 10s:4, 5s:0
+- Muestreo: cada 3 s
+- k6 exit code: 99
+
+- Muestras: 4
+
+| Contenedor | CPU media % | CPU max % | RAM media MiB | RAM max MiB |
+|---|---|---|---|---|
+| ticketflow-elasticsearch | 2.25 | 6.09 | 1000.5 | 1002.0 |
+| ticketflow-catalog-db | 1.75 | 5.94 | 57.6 | 58.1 |
+| ticketflow-inventory-db | 1.05 | 4.21 | 46.4 | 47.0 |
+| ticketflow-kafka | 2.64 | 2.85 | 1008.8 | 1009.0 |
+| ticketflow-k6 | 2.43 | 2.72 | 14.1 | 14.7 |
+| ticketflow-catalog-service | 1.42 | 2.47 | 662.8 | 663.2 |
+| ticketflow-grafana | 2.20 | 2.36 | 587.6 | 588.6 |
+| ticketflow-eureka-server | 1.83 | 2.29 | 294.8 | 295.0 |
+| ticketflow-prometheus | 1.10 | 1.96 | 67.8 | 68.3 |
+| ticketflow-inventory-service | 1.72 | 1.84 | 655.0 | 655.3 |
+| ticketflow-redis | 0.97 | 1.07 | 12.5 | 12.6 |
+| ticketflow-api-gateway | 0.21 | 0.25 | 463.9 | 464.1 |
+| ticketflow-user-service | 0.13 | 0.15 | 448.8 | 449.0 |
+| ticketflow-localstack | 0.07 | 0.08 | 142.1 | 142.4 |
+| ticketflow-user-db | 0.02 | 0.03 | 50.5 | 50.7 |
+| ticketflow-frontend | 0.00 | 0.00 | 59.7 | 59.7 |
+
+- RAM total del stack: media 5569.2 MiB, pico 5573.7 MiB
+- CPU total del stack: media 19.17 %, pico 25.31 %
+
+results: C:\Users\Diego\Documents\Programacion\ticketflow\ticketflow-load-test\results\sessions\20261122-080447-post-visualizacion\02-inv-availability
+

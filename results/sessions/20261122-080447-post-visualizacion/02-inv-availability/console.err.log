@@ -1,0 +1,4 @@
+﻿time="2026-11-22T13:16:45Z" level=warning msg="experimental-prometheus-rw output has been deprecated and is planned for removal in k6 v3. We recommend using opentelemetry for all your metrics output."
+time="2026-11-22T13:16:46Z" level=info msg="setup: eventId=01a20366-ea9b-7cd7-ab0d-170587a84801 localityId=01a20366-eaac-7cf8-a4b4-38ebc86de81d stock=1000" source=console
+time="2026-11-22T13:17:06Z" level=error msg="thresholds on metrics 'checks' have been crossed"
+

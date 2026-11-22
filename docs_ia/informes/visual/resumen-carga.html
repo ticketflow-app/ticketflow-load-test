@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>TicketFlow · Visor de pruebas de carga</title>
+<style>
+  body { font-family: Segoe UI, Arial, sans-serif; margin: 32px; color: #1f2328; background: #f6f8fa; }
+  h1 { margin-bottom: 4px; }
+  .hint { color: #57606a; margin-bottom: 20px; }
+  select { font-size: 15px; padding: 6px 10px; margin-bottom: 20px; }
+  .session { display: none; background: #fff; padding: 18px; border: 1px solid #d0d7de; border-radius: 10px; }
+  .session.active { display: block; }
+  .guide { background: #fff; padding: 16px 18px; border: 1px solid #d0d7de; border-radius: 10px; margin-bottom: 20px; }
+  .guide summary { cursor: pointer; font-weight: 600; font-size: 16px; margin-bottom: 10px; }
+  .guide p { margin: 8px 0; font-size: 13px; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { border-bottom: 1px solid #d8dee4; padding: 8px 10px; text-align: left; vertical-align: middle; }
+  th { background: #f6f8fa; }
+  .guide table { font-size: 12px; }
+  .guide code, .hint code { background: #f6f8fa; padding: 1px 4px; border-radius: 3px; }
+  .session td:nth-child(3) { min-width: 260px; }
+  .bar { display: inline-block; height: 12px; background: #0969da; border-radius: 3px; margin-right: 8px; vertical-align: middle; }
+  .rate { display: flex; align-items: center; flex-wrap: wrap; gap: 2px 8px; }
+  .rate small { display: block; width: 100%; color: #57606a; }
+  span { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+<h1>TicketFlow · Visor de pruebas de carga</h1>
+<p class="hint">Datos de las sesiones del 2026-11-15, 2026-11-21 y 2026-11-22. <strong>req/s = peticiones HTTP por segundo</strong>, no paquetes TCP; solo fase <code>main</code>, sin <code>setup</code>. La barra usa escala log10 para que 10 y 4.000 req/s quepan en la misma gráfica. CPU % es por núcleo. <a href="replay-interactivo.html">Abrir replay interactivo de peticiones →</a></p>
+<details class="guide" open>
+  <summary>¿Por qué cambia el req/s?</summary>
+  <p>El req/s <strong>no es una configuración fija</strong>: es <code>peticiones totales / duración real</code> de cada corrida.</p><p>Cambia entre sesiones aunque el escenario sea el mismo porque:</p><p>1. El perfil cambia los <code>stages</code> y el número de VUs (las sesiones <code>smoke</code> son más cortas que <code>local</code>).</p><p>2. La suite directa a inventario no pasa por el <code>RequestRateLimiter</code> del gateway (10 req/s, ráfaga 20); la suite gateway sí, por eso sus cifras son mucho menores.</p><p>3. k6 espera la respuesta antes de la siguiente iteración: un servicio más lento reduce el req/s aunque haya los mismos VUs.</p><p>4. En flash sale, las respuestas 409 por cupo agotado siguen contando como peticiones y el cliente sigue reintentando: sube el total y se alarga la duración.</p><p>5. El equipo tiene más contenedores levantados en unas sesiones que en otras (Redis, Kafka, ES, LocalStack, frontend).</p><p>6. Con <code>-ReplayJson</code>, k6 vuelca el JSON <strong>después</strong> de medir: la duración de la carpeta incluye ese vuelco, pero el req/s se calcula sobre la ventana real de carga (I1: 29.033 peticiones / 30,25 s = 959,9 req/s, aunque la carpeta tarde 535 s).</p>
+</details>
+<label for="session-select">Sesión: </label>
+<select id="session-select" onchange="showSession()">
+  <option value="s-20261115_074612">20261115-074612</option>
+  <option value="s-20261115_090255">20261115-090255</option>
+  <option value="s-20261115_091427">20261115-091427</option>
+  <option value="s-20261115_093525">20261115-093525</option>
+  <option value="s-20261115_095106">20261115-095106</option>
+  <option value="s-20261121_215331_post_da009">20261121-215331-post-da009</option>
+  <option value="s-20261122_080447_post_visualizacion" selected>20261122-080447-post-visualizacion</option>
+</select>
+<section id="s-20261115_074612" class="session" data-session="20261115-074612">
+    <h2>Sesión 20261115-074612</h2>
+    <p class="hint">Peticiones, req/s y duración cuentan solo la fase <code>main</code>; el <code>setup</code> se excluye (en el replay se ve con «Mostrar setup»). Duración = ventana real entre la primera y la última petición de carga; el vuelco de <code>requests.json</code> no cuenta. <code>log10(1.781,2)=3,2508</code> → <code>10^3,2508 ≈ 1.781</code>. El número grande es req/s reales; el pequeño, su exponente. <code>STOCK=100</code> es capacidad sembrada, no reservas vendidas.</p>
+    <table>
+      <thead><tr><th>Escenario</th><th>Destino</th><th>Caudal real · exponente log10</th><th>Ventana main</th><th>p95</th><th>Fallidas</th><th>CPU pico</th><th>RAM pico</th></tr></thead>
+      <tbody><tr>
+      <td>I1 · Calibración (inventario)</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:86.7%" title="1081,2 req/s"></div><span>1081,2 req/s</span><small>log₁₀ 3,0339</small></div></td>
+      <td>30.4 s</td><td>3,8 ms</td><td>0,00 %</td>
+      <td>431,2 %</td><td>3279,6 MiB</td>
+    </tr>
+<tr>
+      <td>I2 · Disponibilidad</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:11.1%" title="2,4 req/s"></div><span>2,4 req/s</span><small>log₁₀ 0,3874</small></div></td>
+      <td>20.5 s</td><td>21,3 ms</td><td>0,00 %</td>
+      <td>9,6 %</td><td>3262,1 MiB</td>
+    </tr>
+<tr>
+      <td>I3 · Flash sale</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:23.5%" title="6,6 req/s"></div><span>6,6 req/s</span><small>log₁₀ 0,8215</small></div></td>
+      <td>31.8 s</td><td>13,4 ms</td><td>0,22 %</td>
+      <td>81,7 %</td><td>3274,8 MiB</td>
+    </tr>
+<tr>
+      <td>I4 · Confirmación</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:19.6%" title="4,9 req/s"></div><span>4,9 req/s</span><small>log₁₀ 0,6857</small></div></td>
+      <td>27.4 s</td><td>16,8 ms</td><td>0,72 %</td>
+      <td>98,6 %</td><td>3334,6 MiB</td>
+    </tr>
+<tr>
+      <td>I5 · Estrés</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:100.0%" title="3166,2 req/s"></div><span>3166,2 req/s</span><small>log₁₀ 3,5005</small></div></td>
+      <td>19.9 s</td><td>4,3 ms</td><td>1,00 %</td>
+      <td>572,2 %</td><td>3390,5 MiB</td>
+    </tr></tbody>
+    </table>
+    <details class="guide" open>
+      <summary>Carga ejecutada y qué mide cada escenario en esta sesión</summary>
+      <table>
+        <thead><tr><th>Escenario</th><th>Endpoint</th><th>Qué hace</th><th>Stages + stock ejecutados</th><th>Esperado</th></tr></thead>
+        <tbody><tr>
+      <td>I1 · Calibración (inventario)</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (directo, sin gateway)</code></td>
+      <td>Busca el codo de capacidad del servicio de inventario.</td>
+      <td>10s:3 · 10s:6 · 10s:0 · STOCK=100</td>
+      <td>200; sin 5xx. Aquí se midió la CPU de catálogo antes/después de DA-009.</td>
+    </tr>
+<tr>
+      <td>I2 · Disponibilidad</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (directo, sin gateway)</code></td>
+      <td>Mide disponibilidad sostenida a carga baja constante.</td>
+      <td>5s:2 · 10s:4 · 5s:0</td>
+      <td>200; p95 estable y sin 5xx.</td>
+    </tr>
+<tr>
+      <td>I3 · Flash sale</td>
+      <td><code>GET disponibilidad · POST /api/reservas · POST /api/reservas/{id}/confirmar (directo)</code></td>
+      <td>Prueba clave de concurrencia: 100 cupos, 15 compradores, sin freno del gateway.</td>
+      <td>5s:6 · 20s:10 · 5s:0 · STOCK=5</td>
+      <td>100 reservas aceptadas, el resto 409; stock final 0, nunca negativo; verificado con SQL + Redis.</td>
+    </tr>
+<tr>
+      <td>I4 · Confirmación</td>
+      <td><code>POST /api/reservas (setup) · POST /api/reservas/{id}/confirmar (directo)</code></td>
+      <td>Confirma reservas creadas previamente y comprueba el estado emitido.</td>
+      <td>5s:4 · 15s:6 · 5s:0</td>
+      <td>200/201 con status CONFIRMED; 409/410 en re-confirmaciones; sin 5xx.</td>
+    </tr>
+<tr>
+      <td>I5 · Estrés</td>
+      <td><code>POST /api/reservas (directo, sin think time)</code></td>
+      <td>Contención extrema sobre el contador Redis y la escritura en PostgreSQL.</td>
+      <td>3s:15 · 10s:15 · 3s:0 · STOCK=100</td>
+      <td>200/201 o 409 por cupo agotado; timeouts controlados, nunca 5xx ni stock negativo.</td>
+    </tr></tbody>
+      </table>
+    </details>
+  </section>
+<section id="s-20261115_090255" class="session" data-session="20261115-090255">
+    <h2>Sesión 20261115-090255</h2>
+    <p class="hint">Peticiones, req/s y duración cuentan solo la fase <code>main</code>; el <code>setup</code> se excluye (en el replay se ve con «Mostrar setup»). Duración = ventana real entre la primera y la última petición de carga; el vuelco de <code>requests.json</code> no cuenta. <code>log10(1.781,2)=3,2508</code> → <code>10^3,2508 ≈ 1.781</code>. El número grande es req/s reales; el pequeño, su exponente. <code>STOCK=100</code> es capacidad sembrada, no reservas vendidas.</p>
+    <table>
+      <thead><tr><th>Escenario</th><th>Destino</th><th>Caudal real · exponente log10</th><th>Ventana main</th><th>p95</th><th>Fallidas</th><th>CPU pico</th><th>RAM pico</th></tr></thead>
+      <tbody><tr>
+      <td>I1 · Calibración (inventario)</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:86.4%" title="1068,8 req/s"></div><span>1068,8 req/s</span><small>log₁₀ 3,0289</small></div></td>
+      <td>31.9 s</td><td>3,9 ms</td><td>0,00 %</td>
+      <td>422,5 %</td><td>3515,8 MiB</td>
+    </tr>
+<tr>
+      <td>I2 · Disponibilidad</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:11.0%" title="2,4 req/s"></div><span>2,4 req/s</span><small>log₁₀ 0,3856</small></div></td>
+      <td>20.6 s</td><td>14,3 ms</td><td>0,00 %</td>
+      <td>7,5 %</td><td>3491,5 MiB</td>
+    </tr>
+<tr>
+      <td>I3 · Flash sale</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:23.3%" title="6,6 req/s"></div><span>6,6 req/s</span><small>log₁₀ 0,8176</small></div></td>
+      <td>32.1 s</td><td>9,9 ms</td><td>0,00 %</td>
+      <td>13,5 %</td><td>3487,7 MiB</td>
+    </tr>
+<tr>
+      <td>I4 · Confirmación</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:19.9%" title="5,0 req/s"></div><span>5,0 req/s</span><small>log₁₀ 0,6972</small></div></td>
+      <td>26.7 s</td><td>17,4 ms</td><td>0,00 %</td>
+      <td>16,1 %</td><td>3491,9 MiB</td>
+    </tr>
+<tr>
+      <td>I5 · Estrés</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:100.0%" title="3206,5 req/s"></div><span>3206,5 req/s</span><small>log₁₀ 3,5060</small></div></td>
+      <td>19.4 s</td><td>4,4 ms</td><td>0,00 %</td>
+      <td>567,0 %</td><td>3537,7 MiB</td>
+    </tr></tbody>
+    </table>
+    <details class="guide" open>
+      <summary>Carga ejecutada y qué mide cada escenario en esta sesión</summary>
+      <table>
+        <thead><tr><th>Escenario</th><th>Endpoint</th><th>Qué hace</th><th>Stages + stock ejecutados</th><th>Esperado</th></tr></thead>
+        <tbody><tr>
+      <td>I1 · Calibración (inventario)</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (directo, sin gateway)</code></td>
+      <td>Busca el codo de capacidad del servicio de inventario.</td>
+      <td>10s:3 · 10s:6 · 10s:0 · STOCK=100</td>
+      <td>200; sin 5xx. Aquí se midió la CPU de catálogo antes/después de DA-009.</td>
+    </tr>
+<tr>
+      <td>I2 · Disponibilidad</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (directo, sin gateway)</code></td>
+      <td>Mide disponibilidad sostenida a carga baja constante.</td>
+      <td>5s:2 · 10s:4 · 5s:0</td>
+      <td>200; p95 estable y sin 5xx.</td>
+    </tr>
+<tr>
+      <td>I3 · Flash sale</td>
+      <td><code>GET disponibilidad · POST /api/reservas · POST /api/reservas/{id}/confirmar (directo)</code></td>
+      <td>Prueba clave de concurrencia: 100 cupos, 15 compradores, sin freno del gateway.</td>
+      <td>5s:6 · 20s:10 · 5s:0 · STOCK=5</td>
+      <td>100 reservas aceptadas, el resto 409; stock final 0, nunca negativo; verificado con SQL + Redis.</td>
+    </tr>
+<tr>
+      <td>I4 · Confirmación</td>
+      <td><code>POST /api/reservas (setup) · POST /api/reservas/{id}/confirmar (directo)</code></td>
+      <td>Confirma reservas creadas previamente y comprueba el estado emitido.</td>
+      <td>5s:4 · 15s:6 · 5s:0</td>
+      <td>200/201 con status CONFIRMED; 409/410 en re-confirmaciones; sin 5xx.</td>
+    </tr>
+<tr>
+      <td>I5 · Estrés</td>
+      <td><code>POST /api/reservas (directo, sin think time)</code></td>
+      <td>Contención extrema sobre el contador Redis y la escritura en PostgreSQL.</td>
+      <td>3s:15 · 10s:15 · 3s:0 · STOCK=100</td>
+      <td>200/201 o 409 por cupo agotado; timeouts controlados, nunca 5xx ni stock negativo.</td>
+    </tr></tbody>
+      </table>
+    </details>
+  </section>
+<section id="s-20261115_091427" class="session" data-session="20261115-091427">
+    <h2>Sesión 20261115-091427</h2>
+    <p class="hint">Peticiones, req/s y duración cuentan solo la fase <code>main</code>; el <code>setup</code> se excluye (en el replay se ve con «Mostrar setup»). Duración = ventana real entre la primera y la última petición de carga; el vuelco de <code>requests.json</code> no cuenta. <code>log10(1.781,2)=3,2508</code> → <code>10^3,2508 ≈ 1.781</code>. El número grande es req/s reales; el pequeño, su exponente. <code>STOCK=100</code> es capacidad sembrada, no reservas vendidas.</p>
+    <table>
+      <thead><tr><th>Escenario</th><th>Destino</th><th>Caudal real · exponente log10</th><th>Ventana main</th><th>p95</th><th>Fallidas</th><th>CPU pico</th><th>RAM pico</th></tr></thead>
+      <tbody><tr>
+      <td>E1 · Catálogo</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:69.0%" title="11,7 req/s"></div><span>11,7 req/s</span><small>log₁₀ 1,0689</small></div></td>
+      <td>100.8 s</td><td>9,8 ms</td><td>0,00 %</td>
+      <td>42,8 %</td><td>3545,0 MiB</td>
+    </tr>
+<tr>
+      <td>E4 · Disponibilidad</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:42.7%" title="4,6 req/s"></div><span>4,6 req/s</span><small>log₁₀ 0,6609</small></div></td>
+      <td>102 s</td><td>9,0 ms</td><td>0,00 %</td>
+      <td>21,4 %</td><td>3550,0 MiB</td>
+    </tr>
+<tr>
+      <td>E5 · Detalle de evento</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:69.2%" title="11,8 req/s"></div><span>11,8 req/s</span><small>log₁₀ 1,0715</small></div></td>
+      <td>101.1 s</td><td>5,2 ms</td><td>0,00 %</td>
+      <td>39,9 %</td><td>3552,9 MiB</td>
+    </tr>
+<tr>
+      <td>E6 · Flash sale</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:54.0%" title="6,9 req/s"></div><span>6,9 req/s</span><small>log₁₀ 0,8357</small></div></td>
+      <td>125.3 s</td><td>10,4 ms</td><td>0,00 %</td>
+      <td>88,3 %</td><td>3558,6 MiB</td>
+    </tr>
+<tr>
+      <td>E7 · Confirmación</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:69.5%" title="11,9 req/s"></div><span>11,9 req/s</span><small>log₁₀ 1,0766</small></div></td>
+      <td>72.8 s</td><td>9,2 ms</td><td>0,00 %</td>
+      <td>20,2 %</td><td>3582,1 MiB</td>
+    </tr>
+<tr>
+      <td>E8 · Degradación</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:100.0%" title="35,4 req/s"></div><span>35,4 req/s</span><small>log₁₀ 1,5488</small></div></td>
+      <td>63.1 s</td><td>6,5 ms</td><td>0,00 %</td>
+      <td>24,7 %</td><td>3584,4 MiB</td>
+    </tr></tbody>
+    </table>
+    <details class="guide" open>
+      <summary>Carga ejecutada y qué mide cada escenario en esta sesión</summary>
+      <table>
+        <thead><tr><th>Escenario</th><th>Endpoint</th><th>Qué hace</th><th>Stages + stock ejecutados</th><th>Esperado</th></tr></thead>
+        <tbody><tr>
+      <td>E1 · Catálogo</td>
+      <td><code>GET /api/eventos (vía gateway)</code></td>
+      <td>Lista el catálogo de eventos; mide latencia de lectura cacheable.</td>
+      <td>20s:5 · 60s:25 · 20s:0</td>
+      <td>200; sin 5xx. Es la línea base de catálogo antes de DA-009.</td>
+    </tr>
+<tr>
+      <td>E4 · Disponibilidad</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (vía gateway)</code></td>
+      <td>Consulta el contador atómico de cupos por localidad.</td>
+      <td>20s:4 · 60s:8 · 20s:0</td>
+      <td>200 o 429 del rate limiter del gateway; nunca 5xx.</td>
+    </tr>
+<tr>
+      <td>E5 · Detalle de evento</td>
+      <td><code>GET /api/eventos/{eventId} (vía gateway)</code></td>
+      <td>Lee el detalle de un evento publicado (catálogo).</td>
+      <td>20s:5 · 60s:25 · 20s:0</td>
+      <td>200 con el evento completo; sin 5xx.</td>
+    </tr>
+<tr>
+      <td>E6 · Flash sale</td>
+      <td><code>GET disponibilidad · POST /api/reservas · POST /api/reservas/{id}/confirmar (vía gateway)</code></td>
+      <td>Simula apertura de venta: muchos compradores compiten por 100 cupos.</td>
+      <td>10s:15 · 100s:15 · 10s:0 · STOCK=100</td>
+      <td>200/201 al reservar, 409 al agotar cupo, 429 por rate limit; invariante stock=0 y nunca negativo.</td>
+    </tr>
+<tr>
+      <td>E7 · Confirmación</td>
+      <td><code>POST /api/reservas · POST /api/reservas/{id}/confirmar (vía gateway)</code></td>
+      <td>Crea y confirma reservas con Idempotency-Key única por petición.</td>
+      <td>10s:8 · 50s:8 · 10s:0</td>
+      <td>200/201 al confirmar; 409/410 en re-confirmaciones; 429 por rate limit; sin 5xx.</td>
+    </tr>
+<tr>
+      <td>E8 · Degradación</td>
+      <td><code>POST /api/reservas (vía gateway)</code></td>
+      <td>Ráfaga sostenida para observar degradación controlada.</td>
+      <td>5s:40 · 50s:40 · 5s:0</td>
+      <td>200/201/409/429; el circuit breaker puede abrir y responder fallback 503 sin corromper Redis.</td>
+    </tr></tbody>
+      </table>
+    </details>
+  </section>
+<section id="s-20261115_093525" class="session" data-session="20261115-093525">
+    <h2>Sesión 20261115-093525</h2>
+    <p class="hint">Peticiones, req/s y duración cuentan solo la fase <code>main</code>; el <code>setup</code> se excluye (en el replay se ve con «Mostrar setup»). Duración = ventana real entre la primera y la última petición de carga; el vuelco de <code>requests.json</code> no cuenta. <code>log10(1.781,2)=3,2508</code> → <code>10^3,2508 ≈ 1.781</code>. El número grande es req/s reales; el pequeño, su exponente. <code>STOCK=100</code> es capacidad sembrada, no reservas vendidas.</p>
+    <table>
+      <thead><tr><th>Escenario</th><th>Destino</th><th>Caudal real · exponente log10</th><th>Ventana main</th><th>p95</th><th>Fallidas</th><th>CPU pico</th><th>RAM pico</th></tr></thead>
+      <tbody><tr>
+      <td>E1 · Catálogo</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:68.8%" title="11,8 req/s"></div><span>11,8 req/s</span><small>log₁₀ 1,0726</small></div></td>
+      <td>100.4 s</td><td>4,4 ms</td><td>0,00 %</td>
+      <td>17,5 %</td><td>3589,5 MiB</td>
+    </tr>
+<tr>
+      <td>E4 · Disponibilidad</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:42.8%" title="4,6 req/s"></div><span>4,6 req/s</span><small>log₁₀ 0,6665</small></div></td>
+      <td>100.9 s</td><td>6,4 ms</td><td>0,00 %</td>
+      <td>11,6 %</td><td>3583,2 MiB</td>
+    </tr>
+<tr>
+      <td>E5 · Detalle de evento</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:69.0%" title="11,9 req/s"></div><span>11,9 req/s</span><small>log₁₀ 1,0745</small></div></td>
+      <td>100.6 s</td><td>3,8 ms</td><td>0,00 %</td>
+      <td>24,1 %</td><td>3591,3 MiB</td>
+    </tr>
+<tr>
+      <td>E6 · Flash sale</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:54.2%" title="7,0 req/s"></div><span>7,0 req/s</span><small>log₁₀ 0,8439</small></div></td>
+      <td>123.1 s</td><td>7,6 ms</td><td>0,00 %</td>
+      <td>11,7 %</td><td>3594,8 MiB</td>
+    </tr>
+<tr>
+      <td>E7 · Confirmación</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:68.8%" title="11,8 req/s"></div><span>11,8 req/s</span><small>log₁₀ 1,0726</small></div></td>
+      <td>72.1 s</td><td>8,1 ms</td><td>0,00 %</td>
+      <td>24,2 %</td><td>3600,8 MiB</td>
+    </tr>
+<tr>
+      <td>E8 · Degradación</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:100.0%" title="36,2 req/s"></div><span>36,2 req/s</span><small>log₁₀ 1,5581</small></div></td>
+      <td>61.7 s</td><td>7,6 ms</td><td>0,00 %</td>
+      <td>19,6 %</td><td>3613,4 MiB</td>
+    </tr></tbody>
+    </table>
+    <details class="guide" open>
+      <summary>Carga ejecutada y qué mide cada escenario en esta sesión</summary>
+      <table>
+        <thead><tr><th>Escenario</th><th>Endpoint</th><th>Qué hace</th><th>Stages + stock ejecutados</th><th>Esperado</th></tr></thead>
+        <tbody><tr>
+      <td>E1 · Catálogo</td>
+      <td><code>GET /api/eventos (vía gateway)</code></td>
+      <td>Lista el catálogo de eventos; mide latencia de lectura cacheable.</td>
+      <td>20s:5 · 60s:25 · 20s:0</td>
+      <td>200; sin 5xx. Es la línea base de catálogo antes de DA-009.</td>
+    </tr>
+<tr>
+      <td>E4 · Disponibilidad</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (vía gateway)</code></td>
+      <td>Consulta el contador atómico de cupos por localidad.</td>
+      <td>20s:4 · 60s:8 · 20s:0</td>
+      <td>200 o 429 del rate limiter del gateway; nunca 5xx.</td>
+    </tr>
+<tr>
+      <td>E5 · Detalle de evento</td>
+      <td><code>GET /api/eventos/{eventId} (vía gateway)</code></td>
+      <td>Lee el detalle de un evento publicado (catálogo).</td>
+      <td>20s:5 · 60s:25 · 20s:0</td>
+      <td>200 con el evento completo; sin 5xx.</td>
+    </tr>
+<tr>
+      <td>E6 · Flash sale</td>
+      <td><code>GET disponibilidad · POST /api/reservas · POST /api/reservas/{id}/confirmar (vía gateway)</code></td>
+      <td>Simula apertura de venta: muchos compradores compiten por 100 cupos.</td>
+      <td>10s:15 · 100s:15 · 10s:0 · STOCK=100</td>
+      <td>200/201 al reservar, 409 al agotar cupo, 429 por rate limit; invariante stock=0 y nunca negativo.</td>
+    </tr>
+<tr>
+      <td>E7 · Confirmación</td>
+      <td><code>POST /api/reservas · POST /api/reservas/{id}/confirmar (vía gateway)</code></td>
+      <td>Crea y confirma reservas con Idempotency-Key única por petición.</td>
+      <td>10s:8 · 50s:8 · 10s:0</td>
+      <td>200/201 al confirmar; 409/410 en re-confirmaciones; 429 por rate limit; sin 5xx.</td>
+    </tr>
+<tr>
+      <td>E8 · Degradación</td>
+      <td><code>POST /api/reservas (vía gateway)</code></td>
+      <td>Ráfaga sostenida para observar degradación controlada.</td>
+      <td>5s:40 · 50s:40 · 5s:0</td>
+      <td>200/201/409/429; el circuit breaker puede abrir y responder fallback 503 sin corromper Redis.</td>
+    </tr></tbody>
+      </table>
+    </details>
+  </section>
+<section id="s-20261115_095106" class="session" data-session="20261115-095106">
+    <h2>Sesión 20261115-095106</h2>
+    <p class="hint">Peticiones, req/s y duración cuentan solo la fase <code>main</code>; el <code>setup</code> se excluye (en el replay se ve con «Mostrar setup»). Duración = ventana real entre la primera y la última petición de carga; el vuelco de <code>requests.json</code> no cuenta. <code>log10(1.781,2)=3,2508</code> → <code>10^3,2508 ≈ 1.781</code>. El número grande es req/s reales; el pequeño, su exponente. <code>STOCK=100</code> es capacidad sembrada, no reservas vendidas.</p>
+    <table>
+      <thead><tr><th>Escenario</th><th>Destino</th><th>Caudal real · exponente log10</th><th>Ventana main</th><th>p95</th><th>Fallidas</th><th>CPU pico</th><th>RAM pico</th></tr></thead>
+      <tbody><tr>
+      <td>I1 · Calibración (inventario)</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:97.4%" title="3317,5 req/s"></div><span>3317,5 req/s</span><small>log₁₀ 3,5208</small></div></td>
+      <td>150.3 s</td><td>18,7 ms</td><td>0,00 %</td>
+      <td>870,0 %</td><td>3944,6 MiB</td>
+    </tr>
+<tr>
+      <td>I2 · Disponibilidad</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:27.9%" title="10,2 req/s"></div><span>10,2 req/s</span><small>log₁₀ 1,0086</small></div></td>
+      <td>120.7 s</td><td>3,9 ms</td><td>0,00 %</td>
+      <td>12,6 %</td><td>3725,3 MiB</td>
+    </tr>
+<tr>
+      <td>I3 · Flash sale</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:31.3%" title="13,6 req/s"></div><span>13,6 req/s</span><small>log₁₀ 1,1323</small></div></td>
+      <td>124.9 s</td><td>4,1 ms</td><td>0,00 %</td>
+      <td>82,2 %</td><td>3731,1 MiB</td>
+    </tr>
+<tr>
+      <td>I4 · Confirmación</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:26.4%" title="9,0 req/s"></div><span>9,0 req/s</span><small>log₁₀ 0,9557</small></div></td>
+      <td>71.3 s</td><td>4,3 ms</td><td>0,00 %</td>
+      <td>14,4 %</td><td>3731,2 MiB</td>
+    </tr>
+<tr>
+      <td>I5 · Estrés</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:100.0%" title="4135,3 req/s"></div><span>4135,3 req/s</span><small>log₁₀ 3,6165</small></div></td>
+      <td>70.6 s</td><td>12,3 ms</td><td>0,00 %</td>
+      <td>556,6 %</td><td>3878,6 MiB</td>
+    </tr></tbody>
+    </table>
+    <details class="guide" open>
+      <summary>Carga ejecutada y qué mide cada escenario en esta sesión</summary>
+      <table>
+        <thead><tr><th>Escenario</th><th>Endpoint</th><th>Qué hace</th><th>Stages + stock ejecutados</th><th>Esperado</th></tr></thead>
+        <tbody><tr>
+      <td>I1 · Calibración (inventario)</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (directo, sin gateway)</code></td>
+      <td>Busca el codo de capacidad del servicio de inventario.</td>
+      <td>30s:10 · 30s:25 · 30s:50 · 30s:75 · 30s:0 · STOCK=100</td>
+      <td>200; sin 5xx. Aquí se midió la CPU de catálogo antes/después de DA-009.</td>
+    </tr>
+<tr>
+      <td>I2 · Disponibilidad</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (directo, sin gateway)</code></td>
+      <td>Mide disponibilidad sostenida a carga baja constante.</td>
+      <td>20s:5 · 80s:20 · 20s:0</td>
+      <td>200; p95 estable y sin 5xx.</td>
+    </tr>
+<tr>
+      <td>I3 · Flash sale</td>
+      <td><code>GET disponibilidad · POST /api/reservas · POST /api/reservas/{id}/confirmar (directo)</code></td>
+      <td>Prueba clave de concurrencia: 100 cupos, 15 compradores, sin freno del gateway.</td>
+      <td>10s:15 · 100s:15 · 10s:0 · STOCK=100</td>
+      <td>100 reservas aceptadas, el resto 409; stock final 0, nunca negativo; verificado con SQL + Redis.</td>
+    </tr>
+<tr>
+      <td>I4 · Confirmación</td>
+      <td><code>POST /api/reservas (setup) · POST /api/reservas/{id}/confirmar (directo)</code></td>
+      <td>Confirma reservas creadas previamente y comprueba el estado emitido.</td>
+      <td>10s:10 · 50s:10 · 10s:0</td>
+      <td>200/201 con status CONFIRMED; 409/410 en re-confirmaciones; sin 5xx.</td>
+    </tr>
+<tr>
+      <td>I5 · Estrés</td>
+      <td><code>POST /api/reservas (directo, sin think time)</code></td>
+      <td>Contención extrema sobre el contador Redis y la escritura en PostgreSQL.</td>
+      <td>5s:45 · 55s:45 · 5s:0 · STOCK=100</td>
+      <td>200/201 o 409 por cupo agotado; timeouts controlados, nunca 5xx ni stock negativo.</td>
+    </tr></tbody>
+      </table>
+    </details>
+  </section>
+<section id="s-20261121_215331_post_da009" class="session" data-session="20261121-215331-post-da009">
+    <h2>Sesión 20261121-215331-post-da009</h2>
+    <p class="hint">Peticiones, req/s y duración cuentan solo la fase <code>main</code>; el <code>setup</code> se excluye (en el replay se ve con «Mostrar setup»). Duración = ventana real entre la primera y la última petición de carga; el vuelco de <code>requests.json</code> no cuenta. <code>log10(1.781,2)=3,2508</code> → <code>10^3,2508 ≈ 1.781</code>. El número grande es req/s reales; el pequeño, su exponente. <code>STOCK=100</code> es capacidad sembrada, no reservas vendidas.</p>
+    <table>
+      <thead><tr><th>Escenario</th><th>Destino</th><th>Caudal real · exponente log10</th><th>Ventana main</th><th>p95</th><th>Fallidas</th><th>CPU pico</th><th>RAM pico</th></tr></thead>
+      <tbody><tr>
+      <td>I1 · Calibración (inventario)</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:100.0%" title="2098,6 req/s"></div><span>2098,6 req/s</span><small>log₁₀ 3,3219</small></div></td>
+      <td>152.1 s</td><td>29,3 ms</td><td>0,00 %</td>
+      <td>11,6 %</td><td>3391,8 MiB</td>
+    </tr>
+<tr>
+      <td>I2 · Disponibilidad</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:30.2%" title="10,1 req/s"></div><span>10,1 req/s</span><small>log₁₀ 1,0035</small></div></td>
+      <td>121.7 s</td><td>10,2 ms</td><td>0,00 %</td>
+      <td>68,4 %</td><td>5456,5 MiB</td>
+    </tr>
+<tr>
+      <td>I3 · Flash sale</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:1.0%" title="0,9 req/s"></div><span>0,9 req/s</span><small>log₁₀ 0,0000</small></div></td>
+      <td>1891 s</td><td>21,0 ms</td><td>0,00 %</td>
+      <td>8,0 %</td><td>5428,3 MiB</td>
+    </tr></tbody>
+    </table>
+    <details class="guide" open>
+      <summary>Carga ejecutada y qué mide cada escenario en esta sesión</summary>
+      <table>
+        <thead><tr><th>Escenario</th><th>Endpoint</th><th>Qué hace</th><th>Stages + stock ejecutados</th><th>Esperado</th></tr></thead>
+        <tbody><tr>
+      <td>I1 · Calibración (inventario)</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (directo, sin gateway)</code></td>
+      <td>Busca el codo de capacidad del servicio de inventario.</td>
+      <td>30s:10 · 30s:25 · 30s:50 · 30s:75 · 30s:0 · STOCK=100</td>
+      <td>200; sin 5xx. Aquí se midió la CPU de catálogo antes/después de DA-009.</td>
+    </tr>
+<tr>
+      <td>I2 · Disponibilidad</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (directo, sin gateway)</code></td>
+      <td>Mide disponibilidad sostenida a carga baja constante.</td>
+      <td>20s:5 · 80s:20 · 20s:0</td>
+      <td>200; p95 estable y sin 5xx.</td>
+    </tr>
+<tr>
+      <td>I3 · Flash sale</td>
+      <td><code>GET disponibilidad · POST /api/reservas · POST /api/reservas/{id}/confirmar (directo)</code></td>
+      <td>Prueba clave de concurrencia: 100 cupos, 15 compradores, sin freno del gateway.</td>
+      <td>10s:15 · 100s:15 · 10s:0 · STOCK=100</td>
+      <td>100 reservas aceptadas, el resto 409; stock final 0, nunca negativo; verificado con SQL + Redis.</td>
+    </tr></tbody>
+      </table>
+    </details>
+  </section>
+<section id="s-20261122_080447_post_visualizacion" class="session" data-session="20261122-080447-post-visualizacion">
+    <h2>Sesión 20261122-080447-post-visualizacion</h2>
+    <p class="hint">Peticiones, req/s y duración cuentan solo la fase <code>main</code>; el <code>setup</code> se excluye (en el replay se ve con «Mostrar setup»). Duración = ventana real entre la primera y la última petición de carga; el vuelco de <code>requests.json</code> no cuenta. <code>log10(1.781,2)=3,2508</code> → <code>10^3,2508 ≈ 1.781</code>. El número grande es req/s reales; el pequeño, su exponente. <code>STOCK=100</code> es capacidad sembrada, no reservas vendidas.</p>
+    <table>
+      <thead><tr><th>Escenario</th><th>Destino</th><th>Caudal real · exponente log10</th><th>Ventana main</th><th>p95</th><th>Fallidas</th><th>CPU pico</th><th>RAM pico</th></tr></thead>
+      <tbody><tr>
+      <td>E1 · Catálogo</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:13.0%" title="2,7 req/s"></div><span>2,7 req/s</span><small>log₁₀ 0,4232</small></div></td>
+      <td>19.2 s</td><td>27,7 ms</td><td>0,00 %</td>
+      <td>61,4 %</td><td>5631,3 MiB</td>
+    </tr>
+<tr>
+      <td>I1 · Calibración (inventario)</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:91.8%" title="967,6 req/s"></div><span>967,6 req/s</span><small>log₁₀ 2,9857</small></div></td>
+      <td>30 s</td><td>4,7 ms</td><td>0,00 %</td>
+      <td>384,0 %</td><td>5656,7 MiB</td>
+    </tr>
+<tr>
+      <td>I2 · Disponibilidad</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:11.1%" title="2,3 req/s"></div><span>2,3 req/s</span><small>log₁₀ 0,3617</small></div></td>
+      <td>19.1 s</td><td>22,2 ms</td><td>0,00 %</td>
+      <td>28,6 %</td><td>5585,0 MiB</td>
+    </tr>
+<tr>
+      <td>I3 · Flash sale</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:25.4%" title="6,7 req/s"></div><span>6,7 req/s</span><small>log₁₀ 0,8241</small></div></td>
+      <td>29.3 s</td><td>21,4 ms</td><td>0,00 %</td>
+      <td>34,1 %</td><td>5579,2 MiB</td>
+    </tr>
+<tr>
+      <td>E4 · Disponibilidad</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:36.3%" title="15,2 req/s"></div><span>15,2 req/s</span><small>log₁₀ 1,1813</small></div></td>
+      <td>19.9 s</td><td>10,3 ms</td><td>0,00 %</td>
+      <td>31,1 %</td><td>5634,1 MiB</td>
+    </tr>
+<tr>
+      <td>I4 · Confirmación</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:18.6%" title="4,0 req/s"></div><span>4,0 req/s</span><small>log₁₀ 0,6031</small></div></td>
+      <td>24.2 s</td><td>27,2 ms</td><td>0,00 %</td>
+      <td>55,3 %</td><td>5577,7 MiB</td>
+    </tr>
+<tr>
+      <td>E5 · Detalle de evento</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:13.1%" title="2,7 req/s"></div><span>2,7 req/s</span><small>log₁₀ 0,4249</small></div></td>
+      <td>19.2 s</td><td>22,7 ms</td><td>0,00 %</td>
+      <td>29,9 %</td><td>5634,8 MiB</td>
+    </tr>
+<tr>
+      <td>I5 · Estrés</td><td>Inventario</td>
+      <td><div class="rate"><div class="bar" style="width:100.0%" title="1781,2 req/s"></div><span>1781,2 req/s</span><small>log₁₀ 3,2507</small></div></td>
+      <td>16 s</td><td>11,1 ms</td><td>0,00 %</td>
+      <td>661,1 %</td><td>5660,0 MiB</td>
+    </tr>
+<tr>
+      <td>E6 · Flash sale</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:16.5%" title="3,4 req/s"></div><span>3,4 req/s</span><small>log₁₀ 0,5353</small></div></td>
+      <td>29.1 s</td><td>83,9 ms</td><td>0,00 %</td>
+      <td>33,3 %</td><td>5639,4 MiB</td>
+    </tr>
+<tr>
+      <td>E7 · Confirmación</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:27.0%" title="7,6 req/s"></div><span>7,6 req/s</span><small>log₁₀ 0,8791</small></div></td>
+      <td>24.8 s</td><td>27,7 ms</td><td>0,00 %</td>
+      <td>33,7 %</td><td>5607,5 MiB</td>
+    </tr>
+<tr>
+      <td>E8 · Degradación</td><td>API Gateway</td>
+      <td><div class="rate"><div class="bar" style="width:43.4%" title="25,7 req/s"></div><span>25,7 req/s</span><small>log₁₀ 1,4098</small></div></td>
+      <td>15.7 s</td><td>21,3 ms</td><td>0,00 %</td>
+      <td>55,6 %</td><td>5587,9 MiB</td>
+    </tr></tbody>
+    </table>
+    <details class="guide" open>
+      <summary>Carga ejecutada y qué mide cada escenario en esta sesión</summary>
+      <table>
+        <thead><tr><th>Escenario</th><th>Endpoint</th><th>Qué hace</th><th>Stages + stock ejecutados</th><th>Esperado</th></tr></thead>
+        <tbody><tr>
+      <td>E1 · Catálogo</td>
+      <td><code>GET /api/eventos (vía gateway)</code></td>
+      <td>Lista el catálogo de eventos; mide latencia de lectura cacheable.</td>
+      <td>5s:2 · 10s:5 · 5s:0</td>
+      <td>200; sin 5xx. Es la línea base de catálogo antes de DA-009.</td>
+    </tr>
+<tr>
+      <td>I1 · Calibración (inventario)</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (directo, sin gateway)</code></td>
+      <td>Busca el codo de capacidad del servicio de inventario.</td>
+      <td>10s:3 · 10s:6 · 10s:0 · STOCK=100</td>
+      <td>200; sin 5xx. Aquí se midió la CPU de catálogo antes/después de DA-009.</td>
+    </tr>
+<tr>
+      <td>I2 · Disponibilidad</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (directo, sin gateway)</code></td>
+      <td>Mide disponibilidad sostenida a carga baja constante.</td>
+      <td>5s:2 · 10s:4 · 5s:0</td>
+      <td>200; p95 estable y sin 5xx.</td>
+    </tr>
+<tr>
+      <td>I3 · Flash sale</td>
+      <td><code>GET disponibilidad · POST /api/reservas · POST /api/reservas/{id}/confirmar (directo)</code></td>
+      <td>Prueba clave de concurrencia: 100 cupos, 15 compradores, sin freno del gateway.</td>
+      <td>5s:6 · 20s:10 · 5s:0 · STOCK=5</td>
+      <td>100 reservas aceptadas, el resto 409; stock final 0, nunca negativo; verificado con SQL + Redis.</td>
+    </tr>
+<tr>
+      <td>E4 · Disponibilidad</td>
+      <td><code>GET /api/inventario/eventos/{eventId}/disponibilidad (vía gateway)</code></td>
+      <td>Consulta el contador atómico de cupos por localidad.</td>
+      <td>5s:2 · 10s:4 · 5s:0</td>
+      <td>200 o 429 del rate limiter del gateway; nunca 5xx.</td>
+    </tr>
+<tr>
+      <td>I4 · Confirmación</td>
+      <td><code>POST /api/reservas (setup) · POST /api/reservas/{id}/confirmar (directo)</code></td>
+      <td>Confirma reservas creadas previamente y comprueba el estado emitido.</td>
+      <td>5s:4 · 15s:6 · 5s:0</td>
+      <td>200/201 con status CONFIRMED; 409/410 en re-confirmaciones; sin 5xx.</td>
+    </tr>
+<tr>
+      <td>E5 · Detalle de evento</td>
+      <td><code>GET /api/eventos/{eventId} (vía gateway)</code></td>
+      <td>Lee el detalle de un evento publicado (catálogo).</td>
+      <td>5s:2 · 10s:5 · 5s:0</td>
+      <td>200 con el evento completo; sin 5xx.</td>
+    </tr>
+<tr>
+      <td>I5 · Estrés</td>
+      <td><code>POST /api/reservas (directo, sin think time)</code></td>
+      <td>Contención extrema sobre el contador Redis y la escritura en PostgreSQL.</td>
+      <td>3s:15 · 10s:15 · 3s:0 · STOCK=100</td>
+      <td>200/201 o 409 por cupo agotado; timeouts controlados, nunca 5xx ni stock negativo.</td>
+    </tr>
+<tr>
+      <td>E6 · Flash sale</td>
+      <td><code>GET disponibilidad · POST /api/reservas · POST /api/reservas/{id}/confirmar (vía gateway)</code></td>
+      <td>Simula apertura de venta: muchos compradores compiten por 100 cupos.</td>
+      <td>5s:6 · 20s:10 · 5s:0 · STOCK=5</td>
+      <td>200/201 al reservar, 409 al agotar cupo, 429 por rate limit; invariante stock=0 y nunca negativo.</td>
+    </tr>
+<tr>
+      <td>E7 · Confirmación</td>
+      <td><code>POST /api/reservas · POST /api/reservas/{id}/confirmar (vía gateway)</code></td>
+      <td>Crea y confirma reservas con Idempotency-Key única por petición.</td>
+      <td>5s:4 · 15s:6 · 5s:0</td>
+      <td>200/201 al confirmar; 409/410 en re-confirmaciones; 429 por rate limit; sin 5xx.</td>
+    </tr>
+<tr>
+      <td>E8 · Degradación</td>
+      <td><code>POST /api/reservas (vía gateway)</code></td>
+      <td>Ráfaga sostenida para observar degradación controlada.</td>
+      <td>3s:20 · 10s:40 · 3s:0</td>
+      <td>200/201/409/429; el circuit breaker puede abrir y responder fallback 503 sin corromper Redis.</td>
+    </tr></tbody>
+      </table>
+    </details>
+  </section>
+<script>
+function showSession() {
+  const id = document.getElementById('session-select').value;
+  document.querySelectorAll('.session').forEach(el => el.classList.toggle('active', el.id === id));
+}
+showSession();
+</script>
+</body>
+</html>

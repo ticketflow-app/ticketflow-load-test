@@ -1,0 +1,56 @@
+{
+    "stages": [
+        "5s:2",
+        "10s:4",
+        "5s:0"
+    ],
+    "file": "04-availability-test.js",
+    "localityId": "01a2035c-67ad-74db-934a-d1dcfa1f8f7b",
+    "checks": {
+        "rate": 0.7989,
+        "passes": 151,
+        "fails": 38
+    },
+    "requests": {
+        "total": 308,
+        "rate_per_s": 14.46,
+        "failed_rate": 0
+    },
+    "resources": {
+        "peakMemMiB": 5634.1,
+        "avgMemMiB": 5628.1,
+        "peakCpuPercent": 31.11,
+        "samples": 4,
+        "avgCpuPercent": 25.44
+    },
+    "scenario": "04-availability",
+    "counters": {
+        "data_received": 107918,
+        "availability_rate_limited": 239,
+        "data_sent": 50090,
+        "iterations": 302
+    },
+    "resultsDir": "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\sessions\\20261122-080447-post-visualizacion\\04-availability",
+    "profile": "local",
+    "k6Error": null,
+    "thresholdsOk": true,
+    "finishedAt": "2026-11-22 08:05:39",
+    "exitCode": 0,
+    "stock": null,
+    "startedAt": "20261122-080513",
+    "baseUrl": "http://ticketflow-api-gateway:8080",
+    "latencyMs": {
+        "avg": 4.55,
+        "med": 2.4,
+        "p90": 7.61,
+        "p95": 10.25,
+        "p99": 25.99,
+        "max": 257.92
+    },
+    "eventId": "01a2035c-6795-75b5-a4fc-edc15bcc43f7",
+    "measuredDurationSec": 21.3,
+    "wallDurationSec": 26,
+    "mainRequests": 302,
+    "mainWindowSec": 19.9,
+    "mainRate": 15.18
+}

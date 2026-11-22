@@ -1,0 +1,45 @@
+﻿{
+    "stages":  [
+                   "5s:5",
+                   "20s:20",
+                   "5s:0"
+               ],
+    "file":  "02-inv-availability-test.js",
+    "localityId":  "01a201c1-b234-72d2-a59b-7300b894ba09",
+    "checks":  {
+                   "rate":  0.9984,
+                   "passes":  623,
+                   "fails":  1
+               },
+    "requests":  {
+                     "total":  318,
+                     "rate_per_s":  10.31,
+                     "failed_rate":  0
+                 },
+    "resources":  null,
+    "scenario":  "02-inv-availability",
+    "counters":  {
+                     "iterations":  312,
+                     "data_sent":  53575,
+                     "data_received":  134614,
+                     "http_5xx":  0
+                 },
+    "resultsDir":  "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\replay\\i2-availability",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-22 00:37:12",
+    "exitCode":  0,
+    "stock":  null,
+    "startedAt":  "20261122-003639",
+    "baseUrl":  "http://ticketflow-inventory-service:8082",
+    "latencyMs":  {
+                      "avg":  6.92,
+                      "med":  5.43,
+                      "p90":  9.35,
+                      "p95":  10.5,
+                      "p99":  35.39,
+                      "max":  228.45
+                  },
+    "eventId":  "01a201c1-b214-7a22-9dd6-dc047f4788f2"
+}

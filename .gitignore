@@ -1,1 +1,3 @@
 # k6 results (CSV samples, summaries, run metadata) are generated, not versioned.
+# Raw per-request captures are large and stay local: the visual/replay HTML embeds the data.
+results/**/requests.json

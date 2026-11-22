@@ -1,0 +1,142 @@
+﻿scenario : 04-availability
+stages   : 5s:2 -> 10s:4 -> 5s:0
+profile  : local
+think    : 1 s
+results  : C:\Users\Diego\Documents\Programacion\ticketflow\ticketflow-load-test\results\sessions\20261122-080447-post-visualizacion\04-availability
+sampler  : pid 30532 -> resources.csv
+
+         /\      Grafana   /ΓÇ╛ΓÇ╛/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ΓÇ╛ΓÇ╛\ 
+  /          \   |   (  |  (ΓÇ╛)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/04-availability-test.js
+        output: Prometheus remote write (http://ticketflow-prometheus:9090/api/v1/write), json (/results/requests.json)
+
+     scenarios: (100.00%) 1 scenario, 4 max VUs, 50s max duration (incl. graceful stop):
+              * default: Up to 4 looping VUs for 20s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+running (01.0s), 1/4 VUs, 212 complete and 0 interrupted iterations
+default   [   3% ] 1/4 VUs  00.6s/20.0s
+
+running (02.0s), 1/4 VUs, 258 complete and 0 interrupted iterations
+default   [   8% ] 1/4 VUs  01.6s/20.0s
+
+running (03.0s), 1/4 VUs, 259 complete and 0 interrupted iterations
+default   [  13% ] 1/4 VUs  02.6s/20.0s
+
+running (04.0s), 1/4 VUs, 260 complete and 0 interrupted iterations
+default   [  18% ] 1/4 VUs  03.6s/20.0s
+
+running (05.0s), 1/4 VUs, 261 complete and 0 interrupted iterations
+default   [  23% ] 1/4 VUs  04.6s/20.0s
+
+running (06.0s), 2/4 VUs, 262 complete and 0 interrupted iterations
+default   [  28% ] 2/4 VUs  05.6s/20.0s
+
+running (07.0s), 2/4 VUs, 264 complete and 0 interrupted iterations
+default   [  33% ] 2/4 VUs  06.6s/20.0s
+
+running (08.0s), 2/4 VUs, 266 complete and 0 interrupted iterations
+default   [  38% ] 2/4 VUs  07.6s/20.0s
+
+running (09.0s), 2/4 VUs, 268 complete and 0 interrupted iterations
+default   [  43% ] 2/4 VUs  08.6s/20.0s
+
+running (10.0s), 2/4 VUs, 270 complete and 0 interrupted iterations
+default   [  48% ] 2/4 VUs  09.6s/20.0s
+
+running (11.0s), 3/4 VUs, 272 complete and 0 interrupted iterations
+default   [  53% ] 3/4 VUs  10.6s/20.0s
+
+running (12.0s), 3/4 VUs, 275 complete and 0 interrupted iterations
+default   [  58% ] 3/4 VUs  11.6s/20.0s
+
+running (13.0s), 3/4 VUs, 278 complete and 0 interrupted iterations
+default   [  63% ] 3/4 VUs  12.6s/20.0s
+
+running (14.0s), 3/4 VUs, 281 complete and 0 interrupted iterations
+default   [  68% ] 3/4 VUs  13.6s/20.0s
+
+running (15.0s), 3/4 VUs, 284 complete and 0 interrupted iterations
+default   [  73% ] 3/4 VUs  14.6s/20.0s
+
+running (16.0s), 4/4 VUs, 287 complete and 0 interrupted iterations
+default   [  78% ] 4/4 VUs  15.6s/20.0s
+
+running (17.0s), 4/4 VUs, 291 complete and 0 interrupted iterations
+default   [  83% ] 4/4 VUs  16.6s/20.0s
+
+running (18.0s), 3/4 VUs, 295 complete and 0 interrupted iterations
+default   [  88% ] 3/4 VUs  17.6s/20.0s
+
+running (19.0s), 2/4 VUs, 298 complete and 0 interrupted iterations
+default   [  93% ] 2/4 VUs  18.6s/20.0s
+
+running (20.0s), 1/4 VUs, 300 complete and 0 interrupted iterations
+default   [  98% ] 1/4 VUs  19.6s/20.0s
+
+running (21.0s), 1/4 VUs, 301 complete and 0 interrupted iterations
+default Γåô [ 100% ] 1/4 VUs  20s
+# k6 ΓÇö 04-availability
+
+- Perfil: `local`
+- Umbrales: **OK**
+- Peticiones: 308 (14.46 req/s)
+- Fallidas: 0.00 %
+- Latencia: p95 10.25 ms ┬╖ p99 25.99 ms ┬╖ max 257.92 ms
+- _La latencia incluye las peticiones de `setup`; los umbrales se evaluan por endpoint (`http_req_duration{endpoint:...}`)._
+- Checks: 79.89 % (151 ok / 38 fail)
+
+| Contador | Valor |
+|---|---|
+| data_received | 107918 |
+| availability_rate_limited | 239 |
+| data_sent | 50090 |
+| iterations | 302 |
+
+| Umbral | Resultado |
+|---|---|
+| http_req_duration{endpoint:disponibilidad}: p(95)<150 | OK |
+| http_req_failed: rate<0.01 | OK |
+
+running (21.3s), 0/4 VUs, 302 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 0/4 VUs  20s
+
+# Recursos - 04-availability
+
+- Perfil: local
+- Stages: 5s:2, 10s:4, 5s:0
+- Muestreo: cada 3 s
+- k6 exit code: 0
+
+- Muestras: 4
+
+| Contenedor | CPU media % | CPU max % | RAM media MiB | RAM max MiB |
+|---|---|---|---|---|
+| ticketflow-k6 | 7.27 | 14.98 | 15.9 | 16.1 |
+| ticketflow-localstack | 1.08 | 4.07 | 142.2 | 142.9 |
+| ticketflow-user-db | 0.93 | 3.66 | 49.7 | 50.1 |
+| ticketflow-inventory-db | 0.89 | 3.55 | 47.5 | 48.2 |
+| ticketflow-catalog-db | 1.08 | 3.40 | 57.2 | 57.3 |
+| ticketflow-inventory-service | 2.49 | 3.31 | 654.3 | 654.6 |
+| ticketflow-catalog-service | 1.59 | 3.12 | 662.2 | 663.1 |
+| ticketflow-grafana | 2.38 | 3.03 | 639.5 | 639.7 |
+| ticketflow-kafka | 2.71 | 3.02 | 1008.5 | 1009.0 |
+| ticketflow-elasticsearch | 1.47 | 2.49 | 999.9 | 1000.0 |
+| ticketflow-api-gateway | 1.36 | 2.27 | 459.7 | 460.1 |
+| ticketflow-prometheus | 1.25 | 1.94 | 81.5 | 81.6 |
+| ticketflow-eureka-server | 1.58 | 1.76 | 294.4 | 294.9 |
+| ticketflow-redis | 0.96 | 1.12 | 12.2 | 12.4 |
+| ticketflow-user-service | 0.23 | 0.25 | 447.8 | 448.2 |
+| ticketflow-frontend | 0.00 | 0.00 | 59.7 | 59.7 |
+
+- RAM total del stack: media 5628.1 MiB, pico 5634.1 MiB
+- CPU total del stack: media 25.44 %, pico 31.11 %
+
+results: C:\Users\Diego\Documents\Programacion\ticketflow\ticketflow-load-test\results\sessions\20261122-080447-post-visualizacion\04-availability
+

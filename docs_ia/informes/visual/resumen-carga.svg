@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="980" viewBox="0 0 1200 980">
+<rect width="1200" height="980" fill="#f6f8fa"/>
+<text x="40" y="48" font-family="Segoe UI,Arial,sans-serif" font-size="26" font-weight="700" fill="#1f2328">TicketFlow · Resumen de pruebas de carga</text>
+<text x="40" y="74" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#57606a">Sesión 20261122-080447-post-visualizacion · inventario directo · req/s = peticiones HTTP/s</text>
+<rect x="40" y="100" width="1120" height="230" rx="10" fill="#ffffff" stroke="#d0d7de"/><text x="56" y="126" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="600" fill="#1f2328">Flujo de la carga</text>
+<rect x="70" y="155" width="190" height="70" rx="8" fill="#ddf4ff" stroke="#8c959f"/>
+<text x="165" y="195" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#1f2328">Generador k6</text>
+<rect x="340" y="155" width="190" height="70" rx="8" fill="#fff8c5" stroke="#8c959f"/>
+<text x="435" y="195" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#1f2328">API Gateway</text>
+<rect x="610" y="155" width="190" height="70" rx="8" fill="#dafbe1" stroke="#8c959f"/>
+<text x="705" y="195" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#1f2328">Inventario :8082</text>
+<rect x="880" y="155" width="250" height="70" rx="8" fill="#fbefff" stroke="#8c959f"/>
+<text x="1005" y="195" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#1f2328">Redis · stock y proyección</text>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#57606a"/></marker></defs>
+<line x1="260" y1="190" x2="340" y2="190" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="530" y1="190" x2="610" y2="190" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="800" y1="190" x2="880" y2="190" stroke="#57606a" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M165 225 L165 248 L705 248 L705 225" fill="none" stroke="#1a7f37" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<text x="435" y="266" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1a7f37">suite directa a inventario (sin gateway)</text>
+<text x="70" y="300" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#57606a">E1 · Catálogo: 2,7 req/s · 19.2 s   |   I1 · Calibración (inventario): 967,6 req/s · 30 s   |   I2 · Disponibilidad: 2,3 req/s · 19.1 s   |   I3 · Flash sale: 6,7 req/s · 29.3 s   |   E4 · Disponibilidad: 15,2 req/s · 19.9 s   |   I4 · Confirmación: 4,0 req/s · 24.2 s   |   E5 · Detalle de evento: 2,7 req/s · 19.2 s   |   I5 · Estrés: 1781,2 req/s · 16 s   |   E6 · Flash sale: 3,4 req/s · 29.1 s   |   E7 · Confirmación: 7,6 req/s · 24.8 s   |   E8 · Degradación: 25,7 req/s · 15.7 s</text>
+<rect x="40" y="360" width="1120" height="300" rx="10" fill="#ffffff" stroke="#d0d7de"/><text x="56" y="386" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="600" fill="#1f2328">Caudal por escenario · log10(req/s): 3 = 1.000 req/s, 3,3 ≈ 2.000</text>
+<text x="60" y="428" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">E1 · Catálogo</text>
+<rect x="360" y="414" width="98.95286903419955" height="22" rx="4" fill="#0969da"/>
+<text x="468.9528690341996" y="429" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">2,7 req/s</text>
+<text x="60" y="472" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">I1 · Calibración (inventario)</text>
+<rect x="360" y="458" width="698.0383203750749" height="22" rx="4" fill="#0969da"/>
+<text x="1068.0383203750748" y="473" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">967,6 req/s</text>
+<text x="60" y="516" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">I2 · Disponibilidad</text>
+<rect x="360" y="502" width="84.57024483318992" height="22" rx="4" fill="#0969da"/>
+<text x="454.5702448331899" y="517" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">2,3 req/s</text>
+<text x="60" y="560" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">I3 · Flash sale</text>
+<rect x="360" y="546" width="192.67669393374973" height="22" rx="4" fill="#0969da"/>
+<text x="562.6766939337497" y="561" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">6,7 req/s</text>
+<text x="60" y="604" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">E4 · Disponibilidad</text>
+<rect x="360" y="590" width="276.17571275455" height="22" rx="4" fill="#0969da"/>
+<text x="646.17571275455" y="605" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">15,2 req/s</text>
+<text x="60" y="648" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">I4 · Confirmación</text>
+<rect x="360" y="634" width="141.0122810116519" height="22" rx="4" fill="#0969da"/>
+<text x="511.0122810116519" y="649" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">4,0 req/s</text>
+<text x="60" y="692" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">E5 · Detalle de evento</text>
+<rect x="360" y="678" width="99.33530255954143" height="22" rx="4" fill="#0969da"/>
+<text x="469.33530255954145" y="693" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">2,7 req/s</text>
+<text x="60" y="736" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">I5 · Estrés</text>
+<rect x="360" y="722" width="760" height="22" rx="4" fill="#0969da"/>
+<text x="1130" y="737" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">1781,2 req/s</text>
+<text x="60" y="780" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">E6 · Flash sale</text>
+<rect x="360" y="766" width="125.14921518946176" height="22" rx="4" fill="#0969da"/>
+<text x="495.14921518946176" y="781" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">3,4 req/s</text>
+<text x="60" y="824" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">E7 · Confirmación</text>
+<rect x="360" y="810" width="205.52842872051943" height="22" rx="4" fill="#0969da"/>
+<text x="575.5284287205194" y="825" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">7,6 req/s</text>
+<text x="60" y="868" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">E8 · Degradación</text>
+<rect x="360" y="854" width="329.5961316315426" height="22" rx="4" fill="#0969da"/>
+<text x="699.5961316315427" y="869" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">25,7 req/s</text>
+<rect x="40" y="690" width="1120" height="250" rx="10" fill="#ffffff" stroke="#d0d7de"/><text x="56" y="716" font-family="Segoe UI,Arial,sans-serif" font-size="16" font-weight="600" fill="#1f2328">Duración de cada escenario</text>
+<text x="60" y="756" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">E1 · Catálogo</text>
+<rect x="360" y="743" width="486.40000000000003" height="18" rx="4" fill="#1a7f37"/>
+<text x="856.4000000000001" y="757" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">19.2 s</text>
+<text x="60" y="792" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">I1 · Calibración (inventario)</text>
+<rect x="360" y="779" width="760" height="18" rx="4" fill="#1a7f37"/>
+<text x="1130" y="793" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">30 s</text>
+<text x="60" y="828" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">I2 · Disponibilidad</text>
+<rect x="360" y="815" width="483.8666666666667" height="18" rx="4" fill="#1a7f37"/>
+<text x="853.8666666666667" y="829" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">19.1 s</text>
+<text x="60" y="864" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">I3 · Flash sale</text>
+<rect x="360" y="851" width="742.2666666666667" height="18" rx="4" fill="#1a7f37"/>
+<text x="1112.2666666666667" y="865" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">29.3 s</text>
+<text x="60" y="900" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">E4 · Disponibilidad</text>
+<rect x="360" y="887" width="504.1333333333333" height="18" rx="4" fill="#1a7f37"/>
+<text x="874.1333333333333" y="901" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">19.9 s</text>
+<text x="60" y="936" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">I4 · Confirmación</text>
+<rect x="360" y="923" width="613.0666666666666" height="18" rx="4" fill="#1a7f37"/>
+<text x="983.0666666666666" y="937" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">24.2 s</text>
+<text x="60" y="972" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">E5 · Detalle de evento</text>
+<rect x="360" y="959" width="486.40000000000003" height="18" rx="4" fill="#1a7f37"/>
+<text x="856.4000000000001" y="973" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">19.2 s</text>
+<text x="60" y="1008" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">I5 · Estrés</text>
+<rect x="360" y="995" width="405.3333333333333" height="18" rx="4" fill="#1a7f37"/>
+<text x="775.3333333333333" y="1009" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">16 s</text>
+<text x="60" y="1044" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">E6 · Flash sale</text>
+<rect x="360" y="1031" width="737.2" height="18" rx="4" fill="#1a7f37"/>
+<text x="1107.2" y="1045" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">29.1 s</text>
+<text x="60" y="1080" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">E7 · Confirmación</text>
+<rect x="360" y="1067" width="628.2666666666667" height="18" rx="4" fill="#1a7f37"/>
+<text x="998.2666666666667" y="1081" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">24.8 s</text>
+<text x="60" y="1116" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#1f2328">E8 · Degradación</text>
+<rect x="360" y="1103" width="397.73333333333335" height="18" rx="4" fill="#1a7f37"/>
+<text x="767.7333333333333" y="1117" font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="#1f2328">15.7 s</text>
+</svg>

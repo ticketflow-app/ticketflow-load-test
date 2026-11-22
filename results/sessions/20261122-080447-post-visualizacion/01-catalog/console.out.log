@@ -1,0 +1,138 @@
+﻿scenario : 01-catalog
+stages   : 5s:2 -> 10s:5 -> 5s:0
+profile  : local
+think    : 1 s
+results  : C:\Users\Diego\Documents\Programacion\ticketflow\ticketflow-load-test\results\sessions\20261122-080447-post-visualizacion\01-catalog
+sampler  : pid 27724 -> resources.csv
+
+         /\      Grafana   /ΓÇ╛ΓÇ╛/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ΓÇ╛ΓÇ╛\ 
+  /          \   |   (  |  (ΓÇ╛)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/01-catalog-test.js
+        output: Prometheus remote write (http://ticketflow-prometheus:9090/api/v1/write), json (/results/requests.json)
+
+     scenarios: (100.00%) 1 scenario, 5 max VUs, 50s max duration (incl. graceful stop):
+              * default: Up to 5 looping VUs for 20s over 3 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+running (01.0s), 1/5 VUs, 0 complete and 0 interrupted iterations
+default   [   5% ] 1/5 VUs  01.0s/20.0s
+
+running (02.0s), 1/5 VUs, 1 complete and 0 interrupted iterations
+default   [  10% ] 1/5 VUs  02.0s/20.0s
+
+running (03.0s), 1/5 VUs, 2 complete and 0 interrupted iterations
+default   [  15% ] 1/5 VUs  03.0s/20.0s
+
+running (04.0s), 1/5 VUs, 3 complete and 0 interrupted iterations
+default   [  20% ] 1/5 VUs  04.0s/20.0s
+
+running (05.0s), 1/5 VUs, 4 complete and 0 interrupted iterations
+default   [  25% ] 1/5 VUs  05.0s/20.0s
+
+running (06.0s), 2/5 VUs, 5 complete and 0 interrupted iterations
+default   [  30% ] 2/5 VUs  06.0s/20.0s
+
+running (07.0s), 2/5 VUs, 7 complete and 0 interrupted iterations
+default   [  35% ] 2/5 VUs  07.0s/20.0s
+
+running (08.0s), 2/5 VUs, 9 complete and 0 interrupted iterations
+default   [  40% ] 2/5 VUs  08.0s/20.0s
+
+running (09.0s), 3/5 VUs, 11 complete and 0 interrupted iterations
+default   [  45% ] 3/5 VUs  09.0s/20.0s
+
+running (10.0s), 3/5 VUs, 14 complete and 0 interrupted iterations
+default   [  50% ] 3/5 VUs  10.0s/20.0s
+
+running (11.0s), 3/5 VUs, 17 complete and 0 interrupted iterations
+default   [  55% ] 3/5 VUs  11.0s/20.0s
+
+running (12.0s), 4/5 VUs, 20 complete and 0 interrupted iterations
+default   [  60% ] 4/5 VUs  12.0s/20.0s
+
+running (13.0s), 4/5 VUs, 24 complete and 0 interrupted iterations
+default   [  65% ] 4/5 VUs  13.0s/20.0s
+
+running (14.0s), 4/5 VUs, 28 complete and 0 interrupted iterations
+default   [  70% ] 4/5 VUs  14.0s/20.0s
+
+running (15.0s), 4/5 VUs, 32 complete and 0 interrupted iterations
+default   [  75% ] 4/5 VUs  15.0s/20.0s
+
+running (16.0s), 5/5 VUs, 36 complete and 0 interrupted iterations
+default   [  80% ] 5/5 VUs  16.0s/20.0s
+
+running (17.0s), 4/5 VUs, 41 complete and 0 interrupted iterations
+default   [  85% ] 4/5 VUs  17.0s/20.0s
+
+running (18.0s), 3/5 VUs, 45 complete and 0 interrupted iterations
+default   [  90% ] 3/5 VUs  18.0s/20.0s
+
+running (19.0s), 2/5 VUs, 48 complete and 0 interrupted iterations
+default   [  95% ] 2/5 VUs  19.0s/20.0s
+
+running (20.0s), 1/5 VUs, 50 complete and 0 interrupted iterations
+default   [ 100% ] 1/5 VUs  20.0s/20.0s
+# k6 ΓÇö 01-catalog
+
+- Perfil: `local`
+- Umbrales: **OK**
+- Peticiones: 51 (2.52 req/s)
+- Fallidas: 0.00 %
+- Latencia: p95 27.72 ms ┬╖ p99 41.14 ms ┬╖ max 45.07 ms
+- _La latencia incluye las peticiones de `setup`; los umbrales se evaluan por endpoint (`http_req_duration{endpoint:...}`)._
+- Checks: 100.00 % (51 ok / 0 fail)
+
+| Contador | Valor |
+|---|---|
+| data_sent | 4794 |
+| iterations | 51 |
+| data_received | 473115 |
+
+| Umbral | Resultado |
+|---|---|
+| http_req_duration{endpoint:eventos-list}: p(95)<150 | OK |
+| http_req_failed: rate<0.01 | OK |
+
+running (20.3s), 0/5 VUs, 51 complete and 0 interrupted iterations
+default Γ£ô [ 100% ] 0/5 VUs  20s
+
+# Recursos - 01-catalog
+
+- Perfil: local
+- Stages: 5s:2, 10s:5, 5s:0
+- Muestreo: cada 3 s
+- k6 exit code: 0
+
+- Muestras: 4
+
+| Contenedor | CPU media % | CPU max % | RAM media MiB | RAM max MiB |
+|---|---|---|---|---|
+| ticketflow-api-gateway | 11.10 | 40.39 | 456.4 | 460.4 |
+| ticketflow-grafana | 7.98 | 21.45 | 639.7 | 640.2 |
+| ticketflow-k6 | 4.63 | 5.93 | 14.6 | 14.6 |
+| ticketflow-elasticsearch | 2.24 | 5.19 | 999.6 | 1000.0 |
+| ticketflow-user-db | 1.28 | 5.06 | 49.9 | 50.3 |
+| ticketflow-localstack | 0.92 | 3.52 | 142.6 | 143.1 |
+| ticketflow-catalog-db | 1.05 | 3.42 | 57.0 | 57.7 |
+| ticketflow-kafka | 3.11 | 3.31 | 1008.3 | 1009.0 |
+| ticketflow-catalog-service | 2.10 | 3.22 | 661.0 | 661.4 |
+| ticketflow-eureka-server | 1.73 | 2.08 | 294.3 | 294.7 |
+| ticketflow-inventory-service | 1.22 | 1.95 | 654.1 | 654.4 |
+| ticketflow-prometheus | 0.86 | 1.27 | 81.3 | 81.6 |
+| ticketflow-redis | 1.03 | 1.18 | 12.6 | 13.1 |
+| ticketflow-user-service | 0.26 | 0.29 | 447.3 | 447.3 |
+| ticketflow-inventory-db | 0.00 | 0.00 | 47.3 | 47.5 |
+| ticketflow-frontend | 0.00 | 0.00 | 59.7 | 59.7 |
+
+- RAM total del stack: media 5622.1 MiB, pico 5631.3 MiB
+- CPU total del stack: media 38.35 %, pico 61.42 %
+
+results: C:\Users\Diego\Documents\Programacion\ticketflow\ticketflow-load-test\results\sessions\20261122-080447-post-visualizacion\01-catalog
+

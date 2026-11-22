@@ -4,6 +4,7 @@
 > **Datos analizados:** sesiones del **2026-11-15** (5 sesiones, 27 ejecuciones de escenario)
 > **Repositorio:** `ticketflow-load-test` · **Documento de referencia:** `docs_ia/contexto/plan_de_pruebas_carga_local.md`
 > **Alcance:** resultados ya generados en `results/sessions/` (no se re-ejecutaron pruebas para este informe).
+> **Anexo visual:** [`anexo-visual-pruebas-carga.md`](anexo-visual-pruebas-carga.md) contiene diagramas Mermaid, un resumen SVG y un visor HTML con el caudal (req/s), la duración y el destino de cada escenario.
 
 ---
 
@@ -523,3 +524,43 @@ results/sessions/<timestamp>/
 | `test-api-gateway/03-reservations-test.js` | Flujo completo con creación de evento, publicación y reserva | **No ejecutado** en estas sesiones |
 
 > Recomendación: incluirlos en `run-all.ps1` y añadir una suite directa a `catalog-service` (los escenarios `01-catalog` y `05-event-detail` ya aceptan `-e BASE_URL=http://ticketflow-catalog-service:8082`) y a `user-service` (requiere parametrizar el `BASE_URL` que hoy está fijo en `02-auth-login-test.js`).
+
+### 11.5 Verificación posterior a DA-009 (2026-11-21)
+
+Sesión `20261121-215331-post-da009`: I1, I2 e I3, **3/3 PASS**. Comparativa completa en el
+[`anexo visual`](anexo-visual-pruebas-carga.md#antes-y-después-de-da-009).
+
+| Métrica | Antes (15-Nov) | Después de DA-009 |
+|---|---|---|
+| CPU media de catálogo en I1 | 209,54 % | 1,21 % (9 muestras; caudal menor) |
+| GET a `/api/eventos/{eventId}/localidades` durante disponibilidad | 1 por petición | **0** en 321.362 lecturas (`http.server.requests` de catálogo) |
+| p95 I1 / I2 | 18,7 / 3,9 ms | 29,3 / 10,2 ms (**no mejoró**) |
+| Fallidas | 0,00 % | 0,00 % |
+| Invariante anti-sobreventa (I3) | PASS, stock 0 | PASS, 100 reservas, stock 0 |
+
+> Lectura: DA-009 eliminó el acoplamiento HTTP con catálogo y mantuvo el invariante, pero no
+> redujo la latencia. El flash sale tardó 31 min 40 s por reintentos tras agotar el cupo; los 409
+> son respuestas esperadas por el script, no fallos.
+
+### 11.6 Reporte completo `post-visualizacion` (2026-11-22)
+
+Sesión `20261122-080447-post-visualizacion`: **11/11 PASS**, perfil `local` con `-Smoke` y captura
+`requests.json` por petición. Reporte completo en
+[`results/sessions/20261122-080447-post-visualizacion/SUMMARY.md`](../../results/sessions/20261122-080447-post-visualizacion/SUMMARY.md).
+
+- Fase `main` (sin `setup`): I1 967,6 req/s en 30,0 s (p95 4,7 ms); I5 1.781,2 req/s en 16,0 s
+  (p95 11,1 ms, 28.381 rechazos por cupo). Los valores de k6 que incluían `setup` eran 959,9 y
+  1.292,9 req/s.
+- Invariante anti-sobreventa PASS en E6 e I3 (stock 5 en ambos).
+- `i2` se repitió tras añadir un *poll* en el `setup` para esperar la proyección Kafka de DA-009:
+  44 peticiones de carga + 10 de `setup`, p95 22,2 ms, checks 100 %.
+- Duración = ventana real de la fase `main`; el reloj de carpeta (534 s en I1, 529 s en I5) solo
+  incluye el vuelco de `requests.json`. Carga medida total: 246,5 s.
+- Stock es **capacidad sembrada**, no ventas: E5 es solo lectura (sin stock) e I3 usó
+  `STOCK=5` en esta sesión. I1/I5 muestran `STOCK=100` sembrado, no 100 reservas vendidas.
+- El replay distingue «peticiones de carga», `setup` y total capturado, y cuenta con el timeline
+  completo aunque el dibujo esté muestreado: I2 `44 + 10 = 54`, I3 `195 + 16 = 211` e I5
+  `28.481 + 46 = 28.527`, con cronómetro de 16,0 s igual que la tabla.
+- Seleccionable por defecto en el [resumen visual](visual/resumen-carga.html) y en el
+  [replay interactivo](visual/replay-interactivo.html); las capturas anteriores siguen disponibles
+  bajo `Capturas previas · replay/`.

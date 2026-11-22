@@ -1,0 +1,59 @@
+{
+    "stages": [
+        "5s:6",
+        "20s:10",
+        "5s:0"
+    ],
+    "file": "03-inv-flash-sale-test.js",
+    "localityId": "01a20367-508c-70a5-a895-01edbd4ff71f",
+    "checks": {
+        "rate": 1,
+        "passes": 195,
+        "fails": 0
+    },
+    "requests": {
+        "total": 211,
+        "rate_per_s": 6.63,
+        "failed_rate": 0
+    },
+    "resources": {
+        "peakMemMiB": 5579.2,
+        "avgMemMiB": 5396.7,
+        "peakCpuPercent": 34.12,
+        "samples": 6,
+        "avgCpuPercent": 20.18
+    },
+    "scenario": "03-inv-flash-sale",
+    "counters": {
+        "reservas_aceptadas": 5,
+        "confirmaciones_ok": 5,
+        "data_received": 101790,
+        "reservas_sin_stock": 48,
+        "http_5xx": 0,
+        "iterations": 195,
+        "data_sent": 66717
+    },
+    "resultsDir": "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\sessions\\20261122-080447-post-visualizacion\\03-inv-flash-sale",
+    "profile": "local",
+    "k6Error": null,
+    "thresholdsOk": true,
+    "finishedAt": "2026-11-22 08:17:44",
+    "exitCode": 0,
+    "stock": 5,
+    "startedAt": "20261122-081708",
+    "baseUrl": "http://ticketflow-inventory-service:8082",
+    "latencyMs": {
+        "avg": 12.52,
+        "med": 5.08,
+        "p90": 11.15,
+        "p95": 21.44,
+        "p99": 246.2,
+        "max": 330.9
+    },
+    "eventId": "01a20367-507e-715b-acf3-6430a71299a2",
+    "measuredDurationSec": 31.83,
+    "wallDurationSec": 36,
+    "mainRequests": 195,
+    "mainWindowSec": 29.25,
+    "mainRate": 6.67
+}

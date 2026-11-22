@@ -1,0 +1,47 @@
+﻿{
+    "stages":  [
+                   "3s:20",
+                   "10s:40",
+                   "3s:0"
+               ],
+    "file":  "05-inv-stress-test.js",
+    "localityId":  "01a201da-8244-72ba-8224-66eed5696f59",
+    "checks":  {
+                   "rate":  1,
+                   "passes":  14237,
+                   "fails":  0
+               },
+    "requests":  {
+                     "total":  14263,
+                     "rate_per_s":  531,
+                     "failed_rate":  0
+                 },
+    "resources":  null,
+    "scenario":  "05-inv-stress",
+    "counters":  {
+                     "iterations":  14237,
+                     "data_received":  7359423,
+                     "http_5xx":  0,
+                     "reservas_sin_stock":  14227,
+                     "reservas_aceptadas":  10,
+                     "data_sent":  9794790
+                 },
+    "resultsDir":  "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\replay\\i5-stress",
+    "profile":  "local",
+    "k6Error":  null,
+    "thresholdsOk":  true,
+    "finishedAt":  "2026-11-22 01:21:21",
+    "exitCode":  0,
+    "stock":  10,
+    "startedAt":  "20261122-010344",
+    "baseUrl":  "http://ticketflow-inventory-service:8082",
+    "latencyMs":  {
+                      "avg":  27.35,
+                      "med":  27.85,
+                      "p90":  38.7,
+                      "p95":  42.65,
+                      "p99":  53.43,
+                      "max":  1491.1
+                  },
+    "eventId":  "01a201da-8218-76fe-85b3-a0ee39130691"
+}

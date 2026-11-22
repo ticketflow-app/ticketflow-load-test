@@ -1,0 +1,16 @@
+﻿Unable to find image 'grafana/k6:latest' locally
+latest: Pulling from grafana/k6
+b46f6d67c0bc: Pulling fs layer
+2fdc73d4d0db: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+4f4fb700ef54: Already exists
+b46f6d67c0bc: Download complete
+b46f6d67c0bc: Pull complete
+2fdc73d4d0db: Download complete
+2fdc73d4d0db: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:3d8e5c7f1d53ec59408c2ffbd9943602a0985ffcbd4a2430ec00f3ffca89796e
+Status: Downloaded newer image for grafana/k6:latest
+time="2026-11-22T02:53:43Z" level=warning msg="experimental-prometheus-rw output has been deprecated and is planned for removal in k6 v3. We recommend using opentelemetry for all your metrics output."
+time="2026-11-22T02:53:45Z" level=info msg="setup: eventId=01a2012c-8886-7408-8716-74818728d275 localityId=01a2012c-8912-70c2-af9d-848f69906b21 stock=100" source=console
+

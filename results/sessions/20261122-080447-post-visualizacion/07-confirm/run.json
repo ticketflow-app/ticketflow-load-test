@@ -1,0 +1,58 @@
+{
+    "stages": [
+        "5s:4",
+        "15s:6",
+        "5s:0"
+    ],
+    "file": "07-confirm-test.js",
+    "localityId": "01a2035d-de1a-78fe-992f-83a2f4bc913d",
+    "checks": {
+        "rate": 1,
+        "passes": 282,
+        "fails": 0
+    },
+    "requests": {
+        "total": 204,
+        "rate_per_s": 7.47,
+        "failed_rate": 0
+    },
+    "resources": {
+        "peakMemMiB": 5607.5,
+        "avgMemMiB": 5579,
+        "peakCpuPercent": 33.68,
+        "samples": 5,
+        "avgCpuPercent": 24.74
+    },
+    "scenario": "07-confirm",
+    "counters": {
+        "data_sent": 121178,
+        "reservas_creadas": 94,
+        "iterations": 94,
+        "data_received": 159179,
+        "http_5xx": 0,
+        "confirmaciones_ok": 94
+    },
+    "resultsDir": "C:\\Users\\Diego\\Documents\\Programacion\\ticketflow\\ticketflow-load-test\\results\\sessions\\20261122-080447-post-visualizacion\\07-confirm",
+    "profile": "local",
+    "k6Error": null,
+    "thresholdsOk": true,
+    "finishedAt": "2026-11-22 08:07:21",
+    "exitCode": 0,
+    "stock": null,
+    "startedAt": "20261122-080649",
+    "baseUrl": "http://ticketflow-api-gateway:8080",
+    "latencyMs": {
+        "avg": 21.92,
+        "med": 15.83,
+        "p90": 25.46,
+        "p95": 27.7,
+        "p99": 199.57,
+        "max": 259.23
+    },
+    "eventId": "01a2035d-de00-7aa0-b4ea-e9f1caff6ab8",
+    "measuredDurationSec": 27.31,
+    "wallDurationSec": 32,
+    "mainRequests": 188,
+    "mainWindowSec": 24.82,
+    "mainRate": 7.57
+}
